@@ -9,11 +9,13 @@
 | pwd       | string |   123       |
 
 * response:
-`{
+```json
+{
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
     "data" : null
-}`
+}
+```
 
 ## register
 * url: `/register`
@@ -25,11 +27,13 @@
 | pwd       | string |   123       |
 
 * response:
-`{
+```json
+{
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
     "data" : null
-}`
+}
+```
 
 ## query user cart
 * url: `/cart`
@@ -40,7 +44,8 @@
 | userId    | long   | 123      |
 
 * response:
-`{
+```json
+{
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
     "data" : [{
@@ -56,7 +61,8 @@
         "desc" : "desc",
         "imageUrl" : "/image/2.jpg"
     }]
-}`
+}
+```
 
 ## add to user cart
 * url: `/cart/add`
@@ -68,11 +74,13 @@
 | productId | long   | 123      |
 
 * response:
-`{
+```json
+{
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
     "data" : null
-}`
+}
+```
 
 ## remove from user cart
 * url: `/cart/remove`
@@ -84,11 +92,13 @@
 | productId | long   | 123      |
 
 * response:
-`{
+```json
+{
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
     "data" : null
-}`
+}
+```
 
 ## commit order
 * url: `/cart/commit`
@@ -99,7 +109,8 @@
 | userId    | long   | 123      |
 
 * response:
-`{
+```json
+{
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
     "data" : {
@@ -119,4 +130,5 @@
             "imageUrl" : "/image/2.jpg"
         }]
     }
-}`
+}
+```
