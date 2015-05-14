@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Importadora Bacco</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/product.css" type="text/css">
+    <script src="/js/jquery-1.11.2.min.js"></script>
+    <script src="/js/jquery.smooth-scroll.js"></script>
+    <script src="/js/product.js"></script>
+</head>
+<body>
+    <div id="pbanner">
+        <ul class="nav">
+            <li class="leftli"><a href="/home">HOME</a></li>
+            <li class="rightli"><a>CONTACT US</a></li>
+            <ul class="nav2">
+                <li class="leftli"><a>PRODUCTS</a></li>
+                <li class="rightli"><a>ABOUT</a></li>
+            </ul>
+            <li class="clear"></li>
+        </ul>
+        <div class="ptitle">W I N E  & F O O D</div>
+        <!--<div class="wrapc">
+        <ul class="categories">
+            <li><a>Olio di Semi</a></li>
+            <li>|</li>
+            <li><a>Formaggi</a></li>
+            <li>|</li>
+            <li><a>Pomodori</a></li>
+            <li>|</li>
+            <li><a>Specialita</a></li>
+            <li>|</li>
+            <li><a>Aceti</a></li>
+            <li>|</li>
+            <li><a>Olio di Oliva</a></li>
+            <li>|</li>
+            <li><a>Pasta</a></li>
+            <li>|</li>
+            <li><a>Vino Bianco</a></li>
+            <li>|</li>
+            <li><a>Vino Rosso</a></li>
+            <div class="clear"></div>
+        </ul>
+        </div>-->
+    </div>
+    <div id="pcontent">
+        <div class="panel">
+            <div class="pselection">ALL PRODUCTS</div>
+            <ul class="categories">
+                <li>Olio di Semi</li>
+                <li>|</li>
+                <li>Formaggi</li>
+                <li>|</li>
+                <li>Pomodori</li>
+                <li>|</li>
+                <li>Specialita</li>
+                <li>|</li>
+                <li>Aceti</li>
+                <li>|</li>
+                <li>Olio di Oliva</li>
+                <li>|</li>
+                <li>Pasta</li>
+                <li>|</li>
+                <li>Vino Bianco</li>
+                <li>|</li>
+                <li>Vino Rosso</li>
+                <div class="clear"></div>
+            </ul>
+            <img class="arrow" src="/image/arrow.png"/>
+        </div>
+        <div class="category">
+            <div>CATAGORY A</div>
+        </div>
+        <div class="products">
+            <ul>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        CHIARAMONTE
+                    </div>
+                </li>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        BARBARESCO
+                    </div>
+                </li>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        ALTAVLLA
+                    </div>
+                </li>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        SODOLE
+                    </div>
+                </li>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        ETNA ROSSO
+                    </div>
+                </li>
+                <li class="lastli">
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        Harmonium
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+
+            <ul>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        CHIARAMONTE
+                    </div>
+                </li>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        BARBARESCO
+                    </div>
+                </li>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        ALTAVLLA
+                    </div>
+                </li>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        SODOLE
+                    </div>
+                </li>
+                <li>
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        ETNA ROSSO
+                    </div>
+                </li>
+                <li class="lastli">
+                    <img src="/image/demowine.png"/>
+                    <div>
+                        Harmonium
+                    </div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+
+        </div>
+    </div>
+    <div id="pcontact">
+        <div class="wrap">
+            <div class="wrap2">
+            <div class="contact">CONTACT US</div>
+            <div class="asterisk">*</div>
+            <ul class="contactinfo1">
+                <li>Importador Bacco S.A</li>
+                <li>Edificio WTC</li>
+                <li>Local 13 - Planta Baja Marbella Calle 53, Panama City, Panama</li>
+                <li>Monday to Friday, 8:00 am to 6:00 pm</li>
+            </ul>
+            <div class="email">
+                Indivizzo Email
+                <input type="text"/>
+                Messaggio
+                <input type="text"/>
+                <span class="submit">Submit</span>
+            </div>
+            <div class="contactinfo2">
+                <pre>(507)-264-6820     info@baccoimporta.com
+                </pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.importadorabacco.web.dao.UserCartDao">
+
+    <resultMap type="com.importadorabacco.web.model.UserCart" id="userCartResultMap">
+        <id property="id" column="id" />
+        <result property="userId" column="user_id" />
+        <result property="productId" column="product_id" />
+        <result property="createTime" column="create_time" />
+    </resultMap>
+
+    <insert id="insert" keyProperty="id" parameterType="com.importadorabacco.web.model.UserCart">
+        insert into user_cart (
+        user_id,
+        product_id
+        ) values (
+        #{userId},
+        #{productId}
+        )
+    </insert>
+
+    <delete id="delete" parameterType="java.util.Map" >
+        delete from user_cart WHERE user_id = #{userId} and product_id = #{productId}
+    </delete>
+
+    <select id="selectByUserId"  resultMap="userCartResultMap" parameterType="java.lang.Long">
+        select * from user_cart where user_id = #{userId} ;
+    </select>
+</mapper>

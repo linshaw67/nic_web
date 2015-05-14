@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.importadorabacco.web.dao.UserDao">
+
+    <resultMap type="com.importadorabacco.web.model.User" id="userResultMap">
+        <id property="id" column="id" />
+        <result property="email" column="email" />
+        <result property="pwd" column="pwd" />
+        <result property="status" column="status" />
+        <result property="token" column="token" />
+        <result property="tokenExpireTime" column="token_expire_time" />
+        <result property="createTime" column="create_time" />
+        <result property="lastLoginTime" column="last_login_time" />
+    </resultMap>
+
+    <insert id="insert" keyProperty="id" parameterType="com.importadorabacco.web.model.User">
+        insert into user_account (
+        email,
+        pwd,
+        status,
+        token,
+        token_expire_time
+        ) values (
+        #{email},
+        #{pwd},
+        #{status},
+        #{token},
+        #{tokenExpireTime}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.importadorabacco.web.model.User">
+        update user_account
+        <set>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time = #{lastLoginTime}
+            </if>
+        </set>
+        where email = #{email}
+    </update>
+
+    <select id="selectById"  resultMap="userResultMap" parameterType="java.lang.Long">
+        select * from user_account where id = #{id} ;
+    </select>
+
+    <select id="selectByEmail"  resultMap="userResultMap" parameterType="java.lang.String">
+        select * from user_account where email = #{email} ;
+    </select>
+</mapper>

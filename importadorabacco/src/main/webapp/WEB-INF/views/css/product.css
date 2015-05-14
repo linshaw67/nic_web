@@ -1,0 +1,198 @@
+body{
+    width: auto;
+    min-width: 1100px;
+}
+#pbanner{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    background: url("/image/home3.png") top center no-repeat;
+}
+#pbanner .nav{
+    position: relative;
+    top: 6%;
+    width: 73.5%;
+    margin: auto;
+}
+#pbanner .nav li a{
+    font-family: "Trajan Pro Bold";
+    font-size: 14px;
+    color: #d5c595;
+    cursor: pointer;
+    text-decoration: none;
+}
+#pbanner .nav li a:hover{
+    color: #fff;
+}
+#pbanner .nav2{
+    position: relative;
+    right: 2%;
+    width: 38%;
+    margin: auto;
+}
+#pbanner .nav .leftli{
+    float: left;
+}
+#pbanner .nav .rightli{
+    float: right;
+}
+#pbanner .ptitle{
+    position: relative;
+    text-align: center;
+    top: 56%;
+    color: #dccc9c;
+    font-family: "Trajan Pro Bold";
+    font-size: 48px;
+}
+#pbanner .wrapc{
+    width: 100%;
+    position: relative;
+    top: 65%;
+}
+/*
+#pbanner .categories{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+#pbanner .categories li{
+    display: inline;
+    margin-left: 12px;
+    color: #fff;
+}
+#pbanner .categories li a{
+    font-family: "Garamond";
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+*/
+#pcontent{
+    background-color: #EEE;
+}
+#pcontent .panel{
+    width: 1080px;
+    height: 84px;
+    margin: auto;
+    position: relative;
+    border-bottom: 2px solid #CCC;
+}
+#pcontent .panel .pselection{
+    display: inline-block;
+    line-height: 84px;
+    font-family: "SourceCodeProRegular";
+    font-size: 16px;
+}
+#pcontent .panel .categories{
+    display: none;
+}
+#pcontent .panel .arrow{
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    top: 33px;
+    left: 120px;
+}
+
+#pcontent .categories li{
+    float: left;
+    margin-right: 12px;
+    line-height: 84px;
+    font-family: "SourceCodeProRegular";
+    font-size: 16px;
+}
+#pcontent .category{
+    background-color: #eae2d3;
+}
+#pcontent .category div{
+    margin: 45px auto 0 auto;
+    width: 1080px;
+    line-height: 64px;
+    font-family: "SourceCodeProRegular";
+    font-size: 16px;
+    font-color: #000;
+}
+#pcontent .products{
+    width: 1080px;
+    margin: 45px auto 0 auto;
+}
+#pcontent .products ul{
+    padding-bottom: 90px;
+}
+#pcontent .products ul li{
+    float: left;
+    margin-right: 24px;
+}
+#pcontent .products ul .lastli{
+    margin-right: 0px;
+}
+#pcontent .products ul li img{
+    display: block;
+    width: 160px;
+    height: 241px;
+}
+#pcontent .products ul li div{
+    margin-top: 20px;
+    text-align: center;
+    font-family: "SourceCodeProRegular";
+    font-size: 16px;
+}
+
+#pcontact{
+    width: 100%;
+    height: 420px;
+    display: table;
+}
+
+#pcontact .wrap{
+    display: table-cell;
+    vertical-align: middle;
+}
+#pcontact .contact{
+    text-align: center;
+    color: #000;
+    font-family: "Trajan Pro Bold";
+    font-size: 28px;
+}
+#pcontact .asterisk{
+    margin-top: 24px;
+    text-align: center;
+    font-family: "Baskerville";
+    font-weight: Bold;
+    font-size: 28px;
+    color: #d1a867;
+}
+#pcontact .contactinfo1{
+    width: 600px;
+    margin: auto;
+}
+#pcontact .contactinfo1 li{
+    text-align: center;
+    font-family: "Garamond";
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 120%;
+}
+#pcontact .email{
+    margin-top: 50px;
+    color: #d1a867;
+    font-size: 16px;
+    text-align: center;
+}
+#pcontact .email input{
+    margin-left: 5px;
+    margin-right: 24px;
+    width: 192px;
+}
+#pcontact .contactinfo2 {
+    margin-top: 50px;
+}
+#pcontact .contactinfo2 pre{
+    text-align: center;
+    color: #000;
+    font-family: "Garamond";
+    font-weight: bold;
+    font-size: 16px;
+}

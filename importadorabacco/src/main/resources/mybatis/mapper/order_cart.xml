@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.importadorabacco.web.dao.OrderCartDao">
+
+    <resultMap type="com.importadorabacco.web.model.OrderCart" id="orderCartResultMap">
+        <id property="id" column="id" />
+        <result property="orderId" column="order_id" />
+        <result property="productId" column="product_id" />
+        <result property="createTime" column="create_time" />
+    </resultMap>
+
+    <insert id="insert" keyProperty="id" parameterType="com.importadorabacco.web.model.OrderCart">
+        insert into order_cart (
+        order_id,
+        product_id
+        ) values (
+        #{orderId},
+        #{productId}
+        )
+    </insert>
+
+    <select id="selectByOrderId"  resultMap="orderCartResultMap" parameterType="java.lang.Long">
+        select * from order_cart where order_id = #{orderId} ;
+    </select>
+</mapper>
