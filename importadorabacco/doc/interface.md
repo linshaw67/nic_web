@@ -2,14 +2,15 @@
 ## login
 * url: `/login`
 * method: post
-* param:
+* param
+
 | name      | type   | example     |
 | --------- |:------:| -----------:|
 | username  | string | abc@abc.com |
 | pwd       | string |   123       |
 
 * response:
-```json
+```javascript
 {
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
@@ -20,14 +21,15 @@
 ## register
 * url: `/register`
 * method: post
-* param:
+* param
+
 | name      | type   | example     |
 | --------- |:------:| -----------:|
 | username  | string | abc@abc.com |
 | pwd       | string |   123       |
 
 * response:
-```json
+```javascript
 {
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
@@ -38,13 +40,14 @@
 ## query user cart
 * url: `/cart`
 * method: get
-* param:
+* param
+
 | name      | type   | example  |
 | --------- |:------:| --------:|
 | userId    | long   | 123      |
 
 * response:
-```json
+```javascript
 {
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
@@ -67,14 +70,15 @@
 ## add to user cart
 * url: `/cart/add`
 * method: post
-* param:
+* param
+
 | name      | type   | example  |
 | --------- |:------:| --------:|
 | userId    | long   | 123      |
 | productId | long   | 123      |
 
 * response:
-```json
+```javascript
 {
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
@@ -85,14 +89,15 @@
 ## remove from user cart
 * url: `/cart/remove`
 * method: post
-* param:
+* param
+
 | name      | type   | example  |
 | --------- |:------:| --------:|
 | userId    | long   | 123      |
 | productId | long   | 123      |
 
 * response:
-```json
+```javascript
 {
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
@@ -103,13 +108,14 @@
 ## commit order
 * url: `/cart/commit`
 * method: post
-* param:
+* param
+
 | name      | type   | example  |
 | --------- |:------:| --------:|
 | userId    | long   | 123      |
 
 * response:
-```json
+```javascript
 {
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
