@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS `user_cart` (
   `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'primary key',
   `user_id` BIGINT NOT NULL DEFAULT 0 COMMENT 'user account id',
   `product_id` BIGINT NOT NULL DEFAULT 0 COMMENT 'product id',
+  `quantity` INT NOT NULL DEFAULT 0 COMMENT 'product quantity',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY uniq_user_product (`user_id`, `product_id`)
@@ -31,13 +32,14 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'primary key',
   `name` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'product name',
-  `cat` VARCHAR(64) NOT NULL DEFAULT '' COMMENT 'product category',
+  `cat_id` INT NOT NULL DEFAULT '' COMMENT 'product category id',
+  `cat_name` VARCHAR(64) NOT NULL DEFAULT '' COMMENT 'product category name',
   `image_url` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'product image url',
-  `desc` VARCHAR(1024) NOT NULL DEFAULT '' COMMENT 'product desc',
+  `desc` TEXT NOT NULL DEFAULT '' COMMENT 'product desc',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY idx_cat (`cat`)
+  KEY idx_cat_id (`cat_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'product info';
 
 DROP TABLE IF EXISTS `user_order`;
@@ -54,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `order_cart` (
   `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'primary key',
   `order_id` BIGINT NOT NULL DEFAULT 0 COMMENT 'user account id',
   `product_id` BIGINT NOT NULL DEFAULT 0 COMMENT 'product id',
+  `quantity` INT NOT NULL DEFAULT 0 COMMENT 'product quantity',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY idx_order_id (`order_id`)
