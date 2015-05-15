@@ -106,10 +106,11 @@ body{
     font-family: "SourceCodeProRegular";
     font-size: 16px;
 }
-#pcontent .category-name{
+#pcontent .category .category-name
+{
     background-color: #eae2d3;
 }
-#pcontent .category-name div{
+#pcontent .category .category-name div{
     margin: 45px auto 0 auto;
     width: 1080px;
     line-height: 64px;
@@ -117,27 +118,27 @@ body{
     font-size: 16px;
     font-color: #000;
 }
-#pcontent .products{
+#pcontent .category .products{
     width: 1080px;
     margin: 45px auto 0 auto;
 }
-#pcontent .products ul{
-    padding-bottom: 90px;
+#pcontent .category .products ul{
+    padding-bottom: 30px;
 }
-#pcontent .products ul li{
+#pcontent .category .products ul li{
     float: left;
     margin-right: 24px;
     cursor: pointer;
 }
-#pcontent .products ul .lastli{
+#pcontent .category .products ul .lastli{
     margin-right: 0px;
 }
-#pcontent .products ul li img{
+#pcontent .category .products ul li img{
     display: block;
     width: 160px;
     height: 241px;
 }
-#pcontent .products ul li div{
+#pcontent .category .products ul li div{
     margin-top: 20px;
     text-align: center;
     font-family: "SourceCodeProRegular";
