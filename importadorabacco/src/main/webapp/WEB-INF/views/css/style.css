@@ -239,6 +239,7 @@
         font-size: 16px;
         letter-spacing: 2px;
         color: #fff;
+        cursor: pointer;
     }
     #home3 .products{
         width: 100px;

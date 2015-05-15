@@ -35,7 +35,7 @@
             <li class="leftli"><a>HOME</a></li>
             <li class="rightli"><a>CONTACT US</a></li>
             <ul class="nav2">
-                <li class="leftli"><a href="/product">PRODUCTS</a></li>
+                <li class="leftli"><a href="/product?cat=0">PRODUCTS</a></li>
                 <li class="rightli"><a>ABOUT</a></li>
             </ul>
             <li class="clear"></li>
@@ -75,26 +75,26 @@
             <div class="subtitle">WINE &amp; FOOD</div>
             <div class="asterisk">*</div>
             <ul class="categories">
-                <li><a>Olio di Semi</a></li>
+                <li data-cat="1"><a>Olio di Semi</a></li>
                 <li>*</li>
-                <li><a>Formaggi</a></li>
+                <li data-cat="2"><a>Formaggi</a></li>
                 <li>*</li>
-                <li><a>Pomodori</a></li>
+                <li data-cat="3"><a>Pomodori</a></li>
                 <li>*</li>
-                <li><a>Specialita</a></li>
+                <li data-cat="4"><a>Specialita</a></li>
                 <li>*</li>
-                <li><a>Aceti</a></li>
+                <li data-cat="5"><a>Aceti</a></li>
                 <li>*</li>
-                <li><a>Olio di Oliva</a></li>
+                <li data-cat="6"><a>Olio di Oliva</a></li>
                 <li>*</li>
-                <li><a>Pasta</a></li>
+                <li data-cat="7"><a>Pasta</a></li>
                 <li>*</li>
-                <li><a>Vino Bianco</a></li>
+                <li data-cat="8"><a>Vino Bianco</a></li>
                 <li>*</li>
-                <li><a>Vino Rosso</a></li>
+                <li data-cat="9"><a>Vino Rosso</a></li>
                 <div class="clear"></div>
             </ul>
-            <div class="products">Products</div>
+            <div class="products"><a href="/product?cat=0">Products</a></div>
             </div>
         </div>
     </div>
