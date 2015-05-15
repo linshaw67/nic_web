@@ -1,6 +1,5 @@
 package com.importadorabacco.web.dao;
 
-import com.importadorabacco.web.model.Product;
 import com.importadorabacco.web.model.UserCart;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -12,7 +11,7 @@ import java.util.List;
  */
 @Repository
 public interface UserCartDao {
-    List<Product> selectByUserId(Long userId);
+    List<UserCart> selectByUserId(Long userId);
 
     int insert(UserCart userCart);
 

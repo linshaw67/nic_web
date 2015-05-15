@@ -6,16 +6,19 @@
         <id property="id" column="id" />
         <result property="orderId" column="order_id" />
         <result property="productId" column="product_id" />
+        <result property="quantity" column="quantity" />
         <result property="createTime" column="create_time" />
     </resultMap>
 
     <insert id="insert" keyProperty="id" parameterType="com.importadorabacco.web.model.OrderCart">
         insert into order_cart (
         order_id,
-        product_id
+        product_id,
+        quantity
         ) values (
         #{orderId},
-        #{productId}
+        #{productId},
+        #{quantity}
         )
     </insert>
 

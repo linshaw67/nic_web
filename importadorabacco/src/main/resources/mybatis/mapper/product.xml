@@ -6,13 +6,28 @@
         <id property="id" column="id" />
         <result property="name" column="name" />
         <result property="imageUrl" column="image_url" />
-        <result property="cat" column="cat" />
+        <result property="catId" column="cat_id" />
+        <result property="catName" column="cat_name" />
+        <result property="price" column="price" />
         <result property="desc" column="desc" />
         <result property="createTime" column="create_time" />
         <result property="updateTime" column="update_time" />
     </resultMap>
 
-    <select id="selectAllProducts"  resultMap="productResultMap">
-        select * from product;
+    <select id="selectById"  resultMap="productResultMap" parameterType="java.lang.Long">
+        select * from product where id = #{id}
+    </select>
+
+    <select id="select"  resultMap="productResultMap" parameterType="java.util.Map">
+        select * from product
+        <where>
+            <if test="catId != null">
+                and cat_id = #{catId}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAllCatIds"  resultType="int" parameterType="java.util.Map">
+        select DISTINCT cat_id from product
     </select>
 </mapper>

@@ -9,7 +9,17 @@ public class OrderCart extends BaseData {
     private Long id;
     private Long orderId;
     private Long productId;
+    private Integer quantity;
     private Timestamp createTime;
+
+    public OrderCart() {
+    }
+
+    public OrderCart(Long orderId, Long productId, Integer quantity) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.quantity = quantity;
+    }
 
     public Long getId() {
         return id;
@@ -33,6 +43,14 @@ public class OrderCart extends BaseData {
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public Timestamp getCreateTime() {

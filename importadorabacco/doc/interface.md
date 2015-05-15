@@ -12,7 +12,7 @@
 
 | name      | type   | example     |
 | --------- |:------:| -----------:|
-| cat       | int    | 0 means all |
+| catId     | int    | 0 means all |
 
 * response: product page
 
@@ -61,7 +61,7 @@
 
 | name      | type   | example     |
 | --------- |:------:| -----------:|
-| cat       | int    | 0 means all |
+| catId     | int    | 0 means all |
 
 * response:
 ```javascript
@@ -77,6 +77,7 @@
                 "productName" : "foo",
                 "catId" : 1,
                 "catName" : "cat",
+                "price" : 10,
                 "quantity" : 1,
                 "desc" : "desc",
                 "imageUrl" : "/image/1.jpg"
@@ -85,6 +86,7 @@
                 "productName" : "foo2",
                 "catId" : 1,
                 "catName" : "cat",
+                "price" : 10,
                 "quantity" : 1,
                 "desc" : "desc",
                 "imageUrl" : "/image/2.jpg"
@@ -98,6 +100,7 @@
                 "productName" : "foo",
                 "catId" : 2,
                 "catName" : "cat",
+                "price" : 10,
                 "quantity" : 1,
                 "desc" : "desc",
                 "imageUrl" : "/image/1.jpg"
@@ -126,6 +129,7 @@
         "productName" : "foo",
         "catId" : 2,
         "catName" : "cat",
+        "price" : 10,
         "quantity" : 1,
         "desc" : "desc",
         "imageUrl" : "/image/1.jpg"
@@ -134,6 +138,7 @@
         "productName" : "foo2",
         "catId" : 2,
         "catName" : "cat",
+        "price" : 10,
         "quantity" : 1,
         "desc" : "desc",
         "imageUrl" : "/image/2.jpg"
@@ -203,6 +208,7 @@
             "productName" : "foo",
             "catId" : 2,
             "catName" : "cat",
+            "price" : 10,
             "quantity" : 1,
             "desc" : "desc",
             "imageUrl" : "/image/1.jpg"
@@ -211,6 +217,7 @@
             "productName" : "foo",
             "catId" : 2,
             "catName" : "cat",
+            "price" : 10,
             "quantity" : 1,
             "desc" : "desc",
             "imageUrl" : "/image/2.jpg"

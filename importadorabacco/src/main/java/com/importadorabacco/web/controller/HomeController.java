@@ -4,6 +4,7 @@ import com.importadorabacco.web.model.domain.ProductInfo;
 import com.importadorabacco.web.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -24,8 +25,14 @@ public class HomeController {
     }
 
     @RequestMapping("/product")
-    public ModelAndView product() {
-        List<ProductInfo> productInfos = productService.getAllProducts();
+    public ModelAndView product(@RequestParam("catId") Integer catId) {
+        List<ProductInfo> productInfos;
+        if (catId == null || catId <= 0) {
+            productInfos = productService.getAllProducts();
+        } else {
+            productInfos = productService.getProductsByCatId(catId);
+        }
+
         return new ModelAndView("/html/product").addObject("productInfos", productInfos);
     }
 }

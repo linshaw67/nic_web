@@ -32,10 +32,11 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'primary key',
   `name` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'product name',
-  `cat_id` INT NOT NULL DEFAULT '' COMMENT 'product category id',
+  `cat_id` INT NOT NULL DEFAULT 0 COMMENT 'product category id',
   `cat_name` VARCHAR(64) NOT NULL DEFAULT '' COMMENT 'product category name',
+  `price` DECIMAL NOT NULL DEFAULT 0 COMMENT 'price',
   `image_url` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'product image url',
-  `desc` TEXT NOT NULL DEFAULT '' COMMENT 'product desc',
+  `desc` TEXT NOT NULL COMMENT 'product desc',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -61,3 +62,13 @@ CREATE TABLE IF NOT EXISTS `order_cart` (
   PRIMARY KEY (`id`),
   KEY idx_order_id (`order_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'order cart info';
+
+
+INSERT INTO product (name, cat_id, cat_name, price, image_url, `desc`) VALUES
+  ("product1", 1, "cat1", 1, "/image/demowine.png", "demowine 1"),
+  ("product2", 1, "cat1", 10, "/image/demowine.png", "demowine 2"),
+  ("product3", 2, "cat2", 1, "/image/demowine.png", "demowine 3"),
+  ("product4", 2, "cat2", 1, "/image/demowine.png", "demowine 4"),
+  ("product5", 2, "cat2", 1, "/image/demowine.png", "demowine 5"),
+  ("product6", 2, "cat2", 1, "/image/demowine.png", "demowine 6"),
+  ("product7", 3, "cat3", 1, "/image/demowine.png", "demowine 7");

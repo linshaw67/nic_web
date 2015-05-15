@@ -1,7 +1,6 @@
 package com.importadorabacco.web.controller;
 
 import com.importadorabacco.web.model.UserCart;
-import com.importadorabacco.web.model.Order;
 import com.importadorabacco.web.model.domain.ApiResp;
 import com.importadorabacco.web.model.domain.OrderInfo;
 import com.importadorabacco.web.model.domain.ProductInfo;
@@ -48,18 +47,20 @@ public class CartController {
     /**
      * add to user cart
      *
-     * @param userId userId
+     * @param userId    userId
      * @param productId productId
      * @return success or not
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public ApiResp add(@RequestParam("userId") Long userId, @RequestParam("productId") Long productId) {
-        if (userId == null || productId == null) {
+    public ApiResp add(@RequestParam("userId") Long userId,
+            @RequestParam("productId") Long productId,
+            @RequestParam("quantity") Integer quantity) {
+        if (userId == null || productId == null || quantity == null || quantity <= 0) {
             return ApiResp.failed("param error");
         }
 
-        if (cartService.add(new UserCart(userId, productId))) {
+        if (cartService.add(new UserCart(userId, productId, quantity))) {
             return ApiResp.success();
         }
         return ApiResp.failed("add to cart failed");
@@ -68,18 +69,20 @@ public class CartController {
     /**
      * remove from user cart
      *
-     * @param userId userId
+     * @param userId    userId
      * @param productId productId
      * @return success or not
      */
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
     @ResponseBody
-    public ApiResp remove(@RequestParam("userId") Long userId, @RequestParam("productId") Long productId) {
-        if (userId == null || productId == null) {
+    public ApiResp remove(@RequestParam("userId") Long userId,
+            @RequestParam("productId") Long productId,
+            @RequestParam("quantity") Integer quantity) {
+        if (userId == null || productId == null || quantity == null || quantity <= 0) {
             return ApiResp.failed("param error");
         }
 
-        if (cartService.remove(new UserCart(userId, productId))) {
+        if (cartService.remove(new UserCart(userId, productId, quantity))) {
             return ApiResp.success();
         }
         return ApiResp.failed("remove from cart failed");

@@ -12,6 +12,15 @@ public class OrderInfo extends BaseData {
     private String email;
     private List<ProductInfo> products;
 
+    public OrderInfo() {
+    }
+
+    public OrderInfo(Long orderId, String email, List<ProductInfo> products) {
+        this.orderId = orderId;
+        this.email = email;
+        this.products = products;
+    }
+
     public Long getOrderId() {
         return orderId;
     }

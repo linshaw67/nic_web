@@ -6,18 +6,25 @@
         <id property="id" column="id" />
         <result property="userId" column="user_id" />
         <result property="productId" column="product_id" />
+        <result property="quantity" column="quantity" />
         <result property="createTime" column="create_time" />
     </resultMap>
 
     <insert id="insert" keyProperty="id" parameterType="com.importadorabacco.web.model.UserCart">
         insert into user_cart (
         user_id,
-        product_id
+        product_id,
+        quantity
         ) values (
         #{userId},
-        #{productId}
+        #{productId},
+        #{quantity}
         )
     </insert>
+
+    <update id="update" parameterType="com.importadorabacco.web.model.UserCart">
+        update user_cart set quantity = #{quantity} where user_id = #{userId} and product_id = #{productId}
+    </update>
 
     <delete id="delete" parameterType="java.util.Map" >
         delete from user_cart WHERE user_id = #{userId} and product_id = #{productId}

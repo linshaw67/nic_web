@@ -1,5 +1,6 @@
 package com.importadorabacco.web.model;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -9,7 +10,9 @@ public class Product extends BaseData {
     private Long id;
     private String name;
     private String imageUrl;
-    private String cat;
+    private String catId;
+    private String catName;
+    private BigDecimal price;
     private String desc;
     private Timestamp createTime;
     private Timestamp updateTime;
@@ -38,12 +41,28 @@ public class Product extends BaseData {
         this.imageUrl = imageUrl;
     }
 
-    public String getCat() {
-        return cat;
+    public String getCatId() {
+        return catId;
     }
 
-    public void setCat(String cat) {
-        this.cat = cat;
+    public void setCatId(String catId) {
+        this.catId = catId;
+    }
+
+    public String getCatName() {
+        return catName;
+    }
+
+    public void setCatName(String catName) {
+        this.catName = catName;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public String getDesc() {

@@ -10,6 +10,13 @@ public class Order extends BaseData {
     private Long userId;
     private Timestamp createTime;
 
+    public Order() {
+    }
+
+    public Order(Long userId) {
+        this.userId = userId;
+    }
+
     public Long getId() {
         return id;
     }
