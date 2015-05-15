@@ -251,7 +251,9 @@
         font-size: 24px;
         letter-spacing: 1px;
     }
-
+    #home3 .products a{
+        color: #fff;
+    }
 
     #home4{
         width: 100%;

@@ -14,7 +14,7 @@ function createCat(cat){
             line_count = 0;
         }
         $newProduct = $("<li><img" + " src=" + cat['products'][i]['imageUrl'] + \
-                        "<div>" + cat['products'][i]['productName'] + "</div></li>");
+                        '/><div>' + cat['products'][i]['productName'] + "</div></li>");
         $newProduct.data("productId",cat["products"][i]["productId"]);
         $newProduct.data("catId",cat["products"][i]['catId']);
         $line.append($newProduct);
