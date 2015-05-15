@@ -30,7 +30,7 @@ $(document).ready(function(){
     });
     $.ajax({
         method: "get",
-        url: "./product/get?cat="+defaultCatId,
+        url: "./product/get?catId="+defaultCatId,
         dataType: "json",
         statusCode: {
             0: function(data){
@@ -62,7 +62,7 @@ $(document).ready(function(){
         var $r = $(this);
         $.ajax({
             method: "get",
-            url: "./product/get?cat="+$(this).parent().data("cat"),
+            url: "./product/get?catId="+$(this).parent().data("catId"),
             dataType: "json",
             statusCode: {
                 0: function(data){
