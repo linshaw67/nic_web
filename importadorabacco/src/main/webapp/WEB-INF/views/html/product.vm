@@ -48,31 +48,32 @@
         <div class="panel">
             <div class="pselection">ALL PRODUCTS</div>
             <ul class="categories">
-                <li>Olio di Semi</li>
+                <li data-cat="1"><a>Olio di Semi<a/></li>
                 <li>|</li>
-                <li>Formaggi</li>
+                <li data-cat="2"><a>Formaggi</a></li>
                 <li>|</li>
-                <li>Pomodori</li>
+                <li data-cat="3"><a>Pomodori</a></li>
                 <li>|</li>
-                <li>Specialita</li>
+                <li data-cat="4"><a>Specialita</a></li>
                 <li>|</li>
-                <li>Aceti</li>
+                <li data-cat="5"><a>Aceti</a></li>
                 <li>|</li>
-                <li>Olio di Oliva</li>
+                <li data-cat="6"><a>Olio di Oliva<a/></li>
                 <li>|</li>
-                <li>Pasta</li>
+                <li data-cat="7"><a>Pasta</a></li>
                 <li>|</li>
-                <li>Vino Bianco</li>
+                <li data-cat="8"><a>Vino Bianco<a/></li>
                 <li>|</li>
-                <li>Vino Rosso</li>
+                <li data-cat="9"><a>Vino Rosso<a/></li>
                 <div class="clear"></div>
             </ul>
             <img class="arrow" src="/image/arrow.png"/>
         </div>
         <div class="category">
+            <div class="category-name">
             <div>CATAGORY A</div>
         </div>
-        <div class="products">
+            <div class="products">
             <ul>
                 <li>
                     <img src="/image/demowine.png"/>
@@ -153,6 +154,7 @@
                 <div class="clear"></div>
             </ul>
 
+        </div>
         </div>
     </div>
     <div id="pcontact">

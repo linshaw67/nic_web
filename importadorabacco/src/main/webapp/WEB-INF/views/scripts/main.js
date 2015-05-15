@@ -71,4 +71,7 @@ $(document).ready(function(){
 
     $("#home2 .img").height($("#home2 .leftwrap").height() - 40);
     $("#home2 .img").width(600 * $("#home2 .img").height() / 447);
+    $(".categories a").click(function(){
+            location = "./product?cat=" + $(this).parent().data("cat");
+    });
 })

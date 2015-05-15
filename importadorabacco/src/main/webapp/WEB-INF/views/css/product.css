@@ -87,6 +87,9 @@ body{
 #pcontent .panel .categories{
     display: none;
 }
+#pcontent .panel .categories a{
+    cursor: pointer;
+}
 #pcontent .panel .arrow{
     display: inline-block;
     cursor: pointer;
@@ -102,10 +105,10 @@ body{
     font-family: "SourceCodeProRegular";
     font-size: 16px;
 }
-#pcontent .category{
+#pcontent .category-name{
     background-color: #eae2d3;
 }
-#pcontent .category div{
+#pcontent .category-name div{
     margin: 45px auto 0 auto;
     width: 1080px;
     line-height: 64px;
@@ -123,6 +126,7 @@ body{
 #pcontent .products ul li{
     float: left;
     margin-right: 24px;
+    cursor: pointer;
 }
 #pcontent .products ul .lastli{
     margin-right: 0px;
