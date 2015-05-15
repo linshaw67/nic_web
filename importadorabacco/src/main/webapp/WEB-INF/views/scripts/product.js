@@ -13,8 +13,7 @@ function createCat(cat){
             $line = $("<ul></ul>");
             line_count = 0;
         }
-        $newProduct = $("<li><img" + " src=" + cat['products'][i]['imageUrl'] + \
-                        '/><div>' + cat['products'][i]['productName'] + "</div></li>");
+        $newProduct = $("<li><img" + " src=" + cat['products'][i]['imageUrl'] + "/><div>" + cat['products'][i]['productName'] + "</div></li>");
         $newProduct.data("productId",cat["products"][i]["productId"]);
         $newProduct.data("catId",cat["products"][i]['catId']);
         $line.append($newProduct);
@@ -23,7 +22,7 @@ function createCat(cat){
     $newCat.find(".products").append($line);
 };
 $(document).ready(function(){
-    var defaultCatId = location.slice(location.indexOf('=')+1, location.length);
+    var defaultCatId = location.href.slice(location.href.indexOf('=')+1, location.href.length);
     $(".nav .rightli a").click(function(){
         $.smoothScroll({
         scrollTarget: "#pcontact"
