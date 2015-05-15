@@ -46,7 +46,7 @@
     </div>
     <div id="pcontent">
         <div class="panel">
-            <div class="pselection">ALL PRODUCTS</div>
+            <div class="pselection"></div>
             <ul class="categories">
                 <li data-cat="1"><a>Olio di Semi<a/></li>
                 <li>|</li>
@@ -69,93 +69,94 @@
             </ul>
             <img class="arrow" src="/image/arrow.png"/>
         </div>
+        <!--
         <div class="category">
             <div class="category-name">
-            <div>CATAGORY A</div>
-        </div>
+                <div>CATAGORY A</div>
+            </div>
             <div class="products">
-            <ul>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        CHIARAMONTE
-                    </div>
-                </li>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        BARBARESCO
-                    </div>
-                </li>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        ALTAVLLA
-                    </div>
-                </li>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        SODOLE
-                    </div>
-                </li>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        ETNA ROSSO
-                    </div>
-                </li>
-                <li class="lastli">
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        Harmonium
-                    </div>
-                </li>
-                <div class="clear"></div>
-            </ul>
+                <ul>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            CHIARAMONTE
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            BARBARESCO
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            ALTAVLLA
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            SODOLE
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            ETNA ROSSO
+                        </div>
+                    </li>
+                    <li class="lastli">
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            Harmonium
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
 
-            <ul>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        CHIARAMONTE
-                    </div>
-                </li>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        BARBARESCO
-                    </div>
-                </li>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        ALTAVLLA
-                    </div>
-                </li>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        SODOLE
-                    </div>
-                </li>
-                <li>
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        ETNA ROSSO
-                    </div>
-                </li>
-                <li class="lastli">
-                    <img src="/image/demowine.png"/>
-                    <div>
-                        Harmonium
-                    </div>
-                </li>
-                <div class="clear"></div>
-            </ul>
-
+                <ul>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            CHIARAMONTE
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            BARBARESCO
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            ALTAVLLA
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            SODOLE
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            ETNA ROSSO
+                        </div>
+                    </li>
+                    <li class="lastli">
+                        <img src="/image/demowine.png"/>
+                        <div>
+                            Harmonium
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
         </div>
-        </div>
+        -->
     </div>
     <div id="pcontact">
         <div class="wrap">
