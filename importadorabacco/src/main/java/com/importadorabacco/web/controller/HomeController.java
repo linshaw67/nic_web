@@ -25,7 +25,7 @@ public class HomeController {
     }
 
     @RequestMapping("/product")
-    public ModelAndView product(@RequestParam("catId") Integer catId) {
+    public ModelAndView product(@RequestParam(value = "catId", required = false) Integer catId) {
         List<ProductInfo> productInfos;
         if (catId == null || catId <= 0) {
             productInfos = productService.getAllProducts();

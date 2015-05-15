@@ -1,9 +1,8 @@
 package com.importadorabacco.web.service.impl;
 
 import com.google.common.base.Function;
-import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.importadorabacco.web.model.Product;
 import com.importadorabacco.web.model.domain.ProductInfo;
 import com.importadorabacco.web.service.BaseService;
@@ -12,6 +11,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by tanhengyi on 15-5-14.
@@ -20,7 +20,9 @@ import java.util.List;
 public class ProductServiceImpl extends BaseService implements ProductService {
     @Override
     public List<ProductInfo> getProductsByCatId(Integer catId) {
-        List<Product> products = productDao.select(ImmutableMap.<String, Object>of("catId", catId));
+        Map<String, Object> paraMap = Maps.newHashMap();
+        paraMap.put("catId", catId);
+        List<Product> products = productDao.select(paraMap);
         if (CollectionUtils.isEmpty(products)) {
             return Lists.newArrayList();
         }
