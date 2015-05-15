@@ -21,6 +21,14 @@ public class UserCart extends BaseData {
         this.quantity = quantity;
     }
 
+    public void addQuantity(Integer quantity) {
+        if (this.quantity == null) {
+            this.quantity = quantity;
+        } else {
+            this.quantity += quantity;
+        }
+    }
+
     public Long getId() {
         return id;
     }

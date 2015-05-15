@@ -78,7 +78,6 @@
                 "catId" : 1,
                 "catName" : "cat",
                 "price" : 10,
-                "quantity" : 1,
                 "desc" : "desc",
                 "imageUrl" : "/image/1.jpg"
             }, {
@@ -101,7 +100,6 @@
                 "catId" : 2,
                 "catName" : "cat",
                 "price" : 10,
-                "quantity" : 1,
                 "desc" : "desc",
                 "imageUrl" : "/image/1.jpg"
             }]
@@ -198,7 +196,7 @@
 * response:
 ```javascript
 {
-    "status" : 0,  // 0 success, -1 failed
+    "status" : 0,  // 0 success, -1 failed, 1 cart is empty
     "msg" : "ok",
     "data" : {
         "orderId" : 123,

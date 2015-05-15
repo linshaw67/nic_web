@@ -1,10 +1,12 @@
 package com.importadorabacco.web.controller;
 
+import com.importadorabacco.web.exception.OrderException;
 import com.importadorabacco.web.model.UserCart;
 import com.importadorabacco.web.model.domain.ApiResp;
+import com.importadorabacco.web.model.domain.CartProductInfo;
 import com.importadorabacco.web.model.domain.OrderInfo;
-import com.importadorabacco.web.model.domain.ProductInfo;
 import com.importadorabacco.web.service.CartService;
+import com.importadorabacco.web.service.EmailService;
 import com.importadorabacco.web.service.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,20 +29,23 @@ public class CartController {
     @Resource
     private OrderService orderService;
 
+    @Resource
+    private EmailService emailService;
+
     /**
      * query user cart
      *
      * @param userId userId
      * @return products in user cart
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
     public ApiResp get(@RequestParam("userId") Long userId) {
         if (userId == null) {
             return ApiResp.failed("param error");
         }
 
-        List<ProductInfo> productInfoList = cartService.query(userId);
+        List<CartProductInfo> productInfoList = cartService.query(userId);
         return new ApiResp<>(productInfoList);
     }
 
@@ -101,10 +106,19 @@ public class CartController {
             return ApiResp.failed("param error");
         }
 
-        OrderInfo orderInfo = orderService.commitOrder(userId);
-        if (orderInfo == null) {
-            return ApiResp.failed("commit order failed");
+        // commit order
+        OrderInfo orderInfo;
+        try {
+            orderInfo = orderService.commitOrder(userId);
+        } catch (OrderException e) {
+            return new ApiResp<>(e.getCode(), e.getMessage(), "");
         }
+
+        // clear cart
+        cartService.clear(userId);
+
+        // send email
+        emailService.sendOrderEmail(orderInfo);
 
         return new ApiResp<>(orderInfo);
     }

@@ -18,5 +18,6 @@
 
     <!--导入其他的Spring配置文件-->
     <import resource="spring-dao.xml"/>
+    <import resource="spring-email.xml"/>
 
 </beans>

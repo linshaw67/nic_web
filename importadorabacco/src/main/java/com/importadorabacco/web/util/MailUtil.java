@@ -91,7 +91,7 @@ public class MailUtil {
             email.setHtmlMsg(mail.getContent());
             //邮件发送
             email.send();
-            logger.info("sending, {}", email);
+            logger.info("send email, {}", email);
             return true;
         } catch (Exception e) {
             logger.error("email send failed!", e);

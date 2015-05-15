@@ -9,13 +9,13 @@ import java.math.BigDecimal;
  * Created by tanhengyi on 15-5-14.
  */
 public class ProductInfo extends BaseData {
-    private Long productId;
-    private String productName;
-    private String catId;
-    private String catName;
-    private BigDecimal price;
-    private String desc;
-    private String imageUrl;
+    protected Long productId;
+    protected String productName;
+    protected String catId;
+    protected String catName;
+    protected BigDecimal price;
+    protected String desc;
+    protected String imageUrl;
 
     public ProductInfo() {
     }

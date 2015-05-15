@@ -1,6 +1,7 @@
 package com.importadorabacco.web.service.impl;
 
 import com.google.common.collect.Lists;
+import com.importadorabacco.web.exception.OrderException;
 import com.importadorabacco.web.model.*;
 import com.importadorabacco.web.model.domain.OrderInfo;
 import com.importadorabacco.web.model.domain.ProductInfo;
@@ -18,24 +19,16 @@ import java.util.List;
 @Service
 public class OrderServiceImpl extends BaseService implements OrderService {
 
+    @Transactional
     @Override
     public OrderInfo commitOrder(Long userId) {
-        List<UserCart> userCarts = userCartDao.selectByUserId(userId);
+        logger.info("op=commitOrder, userId={}", userId);
+
+        List<UserCart> userCarts = userCartDao.select(new UserCart(userId, null, null));
         if (CollectionUtils.isEmpty(userCarts)) {
-            return null;
+            throw new OrderException(1, "Your cart is empty");
         }
 
-        OrderInfo orderInfo = commitOrder(userId, userCarts);
-        if (orderInfo == null) {
-            return null;
-        }
-
-        sendEmail(orderInfo);
-        return orderInfo;
-    }
-
-    @Transactional
-    public OrderInfo commitOrder(Long userId, List<UserCart> userCarts) {
         Order order = new Order(userId);
         orderDao.insert(order);
 
@@ -47,12 +40,9 @@ public class OrderServiceImpl extends BaseService implements OrderService {
         }
 
         User user = userDao.selectById(userId);
+        OrderInfo orderInfo = new OrderInfo(order.getId(), user.getEmail(), productInfos);
+        logger.info("op=commitOrder success, userId={}, orderInfo={}", userId, orderInfo);
 
-        return new OrderInfo(order.getId(), user.getEmail(), productInfos);
+        return orderInfo;
     }
-
-    private void sendEmail(OrderInfo orderInfo) {
-        logger.info("sendEmail, orderInfo={}", orderInfo);
-    }
-
 }

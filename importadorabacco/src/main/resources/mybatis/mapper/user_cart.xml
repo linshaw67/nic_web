@@ -26,11 +26,23 @@
         update user_cart set quantity = #{quantity} where user_id = #{userId} and product_id = #{productId}
     </update>
 
-    <delete id="delete" parameterType="java.util.Map" >
+    <delete id="deleteOneInCart" parameterType="java.util.Map" >
         delete from user_cart WHERE user_id = #{userId} and product_id = #{productId}
     </delete>
 
-    <select id="selectByUserId"  resultMap="userCartResultMap" parameterType="java.lang.Long">
-        select * from user_cart where user_id = #{userId} ;
+    <delete id="deleteByUserId" parameterType="java.lang.Long" >
+        delete from user_cart WHERE user_id = #{userId}
+    </delete>
+
+    <select id="select"  resultMap="userCartResultMap" parameterType="com.importadorabacco.web.model.UserCart">
+        select * from user_cart
+        <where>
+            <if test="userId != null">
+                user_id = #{userId}
+            </if>
+            <if test="productId != null">
+                and product_id = #{productId}
+            </if>
+        </where>
     </select>
 </mapper>

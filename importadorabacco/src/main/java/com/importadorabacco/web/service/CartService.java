@@ -1,6 +1,7 @@
 package com.importadorabacco.web.service;
 
 import com.importadorabacco.web.model.UserCart;
+import com.importadorabacco.web.model.domain.CartProductInfo;
 import com.importadorabacco.web.model.domain.ProductInfo;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface CartService {
      * @param userId userId
      * @return product info in user cart
      */
-    List<ProductInfo> query(Long userId);
+    List<CartProductInfo> query(Long userId);
 
     /**
      * add to cart
@@ -32,4 +33,12 @@ public interface CartService {
      * @return true success, false failed
      */
     boolean remove(UserCart userCart);
+
+    /**
+     * clear the cart
+     *
+     * @param userId userId
+     * @return success or not
+     */
+    boolean clear(Long userId);
 }

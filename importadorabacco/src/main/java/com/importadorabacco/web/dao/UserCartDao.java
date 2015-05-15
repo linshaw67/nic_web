@@ -11,9 +11,13 @@ import java.util.List;
  */
 @Repository
 public interface UserCartDao {
-    List<UserCart> selectByUserId(Long userId);
+    List<UserCart> select(UserCart userCart);
+
+    int update(UserCart userCart);
 
     int insert(UserCart userCart);
 
-    int delete(@Param("userId") Long userId, @Param("productId") Long productId);
+    int deleteOneInCart(@Param("userId") Long userId, @Param("productId") Long productId);
+
+    int deleteByUserId(Long userId);
 }

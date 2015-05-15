@@ -8,11 +8,11 @@
         <result property="createTime" column="create_time" />
     </resultMap>
 
-    <insert id="insert" keyProperty="id" parameterType="com.importadorabacco.web.model.Order">
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.importadorabacco.web.model.Order">
         insert into user_order (
         user_id
         ) values (
-        #{user_id}
+        #{userId}
         )
     </insert>
 
