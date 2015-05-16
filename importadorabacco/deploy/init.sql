@@ -47,6 +47,12 @@ DROP TABLE IF EXISTS `user_order`;
 CREATE TABLE IF NOT EXISTS `user_order` (
   `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'primary key',
   `user_id` BIGINT NOT NULL DEFAULT 0 COMMENT 'user account id',
+  `name` VARCHAR(64) NOT NULL DEFAULT '' COMMENT 'user name',
+  `mobile` VARCHAR(32) NOT NULL DEFAULT '' COMMENT 'user mobile',
+  `email` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'user mobile',
+  `address` VARCHAR(1024) NOT NULL DEFAULT '' COMMENT 'user address',
+  `city` VARCHAR(64) NOT NULL DEFAULT '' COMMENT 'user city',
+  `zip_code` VARCHAR(32) NOT NULL DEFAULT '' COMMENT 'zip code',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY idx_user_id (`user_id`)

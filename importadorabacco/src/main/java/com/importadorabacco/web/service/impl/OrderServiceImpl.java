@@ -1,8 +1,10 @@
 package com.importadorabacco.web.service.impl;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.importadorabacco.web.exception.OrderException;
 import com.importadorabacco.web.model.*;
+import com.importadorabacco.web.model.domain.CommitOrderReq;
 import com.importadorabacco.web.model.domain.OrderInfo;
 import com.importadorabacco.web.model.domain.ProductInfo;
 import com.importadorabacco.web.service.BaseService;
@@ -21,15 +23,16 @@ public class OrderServiceImpl extends BaseService implements OrderService {
 
     @Transactional
     @Override
-    public OrderInfo commitOrder(Long userId) {
-        logger.info("op=commitOrder, userId={}", userId);
+    public OrderInfo commitOrder(CommitOrderReq commitOrderReq) {
+        logger.info("op=commitOrder, commitOrderReq={}", commitOrderReq);
+        Preconditions.checkNotNull(commitOrderReq);
 
-        List<UserCart> userCarts = userCartDao.select(new UserCart(userId, null, null));
+        List<UserCart> userCarts = userCartDao.select(new UserCart(commitOrderReq.getUserId(), null, null));
         if (CollectionUtils.isEmpty(userCarts)) {
             throw new OrderException(1, "Your cart is empty");
         }
 
-        Order order = new Order(userId);
+        Order order = Order.from(commitOrderReq);
         orderDao.insert(order);
 
         List<ProductInfo> productInfos = Lists.newArrayList();
@@ -39,9 +42,8 @@ public class OrderServiceImpl extends BaseService implements OrderService {
             productInfos.add(new ProductInfo(product));
         }
 
-        User user = userDao.selectById(userId);
-        OrderInfo orderInfo = new OrderInfo(order.getId(), user.getEmail(), productInfos);
-        logger.info("op=commitOrder success, userId={}, orderInfo={}", userId, orderInfo);
+        OrderInfo orderInfo = new OrderInfo(order, productInfos);
+        logger.info("op=commitOrder success, commitOrderReq={}, orderInfo={}", commitOrderReq, orderInfo);
 
         return orderInfo;
     }

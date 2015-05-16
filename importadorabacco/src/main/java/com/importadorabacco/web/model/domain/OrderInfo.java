@@ -1,6 +1,7 @@
 package com.importadorabacco.web.model.domain;
 
 import com.importadorabacco.web.model.BaseData;
+import com.importadorabacco.web.model.Order;
 
 import java.util.List;
 
@@ -8,33 +9,23 @@ import java.util.List;
  * Created by tanhengyi on 15-5-14.
  */
 public class OrderInfo extends BaseData {
-    private Long orderId;
-    private String email;
+    private Order order;
     private List<ProductInfo> products;
 
     public OrderInfo() {
     }
 
-    public OrderInfo(Long orderId, String email, List<ProductInfo> products) {
-        this.orderId = orderId;
-        this.email = email;
+    public OrderInfo(Order order, List<ProductInfo> products) {
+        this.order = order;
         this.products = products;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public List<ProductInfo> getProducts() {

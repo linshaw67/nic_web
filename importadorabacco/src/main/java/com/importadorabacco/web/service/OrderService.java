@@ -1,5 +1,6 @@
 package com.importadorabacco.web.service;
 
+import com.importadorabacco.web.model.domain.CommitOrderReq;
 import com.importadorabacco.web.model.domain.OrderInfo;
 
 /**
@@ -9,8 +10,8 @@ public interface OrderService {
     /**
      * commit order from user cart
      *
-     * @param userId userId
+     * @param commitOrderReq request order info
      * @return order info
      */
-    OrderInfo commitOrder(Long userId);
+    OrderInfo commitOrder(CommitOrderReq commitOrderReq);
 }

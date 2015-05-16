@@ -5,14 +5,34 @@
     <resultMap type="com.importadorabacco.web.model.Order" id="orderResultMap">
         <id property="id" column="id" />
         <result property="userId" column="user_id" />
+        <result property="name" column="name" />
+        <result property="mobile" column="mobile" />
+        <result property="email" column="email" />
+        <result property="address" column="address" />
+        <result property="city" column="city" />
+        <result property="zipCode" column="zip_code" />
         <result property="createTime" column="create_time" />
     </resultMap>
 
     <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.importadorabacco.web.model.Order">
         insert into user_order (
-        user_id
+        user_id,
+        name,
+        mobile,
+        email,
+        address,
+        city,
+        zip_code,
+        create_time
         ) values (
-        #{userId}
+        #{userId},
+        #{name},
+        #{mobile},
+        #{email},
+        #{address},
+        #{city},
+        #{zipCode},
+        #{createTime}
         )
     </insert>
 

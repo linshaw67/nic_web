@@ -189,9 +189,28 @@
 * method: post
 * param
 
-| name      | type   | example  |
-| --------- |:------:| --------:|
-| userId    | long   | 123      |
+| name      | type   | needed | example  |
+| --------- |:------:|:------:| --------:|
+| userId    | long   | true   | 123      |
+| name      | string | true   | yukri    |
+| mobile    | string | true   | 123456   |
+| email     | string | true   | a@a.com  |
+| address   | string | true   | mars     |
+| city      | string | true   | town     |
+| zipCode   | string | true   | 123      |
+
+request example
+```javascript
+{
+    "userId" : 1,
+    "name" : "yukari",
+    "mobile" : "12345678",
+    "email" : "foo@email.com",
+    "address" : "mars",
+    "city" : "san francisco",
+    "zipCode" : "94101"
+}
+```
 
 * response:
 ```javascript
@@ -199,8 +218,16 @@
     "status" : 0,  // 0 success, -1 failed, 1 cart is empty
     "msg" : "ok",
     "data" : {
-        "orderId" : 123,
-        "email" : "user@email.com",
+        "order" : {
+            "id" : 123,
+            "userId" : 1,
+            "name" : "user",
+            "mobile" : "123456",
+            "email" : "user@email.com",
+            "address" : "mars",
+            "city" : "san francisco",
+            "zipCode" : "94101"
+        },
         "products" : [{
             "productId" : 1,
             "productName" : "foo",

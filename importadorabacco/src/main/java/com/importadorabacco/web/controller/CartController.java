@@ -1,18 +1,18 @@
 package com.importadorabacco.web.controller;
 
 import com.importadorabacco.web.exception.OrderException;
+import com.importadorabacco.web.model.Order;
 import com.importadorabacco.web.model.UserCart;
 import com.importadorabacco.web.model.domain.ApiResp;
 import com.importadorabacco.web.model.domain.CartProductInfo;
+import com.importadorabacco.web.model.domain.CommitOrderReq;
 import com.importadorabacco.web.model.domain.OrderInfo;
 import com.importadorabacco.web.service.CartService;
 import com.importadorabacco.web.service.EmailService;
 import com.importadorabacco.web.service.OrderService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -96,30 +96,54 @@ public class CartController {
     /**
      * commit user cart
      *
-     * @param userId userId
+     * @param commitOrderReq request order info
      * @return order info
      */
     @RequestMapping(value = "/commit", method = RequestMethod.POST)
     @ResponseBody
-    public ApiResp commitOrder(@RequestParam("userId") Long userId) {
-        if (userId == null) {
-            return ApiResp.failed("param error");
-        }
-
+    public ApiResp commitOrder(@RequestBody CommitOrderReq commitOrderReq) {
         // commit order
         OrderInfo orderInfo;
         try {
-            orderInfo = orderService.commitOrder(userId);
+            checkCommitOrderReq(commitOrderReq);
+            orderInfo = orderService.commitOrder(commitOrderReq);
         } catch (OrderException e) {
             return new ApiResp<>(e.getCode(), e.getMessage(), "");
         }
 
         // clear cart
-        cartService.clear(userId);
+        cartService.clear(commitOrderReq.getUserId());
 
         // send email
         emailService.sendOrderEmail(orderInfo);
 
         return new ApiResp<>(orderInfo);
+    }
+
+    private void checkCommitOrderReq(CommitOrderReq commitOrderReq) {
+        if (commitOrderReq == null) {
+            throw new OrderException(-1, "order info can not be empty");
+        }
+        if (commitOrderReq.getUserId() == null) {
+            throw new OrderException(-2, "need login first");
+        }
+        if (StringUtils.isBlank(commitOrderReq.getName())) {
+            throw new OrderException(-1, "name can not be empty");
+        }
+        if (StringUtils.isBlank(commitOrderReq.getMobile())) {
+            throw new OrderException(-1, "mobile can not be empty");
+        }
+        if (StringUtils.isBlank(commitOrderReq.getEmail())) {
+            throw new OrderException(-1, "email can not be empty");
+        }
+        if (StringUtils.isBlank(commitOrderReq.getAddress())) {
+            throw new OrderException(-1, "address can not be empty");
+        }
+        if (StringUtils.isBlank(commitOrderReq.getCity())) {
+            throw new OrderException(-1, "city can not be empty");
+        }
+        if (StringUtils.isBlank(commitOrderReq.getAddress())) {
+            throw new OrderException(-1, "email can not be empty");
+        }
     }
 }
