@@ -73,7 +73,7 @@ public class UserServiceImpl extends BaseService implements UserService {
         }
 
         User user = userDao.selectById(uid);
-        if (user == null || user.isTokenValid(token)) {
+        if (user == null || !user.isTokenValid(token)) {
             logger.info("op=verify failed, uid={}, token={}, user={}", uid, token, user);
             return false;
         }

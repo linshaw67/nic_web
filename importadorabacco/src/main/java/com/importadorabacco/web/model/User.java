@@ -39,7 +39,7 @@ public class User extends BaseData {
     public boolean isTokenValid(String token) {
         return !StringUtils.isBlank(token)
                 && token.equals(this.token)
-                && tokenExpireTime.getTime() < System.currentTimeMillis();
+                && tokenExpireTime.getTime() > System.currentTimeMillis();
     }
 
     public Long getId() {
