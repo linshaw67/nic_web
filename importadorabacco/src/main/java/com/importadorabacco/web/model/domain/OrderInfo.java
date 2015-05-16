@@ -10,12 +10,12 @@ import java.util.List;
  */
 public class OrderInfo extends BaseData {
     private Order order;
-    private List<ProductInfo> products;
+    private List<CartProductInfo> products;
 
     public OrderInfo() {
     }
 
-    public OrderInfo(Order order, List<ProductInfo> products) {
+    public OrderInfo(Order order, List<CartProductInfo> products) {
         this.order = order;
         this.products = products;
     }
@@ -28,11 +28,11 @@ public class OrderInfo extends BaseData {
         this.order = order;
     }
 
-    public List<ProductInfo> getProducts() {
+    public List<CartProductInfo> getProducts() {
         return products;
     }
 
-    public void setProducts(List<ProductInfo> products) {
+    public void setProducts(List<CartProductInfo> products) {
         this.products = products;
     }
 }

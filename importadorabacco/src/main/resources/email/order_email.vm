@@ -1,0 +1,40 @@
+Hello, ${order.order.name}
+<pre>
+This is a message from Importadora Bacco.
+Thank you for commit order on www.importadorabacco.com
+</pre>
+
+<pre>
+    Name: ${order.order.name}
+    Mobile: ${order.order.mobile}
+    Email: ${order.order.email}
+    Address: ${order.order.address}
+    City: ${order.order.city}
+    Zip Code: ${order.order.zipCode}
+    Commit Time: ${order.order.createTime}
+</pre>
+
+<div class="products">
+    <ul>
+        #set($total = 0)
+        #foreach($product in ${order.products})
+            <img src="${host}/image/demowine.png"/>
+            <li>
+                Item: ${product.productName}<br/>
+                Price: ${product.price}<br/>
+                Quantity: ${product.quantity}<br/>
+            </li>
+            #set($total=${product.price} * ${product.quantity} + $total)
+        #end
+    </ul>
+</div>
+
+Total Price: $total
+
+<pre>
+※ the link will expire in 48 hours
+
+※ Please do not reply to this email address. For support related services, please refer to the
+help page at <a href="http://www.importadorabacco.com">www.importadorabacco.com</a>
+for details. Thank you.
+</pre>

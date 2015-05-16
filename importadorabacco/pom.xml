@@ -11,13 +11,13 @@
     <packaging>war</packaging>
     <name>importadorabacco</name>
     <url>http://www.importadorabacco.com</url>
-    <repositories>
-        <repository>
-            <id>nexus-osc</id>
-            <name>Nexus osc</name>
-            <url>http://maven.oschina.net/content/groups/public/</url>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>nexus-osc</id>-->
+            <!--<name>Nexus osc</name>-->
+            <!--<url>http://maven.oschina.net/content/groups/public/</url>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 
     <properties>
         <org.springframework.version>3.1.4.RELEASE</org.springframework.version>
@@ -95,6 +95,14 @@
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-web</artifactId>
                 <version>${org.springframework.version}</version>
+            </dependency>
+
+            <!-- spring test -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${org.springframework.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- spring aop related -->
@@ -280,6 +288,12 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
+        </dependency>
+
+        <!-- spring test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
         </dependency>
 
         <!-- spring aop related -->

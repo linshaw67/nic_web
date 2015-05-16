@@ -1,0 +1,16 @@
+Hello, ${user.email}
+<pre>
+This is a message from Importadora Bacco.
+Thank you for registering www.importadorabacco.com
+</pre>
+
+Please click on the URL below to verify your account.<br/>
+<a href="http://${host}/user/verify?u=${user.id}&t=${user.token}">http://${host}/user/verify?u=${user.id}&t=${user.token}<a/>
+
+<pre>
+※ the link will expire in 48 hours
+
+※ Please do not reply to this email address. For support related services, please refer to the
+help page at <a href="http://www.importadorabacco.com">www.importadorabacco.com</a>
+for details. Thank you.
+</pre>

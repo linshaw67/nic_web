@@ -3,10 +3,13 @@ package com.importadorabacco.web.service.impl;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.importadorabacco.web.exception.BusinessException;
-import com.importadorabacco.web.model.*;
+import com.importadorabacco.web.model.Order;
+import com.importadorabacco.web.model.OrderCart;
+import com.importadorabacco.web.model.Product;
+import com.importadorabacco.web.model.UserCart;
+import com.importadorabacco.web.model.domain.CartProductInfo;
 import com.importadorabacco.web.model.domain.CommitOrderReq;
 import com.importadorabacco.web.model.domain.OrderInfo;
-import com.importadorabacco.web.model.domain.ProductInfo;
 import com.importadorabacco.web.service.BaseService;
 import com.importadorabacco.web.service.OrderService;
 import org.apache.commons.collections.CollectionUtils;
@@ -35,11 +38,11 @@ public class OrderServiceImpl extends BaseService implements OrderService {
         Order order = Order.from(commitOrderReq);
         orderDao.insert(order);
 
-        List<ProductInfo> productInfos = Lists.newArrayList();
+        List<CartProductInfo> productInfos = Lists.newArrayList();
         for (UserCart userCart : userCarts) {
             orderCartDao.insert(new OrderCart(order.getId(), userCart.getId(), userCart.getQuantity()));
             Product product = productDao.selectById(userCart.getProductId());
-            productInfos.add(new ProductInfo(product));
+            productInfos.add(new CartProductInfo(product, userCart.getQuantity()));
         }
 
         OrderInfo orderInfo = new OrderInfo(order, productInfos);

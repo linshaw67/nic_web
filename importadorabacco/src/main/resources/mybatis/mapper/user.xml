@@ -13,7 +13,7 @@
         <result property="lastLoginTime" column="last_login_time" />
     </resultMap>
 
-    <insert id="insert" keyProperty="id" parameterType="com.importadorabacco.web.model.User">
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.importadorabacco.web.model.User">
         insert into user_account (
         email,
         pwd,

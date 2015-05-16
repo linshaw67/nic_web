@@ -70,10 +70,11 @@ public class EmailServiceImpl extends BaseService implements EmailService {
 
         logger.info("op=sendOrderEmail start, oid={}", orderInfo.getOrder().getId());
 
-//        Map<String, Object> data = Maps.newHashMap();
-//        data.put("orderInfo", orderInfo);
-//        String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "order_email.vm", "UTF-8", data);
-//        sendHtmlEmail(EMAIL_ORDER_SUBJECT, content, orderInfo.getEmail());
+        Map<String, Object> data = Maps.newHashMap();
+        data.put("order", orderInfo);
+        data.put("host", HOST);
+        String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "order_email.vm", "UTF-8", data);
+        sendHtmlEmail(EMAIL_ORDER_SUBJECT, content, orderInfo.getOrder().getEmail());
 
         logger.info("op=sendOrderEmail success, oid={}", orderInfo.getOrder().getId());
     }
@@ -85,11 +86,11 @@ public class EmailServiceImpl extends BaseService implements EmailService {
         }
         logger.info("op=sendRegisterEmail start, user={}", user);
 
-//        Map<String, Object> data = Maps.newHashMap();
-//        data.put("user", user);
-//        data.put("host", HOST);
-//        String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "register_email.vm", "UTF-8", data);
-//        sendHtmlEmail(EMAIL_REGISTER_SUBJECT, content, user.getEmail());
+        Map<String, Object> data = Maps.newHashMap();
+        data.put("user", user);
+        data.put("host", HOST);
+        String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "register_email.vm", "UTF-8", data);
+        sendHtmlEmail(EMAIL_REGISTER_SUBJECT, content, user.getEmail());
 
         logger.info("op=sendRegisterEmail success, user={}", user);
     }
