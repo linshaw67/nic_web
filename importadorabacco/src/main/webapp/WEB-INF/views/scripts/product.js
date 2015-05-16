@@ -76,4 +76,24 @@ $(document).ready(function(){
                      }
         });
     });
+    $(".products li").on("click", function(){
+        for (i=0;i<=data["data"].length;i++){
+            if (data["data"][i]["catId"] == $(this).data("catId")){
+                var cat = data["data"][i];
+                for (j=0;j<=cat["products"].length;j++){
+                    if (cat["products"][j]["productId"]){
+                        $("#product-big-image").attr("src", cat["products"][j]["imageUrl"]);
+                        $("#product-name").text(cat["products"][j]["productName"]);
+
+                    }
+                }
+            }
+        }
+    });
+    $("#qty-control img").eq(0).click(function(){
+        $("#qty-number").text(parseInt($("#qty-number").text())+1);
+    });
+    $("#qty-control img").eq(1).click(function(){
+        $("#qty-number").text(Math.max(parseInt($("#qty-number").text())-1,0));
+    });
 });

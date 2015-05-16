@@ -47,6 +47,7 @@
     <div id="pcontent">
         <div class="panel">
             <div class="pselection"></div>
+            <img class="arrow" src="/image/arrow.png"/>
             <ul class="categories">
                 <li data-catId="1"><a>Olio di Semi</a></li>
                 <li>|</li>
@@ -67,120 +68,53 @@
                 <li data-catId="9"><a>Vino Rosso</a></li>
                 <div class="clear"></div>
             </ul>
-            <img class="arrow" src="/image/arrow.png"/>
         </div>
-        <!--
-        <div class="category">
-            <div class="category-name">
-                <div>CATAGORY A</div>
-            </div>
-            <div class="products">
-                <ul>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            CHIARAMONTE
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            BARBARESCO
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            ALTAVLLA
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            SODOLE
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            ETNA ROSSO
-                        </div>
-                    </li>
-                    <li class="lastli">
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            Harmonium
-                        </div>
-                    </li>
-                    <div class="clear"></div>
-                </ul>
-
-                <ul>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            CHIARAMONTE
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            BARBARESCO
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            ALTAVLLA
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            SODOLE
-                        </div>
-                    </li>
-                    <li>
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            ETNA ROSSO
-                        </div>
-                    </li>
-                    <li class="lastli">
-                        <img src="/image/demowine.png"/>
-                        <div>
-                            Harmonium
-                        </div>
-                    </li>
-                    <div class="clear"></div>
-                </ul>
-            </div>
-        </div>
-        -->
     </div>
     <div id="pcontact">
         <div class="wrap">
             <div class="wrap2">
-            <div class="contact">CONTACT US</div>
-            <div class="asterisk">*</div>
-            <ul class="contactinfo1">
-                <li>Importador Bacco S.A</li>
-                <li>Edificio WTC</li>
-                <li>Local 13 - Planta Baja Marbella Calle 53, Panama City, Panama</li>
-                <li>Monday to Friday, 8:00 am to 6:00 pm</li>
-            </ul>
-            <div class="email">
-                Indivizzo Email
-                <input type="text"/>
-                Messaggio
-                <input type="text"/>
-                <span class="submit">Submit</span>
-            </div>
-            <div class="contactinfo2">
-                <pre>(507)-264-6820     info@baccoimporta.com
-                </pre>
+                <div class="contact">CONTACT US</div>
+                <div class="asterisk">*</div>
+                <ul class="contactinfo1">
+                    <li>Importador Bacco S.A</li>
+                    <li>Edificio WTC</li>
+                    <li>Local 13 - Planta Baja Marbella Calle 53, Panama City, Panama</li>
+                    <li>Monday to Friday, 8:00 am to 6:00 pm</li>
+                </ul>
+                <div class="email">
+                    Indivizzo Email
+                    <input type="text"/>
+                    Messaggio
+                    <input type="text"/>
+                    <span class="submit">Submit</span>
+                </div>
+                <div class="contactinfo2">
+                    <pre>(507)-264-6820     info@baccoimporta.com
+                    </pre>
+                </div>
             </div>
         </div>
+    </div>
+    <div id="popup-detail">
+        <div id="product-left">
+            <img id="product-big-image" src="./image/demowine.png"/>
+            <div id="product-cart-panel">
+                <div id="product-price">PRICE: <span></span></div>
+                <div id="add-to-cart">Add to Cart</div>
+                <div id="qty-control">
+                    <img src="./image/add-qty.png"/>
+                    <div id="qty-number">0</div>
+                    <img src="./image/deduct-qty.png"/>
+                </div>
+                <div id="qty">Qty : </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div id="product-detail">
+            <div id="product-name">test</div>
+            <div id="product-desc"></div>
+        </div>
+        <div class="clear"></div>
     </div>
 </body>
 </html>
