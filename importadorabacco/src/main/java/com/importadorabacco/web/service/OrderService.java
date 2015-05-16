@@ -1,5 +1,6 @@
 package com.importadorabacco.web.service;
 
+import com.importadorabacco.web.exception.BusinessException;
 import com.importadorabacco.web.model.domain.CommitOrderReq;
 import com.importadorabacco.web.model.domain.OrderInfo;
 
@@ -13,5 +14,5 @@ public interface OrderService {
      * @param commitOrderReq request order info
      * @return order info
      */
-    OrderInfo commitOrder(CommitOrderReq commitOrderReq);
+    OrderInfo commitOrder(CommitOrderReq commitOrderReq) throws BusinessException;
 }

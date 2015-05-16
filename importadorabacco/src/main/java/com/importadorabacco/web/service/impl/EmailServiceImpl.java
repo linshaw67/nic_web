@@ -2,6 +2,7 @@ package com.importadorabacco.web.service.impl;
 
 import com.google.common.collect.Maps;
 import com.importadorabacco.web.model.MailPush;
+import com.importadorabacco.web.model.User;
 import com.importadorabacco.web.model.domain.OrderInfo;
 import com.importadorabacco.web.service.BaseService;
 import com.importadorabacco.web.service.EmailService;
@@ -22,8 +23,11 @@ public class EmailServiceImpl extends BaseService implements EmailService {
     @Resource
     private VelocityEngine velocityEngine;
 
-    @Value("${email.subject}")
-    private String EMAIL_SUBJECT;
+    @Value("${email.order.subject}")
+    private String EMAIL_ORDER_SUBJECT;
+
+    @Value("${email.register.subject}")
+    private String EMAIL_REGISTER_SUBJECT;
 
     @Value("${email.source}")
     private String EMAIL_SOURCE;
@@ -39,6 +43,9 @@ public class EmailServiceImpl extends BaseService implements EmailService {
 
     @Value("${email.smtp.server}")
     private String SMTP_SERVER;
+
+    @Value("${host}")
+    private String HOST;
 
     @Override
     public void sendHtmlEmail(String subject, String content, String toAddresses) {
@@ -61,11 +68,29 @@ public class EmailServiceImpl extends BaseService implements EmailService {
             return;
         }
 
-        logger.info("op=sendOrderEmail, orderInfo={}", orderInfo);
+        logger.info("op=sendOrderEmail start, oid={}", orderInfo.getOrder().getId());
 
 //        Map<String, Object> data = Maps.newHashMap();
 //        data.put("orderInfo", orderInfo);
 //        String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "order_email.vm", "UTF-8", data);
-//        sendHtmlEmail(EMAIL_SUBJECT, content, orderInfo.getEmail());
+//        sendHtmlEmail(EMAIL_ORDER_SUBJECT, content, orderInfo.getEmail());
+
+        logger.info("op=sendOrderEmail success, oid={}", orderInfo.getOrder().getId());
+    }
+
+    @Override
+    public void sendRegisterEmail(User user) {
+        if (user == null) {
+            return;
+        }
+        logger.info("op=sendRegisterEmail start, user={}", user);
+
+//        Map<String, Object> data = Maps.newHashMap();
+//        data.put("user", user);
+//        data.put("host", HOST);
+//        String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "register_email.vm", "UTF-8", data);
+//        sendHtmlEmail(EMAIL_REGISTER_SUBJECT, content, user.getEmail());
+
+        logger.info("op=sendRegisterEmail success, user={}", user);
     }
 }

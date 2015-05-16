@@ -25,7 +25,7 @@
         </property>
     </bean>
 
-    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+    <bean id="statFilter" class="com.alibaba.druid.filter.stat.StatFilter">
         <property name="mergeSql" value="true" />
     </bean>
 

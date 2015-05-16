@@ -37,23 +37,14 @@ public class MailUtil {
      */
     public boolean sendSingleMail(MailPush mail) {
         try {
-            //封装simple_email
             SimpleEmail email = new SimpleEmail();
-            //设置服务器
             email.setHostName(mail.getServerAddress());
-            //设置用户名密码
             email.setAuthentication(mail.getSenderUsername(), mail.getSenderPassword());
-            //设置编码方式
             email.setCharset(mail.getCharset());
-            //设置收件人
             email.addTo(mail.getToAddress());
-            //设置发件人
             email.setFrom(mail.getSenderAddress());
-            //设置主题
             email.setSubject(mail.getSubject() + (mail.getEmailSource() == null ? "" : mail.getEmailSource()));
-            //设置详细内容
             email.setMsg(mail.getContent());
-            //邮件发送
             email.send();
             return true;
         } catch (Exception e) {
@@ -71,25 +62,16 @@ public class MailUtil {
      */
     public boolean sendSingleHtmlMail(MailPush mail) {
         try {
-            //封装simple_email
             HtmlEmail email = new HtmlEmail();
-            //设置服务器
             email.setHostName(mail.getServerAddress());
-            //设置用户名密码
             email.setAuthentication(mail.getSenderUsername(), mail.getSenderPassword());
-            //设置编码方式
             email.setCharset(mail.getCharset());
-            //设置收件人
             for (String s : Splitter.on(";").split(mail.getToAddresses())) {
                 email.addTo(s);
             }
-            //设置发件人
             email.setFrom(mail.getSenderAddress());
-            //设置主题
             email.setSubject(mail.getSubject() + (mail.getEmailSource() == null ? "" : mail.getEmailSource()));
-            //设置详细内容
             email.setHtmlMsg(mail.getContent());
-            //邮件发送
             email.send();
             logger.info("send email, {}", email);
             return true;

@@ -187,7 +187,7 @@
 ## commit order
 * url: `/cart/commit`
 * method: post
-* param
+* param json
 
 | name      | type   | needed | example  |
 | --------- |:------:|:------:| --------:|

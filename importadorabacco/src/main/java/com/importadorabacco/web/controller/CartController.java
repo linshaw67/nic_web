@@ -1,12 +1,14 @@
 package com.importadorabacco.web.controller;
 
-import com.importadorabacco.web.exception.OrderException;
-import com.importadorabacco.web.model.Order;
+import com.importadorabacco.web.exception.BusinessException;
 import com.importadorabacco.web.model.UserCart;
 import com.importadorabacco.web.model.domain.ApiResp;
 import com.importadorabacco.web.model.domain.CartProductInfo;
 import com.importadorabacco.web.model.domain.CommitOrderReq;
 import com.importadorabacco.web.model.domain.OrderInfo;
+import com.importadorabacco.web.security.SecurityContext;
+import com.importadorabacco.web.security.annotation.Security;
+import com.importadorabacco.web.security.constant.Cookies;
 import com.importadorabacco.web.service.CartService;
 import com.importadorabacco.web.service.EmailService;
 import com.importadorabacco.web.service.OrderService;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -31,6 +34,9 @@ public class CartController {
 
     @Resource
     private EmailService emailService;
+
+    @Resource
+    private SecurityContext securityContext;
 
     /**
      * query user cart
@@ -56,13 +62,20 @@ public class CartController {
      * @param productId productId
      * @return success or not
      */
+    @Security
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public ApiResp add(@RequestParam("userId") Long userId,
             @RequestParam("productId") Long productId,
-            @RequestParam("quantity") Integer quantity) {
+            @RequestParam("quantity") Integer quantity,
+            @CookieValue(Cookies.UID) String cookieUid,
+            HttpServletResponse response) {
         if (userId == null || productId == null || quantity == null || quantity <= 0) {
             return ApiResp.failed("param error");
+        }
+        if (!isCurrentUser(userId, cookieUid)) {
+            securityContext.logout(response);
+            return ApiResp.failed("user changed, please login again");
         }
 
         if (cartService.add(new UserCart(userId, productId, quantity))) {
@@ -78,13 +91,20 @@ public class CartController {
      * @param productId productId
      * @return success or not
      */
+    @Security
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
     @ResponseBody
     public ApiResp remove(@RequestParam("userId") Long userId,
             @RequestParam("productId") Long productId,
-            @RequestParam("quantity") Integer quantity) {
+            @RequestParam("quantity") Integer quantity,
+            @CookieValue(Cookies.UID) String cookieUid,
+            HttpServletResponse response) {
         if (userId == null || productId == null || quantity == null || quantity <= 0) {
             return ApiResp.failed("param error");
+        }
+        if (!isCurrentUser(userId, cookieUid)) {
+            securityContext.logout(response);
+            return ApiResp.failed("user changed, please login again");
         }
 
         if (cartService.remove(new UserCart(userId, productId, quantity))) {
@@ -99,21 +119,27 @@ public class CartController {
      * @param commitOrderReq request order info
      * @return order info
      */
+    @Security
     @RequestMapping(value = "/commit", method = RequestMethod.POST)
     @ResponseBody
-    public ApiResp commitOrder(@RequestBody CommitOrderReq commitOrderReq) {
+    public ApiResp commitOrder(@RequestBody CommitOrderReq commitOrderReq,
+            @CookieValue(Cookies.UID) String cookieUid,
+            HttpServletResponse response) {
         // commit order
         OrderInfo orderInfo;
         try {
             checkCommitOrderReq(commitOrderReq);
+            if (!isCurrentUser(commitOrderReq.getUserId(), cookieUid)) {
+                securityContext.logout(response);
+                return ApiResp.failed("user changed, please login again");
+            }
             orderInfo = orderService.commitOrder(commitOrderReq);
-        } catch (OrderException e) {
-            return new ApiResp<>(e.getCode(), e.getMessage(), "");
+        } catch (BusinessException e) {
+            return new ApiResp<>(e.getCode(), e.getMessage(), e.getMessage());
         }
 
         // clear cart
         cartService.clear(commitOrderReq.getUserId());
-
         // send email
         emailService.sendOrderEmail(orderInfo);
 
@@ -122,28 +148,33 @@ public class CartController {
 
     private void checkCommitOrderReq(CommitOrderReq commitOrderReq) {
         if (commitOrderReq == null) {
-            throw new OrderException(-1, "order info can not be empty");
+            throw new BusinessException(-1, "order info can not be empty");
         }
         if (commitOrderReq.getUserId() == null) {
-            throw new OrderException(-2, "need login first");
+            throw new BusinessException(-2, "need login first");
         }
         if (StringUtils.isBlank(commitOrderReq.getName())) {
-            throw new OrderException(-1, "name can not be empty");
+            throw new BusinessException(-1, "name can not be empty");
         }
         if (StringUtils.isBlank(commitOrderReq.getMobile())) {
-            throw new OrderException(-1, "mobile can not be empty");
+            throw new BusinessException(-1, "mobile can not be empty");
         }
         if (StringUtils.isBlank(commitOrderReq.getEmail())) {
-            throw new OrderException(-1, "email can not be empty");
+            throw new BusinessException(-1, "email can not be empty");
         }
         if (StringUtils.isBlank(commitOrderReq.getAddress())) {
-            throw new OrderException(-1, "address can not be empty");
+            throw new BusinessException(-1, "address can not be empty");
         }
         if (StringUtils.isBlank(commitOrderReq.getCity())) {
-            throw new OrderException(-1, "city can not be empty");
+            throw new BusinessException(-1, "city can not be empty");
         }
         if (StringUtils.isBlank(commitOrderReq.getAddress())) {
-            throw new OrderException(-1, "email can not be empty");
+            throw new BusinessException(-1, "email can not be empty");
         }
     }
+
+    private boolean isCurrentUser(Long userId, String cookieUid) {
+        return userId.toString().equals(cookieUid);
+    }
+
 }

@@ -3,23 +3,23 @@ package com.importadorabacco.web.exception;
 /**
  * Created by tanhengyi on 15-5-16.
  */
-public class OrderException extends RuntimeException {
+public class BusinessException extends RuntimeException {
     private int code;
 
-    public OrderException(int code) {
+    public BusinessException(int code) {
         this.code = code;
     }
 
-    public OrderException(String message) {
+    public BusinessException(String message) {
         super(message);
     }
 
-    public OrderException(int code, String message) {
+    public BusinessException(int code, String message) {
         super(message);
         this.code = code;
     }
 
-    public OrderException(int code, String message, Throwable cause) {
+    public BusinessException(int code, String message, Throwable cause) {
         super(message, cause);
         this.code = code;
     }

@@ -1,5 +1,6 @@
 package com.importadorabacco.web.service;
 
+import com.importadorabacco.web.model.User;
 import com.importadorabacco.web.model.domain.OrderInfo;
 
 /**
@@ -21,4 +22,11 @@ public interface EmailService {
      * @param orderInfo orderInfo
      */
     public void sendOrderEmail(OrderInfo orderInfo);
+
+    /**
+     * send register email
+     *
+     * @param user user register info
+     */
+    public void sendRegisterEmail(User user);
 }

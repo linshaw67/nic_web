@@ -2,7 +2,7 @@ package com.importadorabacco.web.service.impl;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
-import com.importadorabacco.web.exception.OrderException;
+import com.importadorabacco.web.exception.BusinessException;
 import com.importadorabacco.web.model.*;
 import com.importadorabacco.web.model.domain.CommitOrderReq;
 import com.importadorabacco.web.model.domain.OrderInfo;
@@ -23,13 +23,13 @@ public class OrderServiceImpl extends BaseService implements OrderService {
 
     @Transactional
     @Override
-    public OrderInfo commitOrder(CommitOrderReq commitOrderReq) {
+    public OrderInfo commitOrder(CommitOrderReq commitOrderReq) throws BusinessException {
         logger.info("op=commitOrder, commitOrderReq={}", commitOrderReq);
         Preconditions.checkNotNull(commitOrderReq);
 
         List<UserCart> userCarts = userCartDao.select(new UserCart(commitOrderReq.getUserId(), null, null));
         if (CollectionUtils.isEmpty(userCarts)) {
-            throw new OrderException(1, "Your cart is empty");
+            throw new BusinessException(1, "Your cart is empty");
         }
 
         Order order = Order.from(commitOrderReq);
