@@ -80,7 +80,7 @@ body{
     display: none;
 }
 #pcontent .panel .pselection{
-    display: inline-block;
+    float: left;
     line-height: 84px;
     font-family: "SourceCodeProRegular";
     font-size: 16px;
@@ -92,11 +92,11 @@ body{
     cursor: pointer;
 }
 #pcontent .panel .arrow{
-    display: inline-block;
     cursor: pointer;
-    position: absolute;
+    float: left;
+    position: relative;
     top: 33px;
-    left: 120px;
+    left: 5px;
 }
 
 #pcontent .categories li{
@@ -150,7 +150,6 @@ body{
     height: 420px;
     display: table;
 }
-
 #pcontact .wrap{
     display: table-cell;
     vertical-align: middle;
@@ -201,4 +200,62 @@ body{
     font-family: "Garamond";
     font-weight: bold;
     font-size: 16px;
+}
+
+
+#popup-detail{
+    width: 800px;
+    height: 720px;
+    background-color: #DDD;
+}
+#product-left{
+    margin-top: 60px;
+    margin-left:15px;
+}
+#product-left, #product-detail{
+    float: left;
+    font-family: "Garamond";
+}
+#product-big-image{
+    width: 360px;
+    height: 550px;
+}
+#product-cart-panel{
+    margin-top: 20px;
+}
+#qty{
+    float: right;
+    line-height: 30px;
+    margin-right: 10px;
+}
+#qty-control{
+    float: right;
+    margin-right: 20px;
+    height: 34px;
+    position: relative;
+    bottom: 1px;
+}
+#qty-control img{
+    display: block;
+    height: 10px;
+    width: 12px;
+    cursor: pointer;
+}
+#qty-control img:first-child{
+     position: relative;
+     bottom: 2px;
+}
+#qty-control img:last-child{
+    position: relative;
+    top: 2px;
+}
+#qty-number{
+    text-align: center;
+}
+#add-to-cart{
+    width: 100px;
+    float: right;
+    line-height: 30px;
+    text-align: center;
+    border: 2px solid #444;
 }
