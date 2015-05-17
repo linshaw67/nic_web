@@ -14,9 +14,10 @@ function createCat(cat){
             $line = $("<ul></ul>");
             line_count = 0;
         }
-        $newProduct = $("<li><img" + " src=" + cat['products'][i]['imageUrl'] + "/><div>" + cat['products'][i]['productName'] + "</div></li>");
+        $newProduct = $("<li class='product'><img" + " src=" + cat['products'][i]['imageUrl'] + "/><div>" + cat['products'][i]['productName'] + "</div></li>");
         $newProduct.data("productId",cat["products"][i]["productId"]);
         $newProduct.data("catId",cat["products"][i]['catId']);
+        $newProduct.bind("click", productClick);
         $line.append($newProduct);
         line_count++;
     };
@@ -24,6 +25,47 @@ function createCat(cat){
     $newCat.find(".products").append($line);
     $("#pcontent").append($newCat);
 };
+
+function productClick(){
+    for (i=0;i<gdata["data"].length;i++){
+        if (gdata["data"][i]["catId"] == $(this).data("catId")){
+            var cat = gdata["data"][i];
+            for (j=0;j<cat["products"].length;j++){
+                if (cat["products"][j]["productId"] == $(this).data("productId")){
+                    $("#product-big-image").attr("src", cat["products"][j]["imageUrl"]);
+                    $("#product-name").text(cat["products"][j]["productName"]);
+                    $("#product-price span").text("$"+cat["products"][j]["price"]);
+                    $("#qty-number").text("0");
+                    $("#popup-detail")
+                        .fadeIn()
+                        .css({
+                            "position": "absolute",
+                            "top": $(window).scrollTop() + Math.max(($(window).height() - $("#popup-detail").height())/2,40) + "px",
+                            "left": ($("body").width() - $("#popup-detail").width())/2 + "px",
+                            "z-index": "11"
+                        });
+                    $("<div></div>")
+                        .appendTo("body")
+                        .css({
+                            "width": $("body").width() + "px",
+                            "height": $("body").height() + "px",
+                            "position": "absolute",
+                            "top": "0px",
+                            "left": "0px",
+                            "background-color": "#000",
+                            "opacity": "0.15",
+                            "z-index": "10"
+                        })
+                        .click(function(){
+                            $(this).remove();
+                            $("#popup-detail").hide();
+                        });
+                }
+            }
+        }
+    }
+};
+
 $(document).ready(function(){
     var defaultCatId = location.href.slice(location.href.indexOf('=')+1, location.href.length);
     $(".nav .rightli a").click(function(){
@@ -36,6 +78,7 @@ $(document).ready(function(){
         url: "./product/get?catId="+defaultCatId,
         dataType: "json",
         success:function(data){
+                    gdata = data;
                     if (defaultCatId == 0){
                         pselectionText = "ALL PRODUCTS";
                     }
@@ -66,6 +109,7 @@ $(document).ready(function(){
             url: "./product/get?catId="+$(this).parent().data("catid"),
             dataType: "json",
             success: function(data){
+                        gdata = data;
                         $("#pcontent .panel .pselection").fadeIn().text($r.text());
                         $(".arrow").fadeIn();
                         $("#pcontent .panel .categories").hide();
@@ -75,20 +119,6 @@ $(document).ready(function(){
                         }
                      }
         });
-    });
-    $(".products li").on("click", function(){
-        for (i=0;i<=data["data"].length;i++){
-            if (data["data"][i]["catId"] == $(this).data("catId")){
-                var cat = data["data"][i];
-                for (j=0;j<=cat["products"].length;j++){
-                    if (cat["products"][j]["productId"]){
-                        $("#product-big-image").attr("src", cat["products"][j]["imageUrl"]);
-                        $("#product-name").text(cat["products"][j]["productName"]);
-
-                    }
-                }
-            }
-        }
     });
     $("#qty-control img").eq(0).click(function(){
         $("#qty-number").text(parseInt($("#qty-number").text())+1);

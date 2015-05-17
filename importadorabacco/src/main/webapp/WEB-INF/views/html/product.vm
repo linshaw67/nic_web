@@ -103,7 +103,7 @@
                 <div id="add-to-cart">Add to Cart</div>
                 <div id="qty-control">
                     <img src="./image/add-qty.png"/>
-                    <div id="qty-number">0</div>
+                    <div id="qty-number"></div>
                     <img src="./image/deduct-qty.png"/>
                 </div>
                 <div id="qty">Qty : </div>
@@ -111,7 +111,7 @@
             </div>
         </div>
         <div id="product-detail">
-            <div id="product-name">test</div>
+            <div id="product-name"></div>
             <div id="product-desc"></div>
         </div>
         <div class="clear"></div>
