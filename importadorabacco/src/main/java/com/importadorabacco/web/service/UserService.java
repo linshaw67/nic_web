@@ -50,4 +50,12 @@ public interface UserService {
      * @return exists or not
      */
     boolean isUserExists(String email);
+
+    /**
+     * Get user info by id
+     *
+     * @param uid user id
+     * @return user info
+     */
+    User queryUserById(Long uid);
 }

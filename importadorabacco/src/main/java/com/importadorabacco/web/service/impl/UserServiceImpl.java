@@ -113,6 +113,14 @@ public class UserServiceImpl extends BaseService implements UserService {
         return user != null && user.isActive();
     }
 
+    @Override
+    public User queryUserById(Long uid) {
+        if (uid == null) {
+            return null;
+        }
+        return userDao.selectById(uid);
+    }
+
     public static void main(String[] a) {
         String salt = BCrypt.gensalt();
         String hash = BCrypt.hashpw("123456789", salt);

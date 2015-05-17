@@ -1,6 +1,7 @@
 package com.importadorabacco.web.controller;
 
 import com.importadorabacco.web.exception.BusinessException;
+import com.importadorabacco.web.model.User;
 import com.importadorabacco.web.model.UserCart;
 import com.importadorabacco.web.model.domain.ApiResp;
 import com.importadorabacco.web.model.domain.CartProductInfo;
@@ -12,6 +13,7 @@ import com.importadorabacco.web.security.constant.Cookies;
 import com.importadorabacco.web.service.CartService;
 import com.importadorabacco.web.service.EmailService;
 import com.importadorabacco.web.service.OrderService;
+import com.importadorabacco.web.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +28,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/cart")
 public class CartController {
+    @Resource
+    private UserService userService;
+
     @Resource
     private CartService cartService;
 
@@ -133,6 +138,13 @@ public class CartController {
                 securityContext.logout(response);
                 return ApiResp.failed("user changed, please login again");
             }
+
+            User user = userService.queryUserById(commitOrderReq.getUserId());
+            if (user == null) {
+                return ApiResp.failed("user does not exist");
+            }
+
+            commitOrderReq.setEmail(user.getEmail());
             orderInfo = orderService.commitOrder(commitOrderReq);
         } catch (BusinessException e) {
             return new ApiResp<>(e.getCode(), e.getMessage(), e.getMessage());
@@ -159,9 +171,9 @@ public class CartController {
         if (StringUtils.isBlank(commitOrderReq.getMobile())) {
             throw new BusinessException(-1, "mobile can not be empty");
         }
-        if (StringUtils.isBlank(commitOrderReq.getEmail())) {
-            throw new BusinessException(-1, "email can not be empty");
-        }
+//        if (StringUtils.isBlank(commitOrderReq.getEmail())) {
+//            throw new BusinessException(-1, "email can not be empty");
+//        }
         if (StringUtils.isBlank(commitOrderReq.getAddress())) {
             throw new BusinessException(-1, "address can not be empty");
         }
