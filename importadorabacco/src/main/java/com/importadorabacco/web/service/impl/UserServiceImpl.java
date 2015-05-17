@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by tanhengyi on 15-5-13.
@@ -18,6 +20,7 @@ import java.sql.Timestamp;
 @Service
 public class UserServiceImpl extends BaseService implements UserService {
     private final static int TOKEN_EXPIRE_TIME = 3600 * 1000 * 48; // 2 days
+    private Pattern illegalCharPattern = Pattern.compile("[^\\w\\.@]");
 
     @Override
     public User authorize(String email, String password) {
@@ -42,6 +45,12 @@ public class UserServiceImpl extends BaseService implements UserService {
 
         email = email.trim();
         password = password.trim();
+
+        Matcher matcher = illegalCharPattern.matcher(email);
+        if (matcher.find()) {
+            logger.warn("op=register illegal email: {}", email);
+            throw new BusinessException(-1, "illegal email");
+        }
 
         User existsUser = userDao.selectByEmail(email);
         if (existsUser != null && existsUser.isActive()) {
