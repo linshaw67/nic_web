@@ -9,6 +9,7 @@
     <script src="/js/jquery-1.11.2.min.js"></script><style type="text/css"></style>
     <script src="/js/jquery.smooth-scroll.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/general.js"></script>
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
     top: 18px !important;
@@ -110,13 +111,13 @@
                 <li>Local 13 - Planta Baja Marbella Calle 53, Panama City, Panama</li>
                 <li>Monday to Friday, 8:00 am to 6:00 pm</li>
             </ul>
-            <div class="email">
+            <!--<div class="email">
                 Indivizzo Email
                 <input type="text">
                 Messaggio
                 <input type="text">
                 <span class="submit">Submit</span>
-            </div>
+            </div>-->
             <div class="contactinfo2">
                 <pre>(507)-264-6820     info@baccoimporta.com
                 </pre>

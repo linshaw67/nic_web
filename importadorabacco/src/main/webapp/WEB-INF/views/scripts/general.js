@@ -3,6 +3,7 @@ function toSignIn(){
     $("#sign-in-inputs").fadeIn();
     $("#sign-up-entries").hide();
     $("#sign-up-inputs").hide();
+    $("#sign-up-success").remove();
     $("#sign-in")
         .css({
             "color": "#000",
@@ -50,31 +51,56 @@ $(document).ready(function(){
         if ($(this).text() == "SIGN IN"){
             $.ajax({
                 method: "post",
-                url: "./login",
+                url: "./user/login",
                 data:{
                     "username": $("#sign-in-entries input[type=text]").val(),
                     "pwd": $("#sign-in-entries input[type=password]").val()
                 },
                 success: function(response){
                     if (response["status"] == -1){
-
+                        $("#wrongaccount").fadeIn();
+                    }
+                    else if (response["status"] == 0){
+                        $("#sign-box").hide();
+                        $("#screen-cover").remove();
                     }
                 }
             })
         }
         else if ($(this).text() == "SIGN UP"){
             if ($("#sign-up-inputs input[type=password]").eq(0).val() == $("#sign-up-inputs input[type=password]").eq(1).val()){
-                $.ajax({
+                /*$.ajax({
                     method: "post",
-                    url: "./register",
+                    url: "./user/register",
                     data: {
                         "username": $("#sign-up-entries input[type=text]").val(),
                         "pwd": $("#sign-up-entries input[type=password]").eq(0).val()
                     },
                     success: function(response){
-
+                        if (response["status"] == -1){
+                            // ####
+                        }
+                        else if (response["status"] == 0){
+                            $("#sign-up-entries").hide();
+                            $("#sign-up-inputs").hide();
+                            $("<div>Congratulations! Sign up succeeded, please login now</div>");
+                        }
                     }
-                });
+                });*/
+                $("<div id='sign-up-success'></div>")
+                    .text("Congratulations!  Sign up succeeded, please login now")
+                    .appendTo("#sign-form")
+                    .css({
+                        "position": "absolute",
+                        "height": $("#sign-form").height()+"px",
+                        "line-height": $("#sign-form").height()+"px",
+                        "width": $("#sign-form").width()+"px",
+                        "background-color": "#f5f5f5",
+                        "top": "0px",
+                        "left": "0px",
+                        "text-align": "center",
+                        // #### to improve
+                    });
             }
             else {
                 $("#pwdnotmatch").fadeIn();
@@ -86,6 +112,7 @@ $(document).ready(function(){
         $(".sign-alert").fadeOut();
     });
     $("#sign").click(function(){
+        // #### to solve: last infomartion entered
         $("#sign-box")
             .fadeIn()
             .css({
@@ -93,7 +120,7 @@ $(document).ready(function(){
                 "left": ($("body").width() - $("#sign-box").width())/2 + "px",
                 "z-index": "11"
             });
-        $("<div></div>")
+        $("<div id='screen-cover'></div>")
             .appendTo("body")
             .css({
                 "width": $("body").width() + "px",
@@ -107,7 +134,20 @@ $(document).ready(function(){
             })
             .click(function(){
                 $(this).remove();
+                $("#sign-up-success").remove();
                 $("#sign-box").hide();
             });
+    });
+    $("#cart").click(function(){
+        $.ajax({
+            method: "post",
+            url: "./cart",
+            data: {
+                userId: 1
+            },
+            success: function(response){
+
+            }
+        });
     });
 });

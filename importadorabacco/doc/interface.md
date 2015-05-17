@@ -35,8 +35,18 @@
 }
 ```
 
+<<<<<<< Updated upstream
 ## register
 * url: `/user/register`
+=======
+<<<<<<< HEAD
+## product.vmster
+* url: `/register`
+=======
+## register
+* url: `/user/register`
+>>>>>>> origin/1.0.0
+>>>>>>> Stashed changes
 * method: post
 * param
 

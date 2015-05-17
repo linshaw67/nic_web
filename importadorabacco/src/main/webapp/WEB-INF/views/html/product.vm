@@ -84,13 +84,13 @@
                     <li>Local 13 - Planta Baja Marbella Calle 53, Panama City, Panama</li>
                     <li>Monday to Friday, 8:00 am to 6:00 pm</li>
                 </ul>
-                <div class="email">
+                <!--<div class="email">
                     Indivizzo Email
                     <input type="text"/>
                     Messaggio
                     <input type="text"/>
                     <span class="submit">Submit</span>
-                </div>
+                </div>-->
                 <div class="contactinfo2">
                     <pre>(507)-264-6820     info@baccoimporta.com
                     </pre>
@@ -156,6 +156,12 @@
             </div>
             <div class="sign-alert" id="pwdnotmatch">
                 passwords do no match, please check
+            </div>
+            <div class="sign-alert" id="invalidemail">
+                invalid email address, only alphabets . - _ @ are allowed
+            </div>
+            <div class="sign-alert" id="wrongaccount">
+                wron email address or password, please try again
             </div>
         </div>
     </div>
