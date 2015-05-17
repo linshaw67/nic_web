@@ -53,8 +53,8 @@ $(document).ready(function(){
                 method: "post",
                 url: "./user/login",
                 data:{
-                    "username": $("#sign-in-entries input[type=text]").val(),
-                    "pwd": $("#sign-in-entries input[type=password]").val()
+                    "username": $("#sign-in-inputs input[type=text]").val(),
+                    "pwd": $("#sign-in-inputs input[type=password]").val()
                 },
                 success: function(response){
                     if (response["status"] == -1){
@@ -69,38 +69,36 @@ $(document).ready(function(){
         }
         else if ($(this).text() == "SIGN UP"){
             if ($("#sign-up-inputs input[type=password]").eq(0).val() == $("#sign-up-inputs input[type=password]").eq(1).val()){
-                /*$.ajax({
+                $.ajax({
                     method: "post",
                     url: "./user/register",
                     data: {
-                        "username": $("#sign-up-entries input[type=text]").val(),
-                        "pwd": $("#sign-up-entries input[type=password]").eq(0).val()
+                        "username": $("#sign-up-inputs input[type=text]").val(),
+                        "pwd": $("#sign-up-inputs input[type=password]").eq(0).val()
                     },
                     success: function(response){
                         if (response["status"] == -1){
                             // ####
                         }
                         else if (response["status"] == 0){
-                            $("#sign-up-entries").hide();
-                            $("#sign-up-inputs").hide();
-                            $("<div>Congratulations! Sign up succeeded, please login now</div>");
+                            $("<div id='sign-up-success'></div>")
+                                .text("Congratulations!  Sign up succeeded, please login now")
+                                .appendTo("#sign-form")
+                                .css({
+                                    "position": "absolute",
+                                    "height": $("#sign-form").height()+"px",
+                                    "line-height": $("#sign-form").height()+"px",
+                                    "width": $("#sign-form").width()+"px",
+                                    "background-color": "#f5f5f5",
+                                    "top": "0px",
+                                    "left": "0px",
+                                    "text-align": "center",
+                                    // #### to improve
+                                });
                         }
                     }
-                });*/
-                $("<div id='sign-up-success'></div>")
-                    .text("Congratulations!  Sign up succeeded, please login now")
-                    .appendTo("#sign-form")
-                    .css({
-                        "position": "absolute",
-                        "height": $("#sign-form").height()+"px",
-                        "line-height": $("#sign-form").height()+"px",
-                        "width": $("#sign-form").width()+"px",
-                        "background-color": "#f5f5f5",
-                        "top": "0px",
-                        "left": "0px",
-                        "text-align": "center",
-                        // #### to improve
-                    });
+                });
+
             }
             else {
                 $("#pwdnotmatch").fadeIn();
