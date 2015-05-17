@@ -1,10 +1,10 @@
-Hello,
+Hello, ${order.order.name}
 <pre>
 This is a message from Importadora Bacco.
-There is an new order.
+Thank you for commit order on www.importadorabacco.com
 </pre>
 
-Order Info:
+Here is the detail for your order:
 <pre>
     Name: ${order.order.name}
     Mobile: ${order.order.mobile}

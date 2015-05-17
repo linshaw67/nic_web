@@ -26,6 +26,9 @@ public class EmailServiceImpl extends BaseService implements EmailService {
     @Value("${email.order.subject}")
     private String EMAIL_ORDER_SUBJECT;
 
+    @Value("${email.order.customer.subject}")
+    private String EMAIL_ORDER_CUSTOMER_SUBJECT;
+
     @Value("${email.register.subject}")
     private String EMAIL_REGISTER_SUBJECT;
 
@@ -74,9 +77,14 @@ public class EmailServiceImpl extends BaseService implements EmailService {
         data.put("order", orderInfo);
         data.put("host", HOST);
         String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "order_email.vm", "UTF-8", data);
-        sendHtmlEmail(EMAIL_ORDER_SUBJECT, content, orderInfo.getOrder().getEmail());
+        sendHtmlEmail(EMAIL_ORDER_SUBJECT, content, SENDER_USERNAME);
+        logger.info("op=sendOrderEmail to host success, oid={}", orderInfo.getOrder().getId());
 
-        logger.info("op=sendOrderEmail success, oid={}", orderInfo.getOrder().getId());
+        String content4Customer = VelocityEngineUtils
+                .mergeTemplateIntoString(velocityEngine, "order_email_customer.vm", "UTF-8", data);
+        sendHtmlEmail(EMAIL_ORDER_CUSTOMER_SUBJECT, content4Customer, orderInfo.getOrder().getEmail());
+
+        logger.info("op=sendOrderEmail to customer success, oid={}", orderInfo.getOrder().getId());
     }
 
     @Override
