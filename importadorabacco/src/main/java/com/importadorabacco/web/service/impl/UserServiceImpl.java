@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 @Service
 public class UserServiceImpl extends BaseService implements UserService {
     private final static int TOKEN_EXPIRE_TIME = 3600 * 1000 * 48; // 2 days
-    private Pattern illegalCharPattern = Pattern.compile("[^\\w\\.@]");
+    private final static Pattern illegalCharPattern = Pattern.compile("[^\\w\\.@-]");
 
     @Override
     public User authorize(String email, String password) {
