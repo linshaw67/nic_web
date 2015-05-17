@@ -31,6 +31,7 @@
         <div id="s4"></div>
     </div>
     <div id="home1" style="height: 975px; background-position: 50% -121.9px;">
+        <div id="toppanel"><span id="sign">log in</span> <span id="cart">cart</span></div>
         <ul class="nav">
             <li class="leftli"><a>HOME</a></li>
             <li class="rightli"><a>CONTACT US</a></li>
@@ -123,4 +124,45 @@
         </div>
     </div>
 
-</div><div id="feedly-mini" title="feedly Mini tookit"></div></body><div></div></html>
+</div><div id="feedly-mini" title="feedly Mini tookit"></div>
+    <div id="sign-box">
+        <div id="sign-switch-panel">
+            <div id="sign-in">SIGN IN</div>
+            <div id="sign-line">|</div>
+            <div id="sign-up">SIGN UP</div>
+            <div class="clear"></div>
+        </div>
+        <div id="sign-form">
+            <div id="sign-info">
+                <div id="sign-up-entries">
+                    <div id="sign-e-mail">E-MAIL ADDRESS</div>
+                    <div id="sign-password">PASSWORD</div>
+                    <div id="sign-password-confirm">PASSWORD CONFIRM</div>
+                </div>
+                <div id="sign-up-inputs">
+                    <input type="text"/>
+                    <input type="password"/>
+                    <input id="sign-passwd-confirm" type="password"/>
+                </div>
+                <div id="sign-in-entries">
+                    <div id="sign-e-mail">E-MAIL ADDRESS</div>
+                    <div id="sign-password">PASSWORD</div>
+                </div>
+                <div id="sign-in-inputs">
+                    <input type="text"/>
+                    <input type="password"/>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="sign-submit">
+                SIGN IN
+            </div>
+            <div class="sign-alert" id="loginfail">
+                wrong account, please try again
+            </div>
+            <div class="sign-alert" id="pwdnotmatch">
+                passwords do no match, please check
+            </div>
+        </div>
+    </div>
+</body><div></div></html>

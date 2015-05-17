@@ -71,10 +71,15 @@ table {
     font-family: "Baskerville";
     src: url("/font/baskvl.ttf");
 }
+
+/* sign box*/
 #sign-box{
     width: 680px;
     height: 500px;
     font-family: "Trajan Pro Regular";
+    display: none;
+    position: absolute;
+    box-shadow: 0px 0px 20px #222;
 }
 #sign-switch-panel{
     background-color: #eae2d3;
@@ -140,6 +145,7 @@ table {
     float: left;
     margin-left: 70px;
     margin-top: 120px;
+    font-family: "Trajan Pro Bold";
 }
 #sign-in-entries div{
     font-size: 20px;
@@ -168,3 +174,29 @@ table {
     font-size: 22px;
     cursor: pointer;
 }
+.sign-alert{
+    text-align:center;
+    position:relative;
+    bottom: 88px;
+    display: none;
+}
+#toppanel{
+    position: absolute;
+    top: 12px;
+    right:10px;
+    color: white;
+    font-family: "Trajan Pro Regular";
+    color: #d5c595;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+/* toppanel */
+#toppanel span{
+    cursor: pointer;
+}
+#sign{
+    margin-right: 10px;
+}
+
+

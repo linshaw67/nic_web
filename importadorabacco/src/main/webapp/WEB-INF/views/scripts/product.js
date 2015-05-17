@@ -54,7 +54,7 @@ function productClick(){
                             "top": "0px",
                             "left": "0px",
                             "background-color": "#000",
-                            "opacity": "0.15",
+                            "opacity": "0.25",
                             "z-index": "10"
                         })
                         .click(function(){
