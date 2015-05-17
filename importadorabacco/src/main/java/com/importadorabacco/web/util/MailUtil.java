@@ -63,6 +63,7 @@ public class MailUtil {
     public boolean sendSingleHtmlMail(MailPush mail) {
         try {
             HtmlEmail email = new HtmlEmail();
+            email.setSSLOnConnect(true);
             email.setHostName(mail.getServerAddress());
             email.setAuthentication(mail.getSenderUsername(), mail.getSenderPassword());
             email.setCharset(mail.getCharset());

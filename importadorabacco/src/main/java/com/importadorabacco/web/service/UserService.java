@@ -34,4 +34,20 @@ public interface UserService {
      * @return success or not
      */
     boolean verify(Long uid, String token);
+
+    /**
+     * Judge if user exists
+     *
+     * @param uid user id
+     * @return exists or not
+     */
+    boolean isUserExists(Long uid);
+
+    /**
+     * Judge if user exists
+     *
+     * @param email email
+     * @return exists or not
+     */
+    boolean isUserExists(String email);
 }

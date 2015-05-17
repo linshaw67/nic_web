@@ -8,9 +8,11 @@ import com.importadorabacco.web.model.UserCart;
 import com.importadorabacco.web.model.domain.CartProductInfo;
 import com.importadorabacco.web.service.BaseService;
 import com.importadorabacco.web.service.CartService;
+import com.importadorabacco.web.service.UserService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,6 +20,9 @@ import java.util.List;
  */
 @Service
 public class CartServiceImpl extends BaseService implements CartService {
+    @Resource
+    private UserService userService;
+
     @Override
     public List<CartProductInfo> query(Long userId) {
         logger.info("op=queryCart, userId={}", userId);
@@ -44,6 +49,10 @@ public class CartServiceImpl extends BaseService implements CartService {
     public boolean add(UserCart userCart) {
         logger.info("op=addCart, userCart={}", userCart);
         Preconditions.checkNotNull(userCart);
+
+        if (!userService.isUserExists(userCart.getUserId())) {
+            return false;
+        }
 
         List<UserCart> userCarts = userCartDao.select(userCart);
         UserCart curUserCart;

@@ -95,6 +95,24 @@ public class UserServiceImpl extends BaseService implements UserService {
         return true;
     }
 
+    @Override
+    public boolean isUserExists(Long uid) {
+        if (uid == null) {
+            return false;
+        }
+        User user = userDao.selectById(uid);
+        return user != null && user.isActive();
+    }
+
+    @Override
+    public boolean isUserExists(String email) {
+        if (StringUtils.isBlank(email)) {
+            return false;
+        }
+        User user = userDao.selectByEmail(email);
+        return user != null && user.isActive();
+    }
+
     public static void main(String[] a) {
         String salt = BCrypt.gensalt();
         String hash = BCrypt.hashpw("123456789", salt);
