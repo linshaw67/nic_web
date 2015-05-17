@@ -15,7 +15,13 @@
     <!-- properties -->
     <context:property-placeholder location="classpath:properties/*.properties" ignore-unresolvable="true" />
 
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="5"/>
+        <property name="maxPoolSize" value="10"/>
+    </bean>
+
     <import resource="spring-dao.xml"/>
     <import resource="spring-email.xml"/>
+    <!--<import resource="spring-security.xml"/>-->
 
 </beans>

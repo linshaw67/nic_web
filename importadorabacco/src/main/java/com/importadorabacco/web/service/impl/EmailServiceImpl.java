@@ -9,6 +9,7 @@ import com.importadorabacco.web.service.EmailService;
 import com.importadorabacco.web.util.MailUtil;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
@@ -20,6 +21,9 @@ import java.util.Map;
  */
 @Service
 public class EmailServiceImpl extends BaseService implements EmailService {
+    @Resource
+    private TaskExecutor taskExecutor;
+
     @Resource
     private VelocityEngine velocityEngine;
 
@@ -52,17 +56,22 @@ public class EmailServiceImpl extends BaseService implements EmailService {
 
     @Override
     public void sendHtmlEmail(String subject, String content, String toAddresses) {
-        MailPush mail = new MailPush();
-        mail.setCharset("UTF-8");
-        mail.setContent(content);
-        mail.setEmailSource(EMAIL_SOURCE);
-        mail.setSenderAddress(SENDER_ADDRESS);
-        mail.setSenderUsername(SENDER_USERNAME);
-        mail.setSenderPassword(SENDER_PASSWORD);
-        mail.setServerAddress(SMTP_SERVER);
-        mail.setSubject(subject);
-        mail.setToAddresses(toAddresses);
-        MailUtil.getInstance().sendHtmlMail(mail);
+        taskExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                MailPush mail = new MailPush();
+                mail.setCharset("UTF-8");
+                mail.setContent(content);
+                mail.setEmailSource(EMAIL_SOURCE);
+                mail.setSenderAddress(SENDER_ADDRESS);
+                mail.setSenderUsername(SENDER_USERNAME);
+                mail.setSenderPassword(SENDER_PASSWORD);
+                mail.setServerAddress(SMTP_SERVER);
+                mail.setSubject(subject);
+                mail.setToAddresses(toAddresses);
+                MailUtil.getInstance().sendHtmlMail(mail);
+            }
+        });
     }
 
     @Override
