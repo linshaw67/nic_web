@@ -8,6 +8,7 @@
     <script src="/js/jquery-1.11.2.min.js"></script>
     <script src="/js/jquery.smooth-scroll.js"></script>
     <script src="/js/product.js"></script>
+    <script src="/js/general.js"></script>
 </head>
 <body>
     <div id="pbanner">
@@ -48,6 +49,7 @@
         <div class="panel">
             <div class="pselection"></div>
             <img class="arrow" src="/image/arrow.png"/>
+            <div></div>
             <ul class="categories">
                 <li data-catId="1"><a>Olio di Semi</a></li>
                 <li>|</li>
@@ -115,6 +117,40 @@
             <div id="product-desc"></div>
         </div>
         <div class="clear"></div>
+    </div>
+    <div id="sign-box">
+        <div id="sign-switch-panel">
+            <div id="sign-in">SIGN IN</div>
+            <div id="sign-line">|</div>
+            <div id="sign-up">SIGN UP</div>
+            <div class="clear"></div>
+        </div>
+        <div id="sign-form">
+            <div id="sign-info">
+                <div id="sign-up-entries">
+                    <div id="sign-e-mail">E-MAIL ADDRESS</div>
+                    <div id="sign-password">PASSWORD</div>
+                    <div id="sign-password-confirm">PASSWORD CONFIRM</div>
+                </div>
+                <div id="sign-up-inputs">
+                    <input type="text"/>
+                    <input type="password"/>
+                    <input id="sign-passwd-confirm" type="password"/>
+                </div>
+                <div id="sign-in-entries">
+                    <div id="sign-e-mail">E-MAIL ADDRESS</div>
+                    <div id="sign-password">PASSWORD</div>
+                </div>
+                <div id="sign-in-inputs">
+                    <input type="text"/>
+                    <input type="password"/>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="sign-submit">
+                SIGN IN
+            </div>
+        </div>
     </div>
 </body>
 </html>

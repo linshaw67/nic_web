@@ -71,3 +71,100 @@ table {
     font-family: "Baskerville";
     src: url("/font/baskvl.ttf");
 }
+#sign-box{
+    width: 680px;
+    height: 500px;
+    font-family: "Trajan Pro Regular";
+}
+#sign-switch-panel{
+    background-color: #eae2d3;
+    height: 70px;
+}
+#sign-in{
+    float: left;
+    font-family: "Trajan Pro Bold";
+    font-size: 22px;
+    line-height: 70px;
+    margin-left: 50px;
+    position: relative;
+    top: 2px;
+}
+#sign-line{
+    float: left;
+    line-height: 70px;
+    font-size: 22px;
+    margin-left: 15px;
+}
+#sign-up{
+    float: left;
+    color: #d1a867;
+    font-size: 20px;
+    line-height: 70px;
+    margin-left: 15px;
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+}
+#sign-form{
+    background-color: #f5f5f5;
+    height: 430px;
+}
+#sign-info{
+    height: 330px;
+    overflow: hidden;
+}
+#sign-up-entries{
+    float: left;
+    margin-left: 70px;
+    margin-top: 70px;
+    font-family: "Trajan Pro Bold";
+    display: none;
+}
+#sign-up-entries div{
+    margin-bottom: 70px;
+}
+#sign-up-inputs{
+    float: left;
+    margin-left: 35px;
+    margin-top: 53px;
+    display: none;
+}
+#sign-up-inputs input{
+    display: block;
+    height: 35px;
+    width: 280px;
+    margin-bottom: 45px;
+    font-size: 20px;
+}
+#sign-in-entries{
+    float: left;
+    margin-left: 70px;
+    margin-top: 120px;
+}
+#sign-in-entries div{
+    font-size: 20px;
+    margin-bottom: 90px;
+}
+#sign-in-inputs{
+    float: left;
+    margin-left:35px;
+    margin-top: 95px;
+}
+#sign-in-inputs input{
+    display: block;
+    height: 45px;
+    width: 280px;
+    margin-bottom: 68px;
+    font-size: 20px;
+}
+#sign-submit{
+    width: 180px;
+    height: 50px;
+    color: #d1a867;
+    background-color: #eae2d3;
+    margin: auto;
+    text-align: center;
+    line-height: 50px;
+    font-size: 22px;
+    cursor: pointer;
+}
