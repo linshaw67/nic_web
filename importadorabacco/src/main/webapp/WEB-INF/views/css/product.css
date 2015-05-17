@@ -12,7 +12,7 @@ body{
 }
 #pbanner .nav{
     position: relative;
-    top: 6%;
+    top: 55px;
     width: 73.5%;
     margin: auto;
 }
@@ -209,6 +209,7 @@ body{
     height: 720px;
     background-color: #f5f5f5;
     display: none;
+    box-shadow: 0px 0px 20px #222;
 }
 #product-left{
     margin-top: 60px;
