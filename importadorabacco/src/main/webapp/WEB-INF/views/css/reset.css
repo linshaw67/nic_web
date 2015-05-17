@@ -142,6 +142,7 @@ table {
     width: 280px;
     margin-bottom: 45px;
     font-size: 20px;
+    fant-family: "Trajan Pro Regular";
 }
 #sign-in-entries{
     float: left;
@@ -164,6 +165,7 @@ table {
     width: 280px;
     margin-bottom: 68px;
     font-size: 20px;
+    fant-family: "Trajan Pro Regular";
 }
 #sign-submit{
     width: 180px;
@@ -194,11 +196,12 @@ table {
 }
 
 /* toppanel */
-#toppanel span{
+#sign, #username, #logout, #cart{
     cursor: pointer;
-}
-#sign{
     margin-right: 10px;
+}
+#logout, #username{
+    display: none;
 }
 
 

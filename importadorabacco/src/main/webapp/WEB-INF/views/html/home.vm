@@ -32,7 +32,7 @@
         <div id="s4"></div>
     </div>
     <div id="home1" style="height: 975px; background-position: 50% -121.9px;">
-        <div id="toppanel"><span id="sign">log in</span> <span id="cart">cart</span></div>
+        <div id="toppanel"><span id="sign">log in</span><span id="username"></span><span id="logout">log out</span></span> <span id="cart">cart</span></div>
         <ul class="nav">
             <li class="leftli"><a>HOME</a></li>
             <li class="rightli"><a>CONTACT US</a></li>
