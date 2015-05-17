@@ -17,7 +17,7 @@
 * response: product page
 
 ## login
-* url: `/login`
+* url: `/user/login`
 * method: post
 * param
 
@@ -36,7 +36,7 @@
 ```
 
 ## register
-* url: `/register`
+* url: `/user/register`
 * method: post
 * param
 
