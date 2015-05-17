@@ -1,3 +1,5 @@
+
+
 function toSignIn(){
     $("#sign-in-entries").fadeIn();
     $("#sign-in-inputs").fadeIn();
@@ -48,7 +50,7 @@ function toSignUp(){
 $(document).ready(function(){
     $("#sign-up").on("click",toSignUp);
     $("#sign-submit").click(function(){
-        if ($(this).text() == "SIGN IN"){
+        if ($(this).text().indexOf("SIGN IN") >= 0){
             $.ajax({
                 method: "post",
                 url: "./user/login",
@@ -63,11 +65,14 @@ $(document).ready(function(){
                     else if (response["status"] == 0){
                         $("#sign-box").hide();
                         $("#screen-cover").remove();
+                        $("#sign").hide();
+                        $("#logout").show();
+                        #("#username").text()
                     }
                 }
             })
         }
-        else if ($(this).text() == "SIGN UP"){
+        else if ($(this).text().indexOf("SIGN UP") >= 0){
             if ($("#sign-up-inputs input[type=password]").eq(0).val() == $("#sign-up-inputs input[type=password]").eq(1).val()){
                 $.ajax({
                     method: "post",
