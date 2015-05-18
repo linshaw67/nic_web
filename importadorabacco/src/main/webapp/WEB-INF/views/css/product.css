@@ -206,13 +206,13 @@ body{
 
 #popup-detail{
     width: 800px;
-    height: 720px;
+    height: 660px;
     background-color: #f5f5f5;
     display: none;
     box-shadow: 0px 0px 20px #222;
 }
 #product-left{
-    margin-top: 60px;
+    margin-top: 15px;
     margin-left:15px;
 }
 #product-left, #product-detail{
@@ -276,8 +276,12 @@ body{
     border: 2px solid #444;
     cursor: pointer;
 }
+#add-response{
+    float: right;
+    margin-top:10px;
+}
 #product-detail{
-    margin-top: 60px;
+    margin-top: 15px;
     width: 420px;
 }
 #product-name{
@@ -286,3 +290,4 @@ body{
     font-family: "Garamond";
     color: #d5c595;
 }
+

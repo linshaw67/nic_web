@@ -2,16 +2,27 @@ function logoutState(){
     $("#sign").show();
     $("#username").hide();
     $("#logout").hide();
+    userid = -1;
 }
 
 function loginState(username){
     $("#username").show().text("Hi, " + username);
     $("#logout").show();
     $("#sign").hide();
+    var cookie = document.cookie.split("; ");
+    for (i=0;i<cookie.length;i++){
+        if (cookie[i].startsWith("i=")){
+            userid = cookie[i].slice(cookie[i].indexOf("=") + 1, cookie[i].length)
+            break;
+        }
+    }
 }
 
 function logout(){
     document.cookie = "u=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    document.cookie = "i=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    document.cookie = "t=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    document.cookie = "l=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     logoutState();
 }
 
@@ -79,6 +90,12 @@ function toSignUp(){
 $(document).ready(function(){
     $("#logout").click(logout);
     $("#sign-up").on("click",toSignUp);
+    $("#sign-passwd-confirm, #sign-in-inputs input[type=password]").keypress(function(e){
+        if (e.which == 13) {
+            e.preventDefault();
+            $("#sign-submit").trigger("click");
+        }
+    });
     $("#sign-submit").click(function(){
         if ($(this).text().indexOf("SIGN IN") >= 0){
             $.ajax({
@@ -94,7 +111,7 @@ $(document).ready(function(){
                     }
                     else if (response["status"] == 0){
                         $("#sign-box").hide();
-                        $("#screen-cover").remove();
+                        $(".screen-cover").remove();
                         cookieCheck();
                     }
                 }
@@ -144,6 +161,7 @@ $(document).ready(function(){
     });
     $("#sign").click(function(){
         // #### to solve: last infomartion entered
+        $("#sign-box input").val("");
         $("#sign-box")
             .fadeIn()
             .css({
@@ -151,7 +169,7 @@ $(document).ready(function(){
                 "left": ($("body").width() - $("#sign-box").width())/2 + "px",
                 "z-index": "11"
             });
-        $("<div id='screen-cover'></div>")
+        $("<div class='screen-cover'></div>")
             .appendTo("body")
             .css({
                 "width": $("body").width() + "px",
@@ -170,15 +188,30 @@ $(document).ready(function(){
             });
     });
     $("#cart").click(function(){
-        $.ajax({
-            method: "post",
-            url: "./cart",
-            data: {
-                userId: 1
-            },
-            success: function(response){
+        if (userid != -1){
+            $.ajax({
+                method: "get",
+                url: "./cart",
+                data: {
+                    userId: userid,
+                },
+                success: function(response){
+                    if (response["status"] == 0){
 
-            }
-        });
+                    }
+                    else if (response["status"] == -2){
+                        $("#sign").trigger("click");
+                    }
+                }
+            });
+        }
+        else{
+            $("#sign").trigger("click");
+        }
+    });
+    $("#sign-box .closepic").click(function(){
+        $(".screen-cover").remove();
+        $("#sign-up-success").remove();
+        $("#sign-box").hide();
     });
 });

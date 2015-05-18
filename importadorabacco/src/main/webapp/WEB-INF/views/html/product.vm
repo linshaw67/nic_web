@@ -103,6 +103,7 @@
         </div>
     </div>
     <div id="popup-detail">
+        <img class="closepic" src="./image/close.jpg">
         <div id="product-left">
             <img id="product-big-image" src="./image/demowine.png"/>
             <div id="product-cart-panel">
@@ -116,6 +117,8 @@
                 <div id="qty">Qty : </div>
                 <div class="clear"></div>
             </div>
+            <div id="add-response"></div>
+            <div class="clear"></div>
         </div>
         <div id="product-detail">
             <div id="product-name"></div>
@@ -124,6 +127,7 @@
         <div class="clear"></div>
     </div>
     <div id="sign-box">
+        <img class="closepic" src="./image/close.jpg">
         <div id="sign-switch-panel">
             <div id="sign-in">SIGN IN</div>
             <div id="sign-line">|</div>

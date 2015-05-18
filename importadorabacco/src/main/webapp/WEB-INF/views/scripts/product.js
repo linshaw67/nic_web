@@ -27,16 +27,18 @@ function createCat(cat){
 };
 
 function productClick(){
+    $("#add-response").hide();
     for (i=0;i<gdata["data"].length;i++){
         if (gdata["data"][i]["catId"] == $(this).data("catId")){
             var cat = gdata["data"][i];
             for (j=0;j<cat["products"].length;j++){
                 if (cat["products"][j]["productId"] == $(this).data("productId")){
-                    $("#popup-detail").attr("data-productId",$(this).data("productId"));
+                    var tmpId = $(this).data("productId");
+                    $("#popup-detail").data("productId",tmpId);
                     $("#product-big-image").attr("src", cat["products"][j]["imageUrl"]);
                     $("#product-name").text(cat["products"][j]["productName"]);
                     $("#product-price span").text("$"+cat["products"][j]["price"]);
-                    $("#qty-number").text("0");
+                    $("#qty-number").text("1");
                     $("#popup-detail")
                         .fadeIn()
                         .css({
@@ -45,7 +47,7 @@ function productClick(){
                             "left": ($("body").width() - $("#popup-detail").width())/2 + "px",
                             "z-index": "11"
                         });
-                    $("<div></div>")
+                    $("<div class='screen-cover'></div>")
                         .appendTo("body")
                         .css({
                             "width": $("body").width() + "px",
@@ -125,22 +127,32 @@ $(document).ready(function(){
         $("#qty-number").text(parseInt($("#qty-number").text())+1);
     });
     $("#qty-control img").eq(1).click(function(){
-        $("#qty-number").text(Math.max(parseInt($("#qty-number").text())-1,0));
+        $("#qty-number").text(Math.max(parseInt($("#qty-number").text())-1,1));
     });
     $("#add-to-cart").click(function(){
         $.ajax({
             method: "post",
             url: "./cart/add",
             data: {
-                //userID:
+                userId: userid,
                 productId: $("#popup-detail").data("productId"),
                 quantity: $("#qty-number").text()
             },
             success: function(response){
                 if (response["status"] == 0){
-
+                    $("#add-response").show().text("Succeed!");
                 }
+                else if (response["status"] == -1){
+                    alert(response["msg"]);
+                    }
+                    else if (response["status"] == -2){
+                        $("#add-response").show().text("Please log in!");
+                    }
             }
         });
+    });
+    $("#popup-detail .closepic").click(function(){
+        $(".screen-cover").remove();
+        $("#popup-detail").hide();
     });
 });
