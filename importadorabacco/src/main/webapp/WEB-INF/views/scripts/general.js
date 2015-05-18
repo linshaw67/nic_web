@@ -197,6 +197,91 @@ $(document).ready(function(){
                 },
                 success: function(response){
                     if (response["status"] == 0){
+                        $("<div id='cart-popup'>" +
+                            "<img class='closepic' src='./image/close.jpg'>" +
+                            "<div id='order-title'>My Order</div>" +
+                            "<div id='cart-line'></div>" +
+                            "<ul id='order-list'></ul>" +
+                            "<div id='cart-line'></div>" +
+                            "<div id='ship'>" +
+                                "\
+                                <ul id='ship-info'>\
+                                    <li>Name:</li>\
+                                    <li>Phone Number:</li>\
+                                    <li>Address Line 1:</li>\
+                                    <li>Address Line 2:</li>\
+                                    <li>City:</li>\
+                                    <li>Zip Code:</li>\
+                                 </ul>\
+                                 <div id='ship-inputs'>\
+                                     <input id='ship-name' type='text'>\
+                                     <input id='ship-phone' type='text'>\
+                                     <input id='ship-addr1' type='text'>\
+                                     <input id='ship-addr2' type='text'>\
+                                     <input id='ship-city' type='text'>\
+                                     <input id='ship-zcode' type='text'>\
+                                 </div>\
+                                 <div id='order-submit'>Submit</div>\
+                                 <div id='order-response'>Submission Succeed!</div>\
+                                 <div class='clear'></div>\
+                                 " +
+                            "</div>" +
+                          "</div>")
+                            .appendTo("body")
+                            .css({
+                                "position": "absolute",
+                                "top": $(window).scrollTop() + Math.max(($(window).height() - $("#cart-popup").height())/2,40) + "px",
+                                "left": ($("body").width() - $("#cart-popup").width())/2 + "px",
+                                "z-index": "11"
+                            });
+                        for (i=0; i<response["data"].length;i++){
+                            p = response["data"][i];
+                            $("<li><span class='cartPName'>"+ p["productName"] +
+                                "</span>" + "<span class='cartPrice'>Price:</span><span class='cartPPrice'>"+ p["price"] + "</span>" +
+                                "<span class='cartQty'>Qty:</span><span class='cartPqty'>" +
+                                p["quantity"] + "</span></li>").appendTo("#order-list");
+                        }
+                        $("#cart-popup .closepic").click(function(){
+                            $(".screen-cover").remove();
+                            $("#cart-popup").remove();
+                        });
+                        $("#order-submit").click(function(){
+                            $.ajax({
+                                method: "post",
+                                url: "./cart/commit",
+                                contentType: "application/json",
+                                data:{
+                                    userId: userid,
+                                    name: $("#ship-name").val(),
+                                    mobile: $("#ship-phone").val(),
+                                    address: $("#ship-addr1").val() + '\n' + $("#ship-addr2").val(),
+                                    city: $("#ship-city").val(),
+                                    email: "bywind67@gmail.com",
+                                    zipCode: $("#ship-zcode").val()
+                                },
+                                success: function(response){
+                                    if (response["status"] == 0){
+                                        $("#order-response").show().text("Submission Succeed!")
+                                    }
+                                }
+                            });
+                        })
+                        $("<div class='screen-cover'></div>")
+                            .appendTo("body")
+                            .css({
+                                "width": $("body").width() + "px",
+                                "height": $("body").height() + "px",
+                                "position": "absolute",
+                                "top": "0px",
+                                "left": "0px",
+                                "background-color": "#000",
+                                "opacity": "0.25",
+                                "z-index": "10"
+                            })
+                            .click(function(){
+                                $(this).remove();
+                                $("#cart-popup").remove();
+                            });
 
                     }
                     else if (response["status"] == -2){
