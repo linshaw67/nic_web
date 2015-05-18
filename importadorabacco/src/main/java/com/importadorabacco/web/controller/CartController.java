@@ -49,6 +49,7 @@ public class CartController {
      * @param userId userId
      * @return products in user cart
      */
+    @Security
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
     public ApiResp get(@RequestParam("userId") Long userId) {
