@@ -79,7 +79,8 @@ table {
     font-family: "Trajan Pro Regular";
     display: none;
     position: absolute;
-    box-shadow: 0px 0px 20px #222;
+    box-shadow: 0px 0px 20px white;
+    opacity: 0.95;
 }
 #sign-switch-panel{
     background-color: #eae2d3;
@@ -188,20 +189,28 @@ table {
     position: absolute;
     top: 12px;
     right:10px;
-    color: white;
     font-family: "Trajan Pro Regular";
     color: #d5c595;
     text-transform: capitalize;
     font-size: 14px;
 }
+#username{
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    color: #d5c595;
+    font-family: "Garamond";
+    font-size: 16px;
+}
 
 /* toppanel */
-#sign, #username, #logout, #cart{
+#sign, #logout, #cart{
     cursor: pointer;
     margin-right: 10px;
 }
-#logout, #username{
+#sign, #logout{
     display: none;
 }
+
 
 

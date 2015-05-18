@@ -12,7 +12,11 @@
 </head>
 <body>
     <div id="pbanner">
-        <div id="toppanel"><span id="sign">log in</span><span id="username"></span><span id="logout">log out</span></span> <span id="cart">cart</span></div>
+        <div id="username"></div>
+        <div id="toppanel"><span id="sign">log in</span> <span id="logout">log out</span></span> <span id="cart">cart</span></div>
+        <script>
+            cookieCheck();
+        </script>
         <ul class="nav">
             <li class="leftli"><a href="/home">HOME</a></li>
             <li class="rightli"><a>CONTACT US</a></li>

@@ -1,4 +1,33 @@
+function logoutState(){
+    $("#sign").show();
+    $("#username").hide();
+    $("#logout").hide();
+}
 
+function loginState(username){
+    $("#username").show().text("Hi, " + username);
+    $("#logout").show();
+    $("#sign").hide();
+}
+
+function logout(){
+    document.cookie = "u=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    logoutState();
+}
+
+function cookieCheck(){
+    if (document.cookie.indexOf("u=") > -1){
+        var cookie = document.cookie.split("; ");
+        for (i=0;i<cookie.length;i++){
+            if (cookie[i].startsWith("u=")){
+                username = cookie[i].slice(cookie[i].indexOf("=") + 2, cookie[i].indexOf("@"))
+                loginState(username);
+                return;
+            }
+        }
+    }
+    logoutState();
+}
 
 function toSignIn(){
     $("#sign-in-entries").fadeIn();
@@ -48,6 +77,7 @@ function toSignUp(){
     $("#sign-submit").text("SIGN UP");
 };
 $(document).ready(function(){
+    $("#logout").click(logout);
     $("#sign-up").on("click",toSignUp);
     $("#sign-submit").click(function(){
         if ($(this).text().indexOf("SIGN IN") >= 0){
@@ -65,9 +95,7 @@ $(document).ready(function(){
                     else if (response["status"] == 0){
                         $("#sign-box").hide();
                         $("#screen-cover").remove();
-                        $("#sign").hide();
-                        $("#logout").show();
-                        #("#username").text()
+                        cookieCheck();
                     }
                 }
             })
@@ -87,7 +115,7 @@ $(document).ready(function(){
                         }
                         else if (response["status"] == 0){
                             $("<div id='sign-up-success'></div>")
-                                .text("Congratulations!  Sign up succeeded, please login now")
+                                .text("Congratulations!  Sign up succeeded, please go to confirm your e-mail address")
                                 .appendTo("#sign-form")
                                 .css({
                                     "position": "absolute",
