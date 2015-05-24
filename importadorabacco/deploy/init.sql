@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `order_cart` (
 
 
 INSERT INTO product (name, cat_id, cat_name, price, image_url, `desc`) VALUES
-  ("Olio di Arachide", 1, "Olio di Semi", 0, "/image/products/olio_di_semi/olio_di_arachide/mid.jpg", "demowine 1"),
+  ("Olio di Arachide", 1, "Olio di Semi", 0, "/image/products/Olio_di_Semi/Olio_di_Arachide/mid.jpg", "demowine 1"),
   ("Grana padano", 2, "Formaggi", 0, "/image/products/Formaggi/Grana_padano/mid.jpg", "demowine 2"),
   ("Parmigiano Reggiano", 2, "Formaggi", 0, "/image/products/Formaggi/Parmigiano_Reggiano/mid.jpg", "demowine 2"),
   ("Filetti di Acciughe sott’olio", 3, "Specialita", 0, "/image/products/Specialita/Filetti_di_Acciughe_sott_olio/mid.jpg", "demowine 2"),
