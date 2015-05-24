@@ -45,6 +45,7 @@ function toSignIn(){
     $("#sign-up-entries").hide();
     $("#sign-up-inputs").hide();
     $("#sign-up-success").remove();
+    $(".sign-alert").fadeOut();
     $("#sign-in")
         .css({
             "color": "#000",
@@ -68,6 +69,7 @@ function toSignUp(){
     $("#sign-in-inputs").hide();
     $("#sign-up-entries").fadeIn();
     $("#sign-up-inputs").fadeIn();
+    $(".sign-alert").fadeOut();
     $("#sign-up")
         .css({
             "color": "#000",
@@ -129,7 +131,7 @@ $(document).ready(function(){
                     },
                     success: function(response){
                         if (response["status"] == -1){
-                            // ####
+                            $("#user-exists").text(response["msg"]).show();
                         }
                         else if (response["status"] == 0){
                             $("<div id='sign-up-success'></div>")
@@ -255,9 +257,10 @@ $(document).ready(function(){
                                     userId: userid,
                                     name: $("#ship-name").val(),
                                     mobile: $("#ship-phone").val(),
-                                    address: $("#ship-addr1").val() + '\n' + $("#ship-addr2").val(),
+                                    address1: $("#ship-addr1").val(),
+                                    address2: $("#ship-addr2").val(),
                                     city: $("#ship-city").val(),
-                                    email: "bywind67@gmail.com",
+                                    email: "1@test.com",
                                     zipCode: $("#ship-zcode").val()
                                 }),
                                 success: function(response){
@@ -283,6 +286,21 @@ $(document).ready(function(){
                                 $(this).remove();
                                 $("#cart-popup").remove();
                             });
+                        $.ajax({
+                            method: "get",
+                            url: "/cart/lastOrder",
+                            data: {
+                                userId: userid
+                            },
+                            success: function(shipresponse){
+                                $("#ship-name").val(shipresponse["data"]["name"]);
+                                $("#ship-phone").val(shipresponse["data"]["mobile"]);
+                                $("#ship-addr1").val(shipresponse["data"]["address1"]);
+                                $("#ship-addr2").val(shipresponse["data"]["address2"]);
+                                $("#ship-city").val(shipresponse["data"]["city"]);
+                                $("#ship-zcode").val(shipresponse["data"]["zipCode"]);
+                            }
+                        });
 
                     }
                     else if (response["status"] == -2){

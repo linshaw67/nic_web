@@ -182,8 +182,10 @@ table {
 .sign-alert{
     text-align:center;
     position:relative;
-    bottom: 88px;
+    bottom: 82px;
     display: none;
+    font-size:18px;
+    font-family: "Garamond";
 }
 #toppanel{
     position: absolute;
@@ -227,7 +229,7 @@ table {
     right: 1px;
     padding-left: 2px;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.9;
     cursor: pointer;
     letter-spacing: 2px;
     line-height: 20px;
