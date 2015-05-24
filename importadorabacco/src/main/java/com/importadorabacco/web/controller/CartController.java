@@ -120,6 +120,30 @@ public class CartController {
     }
 
     /**
+     * get address of user last order
+     *
+     * @param userId userId
+     * @return address
+     */
+    @Security
+    @RequestMapping(value = "/lastAddr", method = RequestMethod.GET)
+    @ResponseBody
+    public ApiResp getLastAddress(@RequestParam("userId") Long userId,
+            @CookieValue(Cookies.UID) String cookieUid,
+            HttpServletResponse response) {
+        if (userId == null) {
+            return ApiResp.failed("param error");
+        }
+        if (!isCurrentUser(userId, cookieUid)) {
+            securityContext.logout(response);
+            return ApiResp.failed("user changed, please login again");
+        }
+
+        String lastAddr = orderService.getLastAddress(userId);
+        return new ApiResp<>(lastAddr);
+    }
+
+    /**
      * commit user cart
      *
      * @param commitOrderReq request order info
@@ -172,9 +196,9 @@ public class CartController {
         if (StringUtils.isBlank(commitOrderReq.getMobile())) {
             throw new BusinessException(-1, "mobile can not be empty");
         }
-//        if (StringUtils.isBlank(commitOrderReq.getEmail())) {
-//            throw new BusinessException(-1, "email can not be empty");
-//        }
+        //        if (StringUtils.isBlank(commitOrderReq.getEmail())) {
+        //            throw new BusinessException(-1, "email can not be empty");
+        //        }
         if (StringUtils.isBlank(commitOrderReq.getAddress())) {
             throw new BusinessException(-1, "address can not be empty");
         }

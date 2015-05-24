@@ -55,7 +55,8 @@ CREATE TABLE IF NOT EXISTS `user_order` (
   `zip_code` VARCHAR(32) NOT NULL DEFAULT '' COMMENT 'zip code',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY idx_user_id (`user_id`)
+  KEY idx_user_id (`user_id`),
+  KEY idx_create_time(`create_time`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'user order info';
 
 DROP TABLE IF EXISTS `order_cart`;

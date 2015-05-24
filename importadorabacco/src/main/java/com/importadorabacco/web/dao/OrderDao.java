@@ -11,4 +11,6 @@ public interface OrderDao {
     int insert(Order order);
 
     Order selectById(Long id);
+
+    Order queryUserLastOrder(Long userId);
 }

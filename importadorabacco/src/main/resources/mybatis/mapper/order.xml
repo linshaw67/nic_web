@@ -39,4 +39,8 @@
     <select id="selectById"  resultMap="orderResultMap" parameterType="java.lang.Long">
         select * from user_order where id = #{id} ;
     </select>
+
+    <select id="queryUserLastOrder"  resultMap="orderResultMap" parameterType="java.lang.Long">
+        select * from user_order where user_id = #{userId} order by create_time desc limit 1 ;
+    </select>
 </mapper>

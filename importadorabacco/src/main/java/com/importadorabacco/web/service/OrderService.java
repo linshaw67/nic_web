@@ -15,4 +15,12 @@ public interface OrderService {
      * @return order info
      */
     OrderInfo commitOrder(CommitOrderReq commitOrderReq) throws BusinessException;
+
+    /**
+     * get address of user last order
+     *
+     * @param userId userId
+     * @return address
+     */
+    String getLastAddress(Long userId);
 }

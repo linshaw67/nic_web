@@ -50,4 +50,15 @@ public class OrderServiceImpl extends BaseService implements OrderService {
 
         return orderInfo;
     }
+
+    @Override
+    public String getLastAddress(Long userId) {
+        logger.info("op=getLastAddress, userId={}", userId);
+        if (userId == null) {
+            return "";
+        }
+        Order lastOrder = orderDao.queryUserLastOrder(userId);
+        logger.info("op=getLastAddress, userId={}, lastOrder={}", userId, lastOrder);
+        return lastOrder != null ? lastOrder.getAddress() : "";
+    }
 }
