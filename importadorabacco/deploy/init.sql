@@ -73,10 +73,18 @@ CREATE TABLE IF NOT EXISTS `order_cart` (
 
 
 INSERT INTO product (name, cat_id, cat_name, price, image_url, `desc`) VALUES
-  ("product1", 1, "cat1", 1, "/image/demowine.png", "demowine 1"),
-  ("product2", 1, "cat1", 10, "/image/demowine.png", "demowine 2"),
-  ("product3", 2, "cat2", 1, "/image/demowine.png", "demowine 3"),
-  ("product4", 2, "cat2", 1, "/image/demowine.png", "demowine 4"),
-  ("product5", 2, "cat2", 1, "/image/demowine.png", "demowine 5"),
-  ("product6", 2, "cat2", 1, "/image/demowine.png", "demowine 6"),
-  ("product7", 3, "cat3", 1, "/image/demowine.png", "demowine 7");
+  ("Olio di Arachide", 1, "Olio di Semi", 0, "/image/products/olio_di_semi/olio_di_arachide/mid.jpg", "demowine 1"),
+  ("Grana padano", 2, "Formaggi", 0, "/image/products/Formaggi/Grana_padano/mid.jpg", "demowine 2"),
+  ("Parmigiano Reggiano", 2, "Formaggi", 0, "/image/products/Formaggi/Parmigiano_Reggiano/mid.jpg", "demowine 2"),
+  ("Filetti di Acciughe sott’olio", 3, "Specialita", 0, "/image/products/Specialita/Filetti_di_Acciughe_sott_olio/mid.jpg", "demowine 2"),
+  ("Aceto Balsamico di Modena IGP 'ORO NOBILE'", 4, "Aceti", 0, "/image/products/Aceti/Aceto_Balsamico_di_Modena_IGP_ORO_NOBILE_/mid.jpg", "demowine 2"),
+  ("Aceto Balsamico di Modena IGP 'TRESOR'", 4, "Aceti", 0, "/image/products/Aceti/Aceto_Balsamico_di_Modena_IGP_TRESOR_/mid.jpg", "demowine 2"),
+  ("Aceto di Vino Rosso 'Antica Madre'", 4, "Aceti", 0, "/image/products/Aceti/Aceto_di_Vino_Rosso_Antica_Madre_/mid.jpg", "demowine 2"),
+  ("Olio Extra Vergine di Oliva", 5, "Olio Di Oliva", 0, "/image/products/Olio_Di_Oliva/Olio_Extra_Vergine_di_Oliva/mid.jpg", "demowine 2"),
+  ("Olio Extra Vergine di Oliva 2", 5, "Olio Di Oliva", 0, "/image/products/Olio_Di_Oliva/Olio_Extra_Vergine_di_Oliva_2/mid.jpg", "demowine 2"),
+  ("Olio Extravergine di Oliva Taggiasca", 5, "Olio Di Oliva", 0, "/image/products/Olio_Di_Oliva/Olio_Extravergine_di_Oliva_Taggiasca/mid.jpg", "demowine 2"),
+  ("Lasgna liscia Napoletana", 6, "Pasta", 0, "/image/products/Pasta/Lasgna_liscia_Napoletana/mid.jpg", "demowine 1"),
+  ("Paccheri Lisci", 6, "Pasta", 0, "/image/products/Pasta/Paccheri_Lisci/mid.jpg", "demowine 1"),
+  ("Penne a Zita Rigate", 6, "Pasta", 0, "/image/products/Pasta/Penne_a_Zita_Rigate/mid.jpg", "demowine 1"),
+  ("Rigatoni", 6, "Pasta", 0, "/image/products/Pasta/Rigatoni/mid.jpg", "demowine 1");
+
