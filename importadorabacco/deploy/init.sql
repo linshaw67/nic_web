@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `importadora` CHARACTER SET 'utf8';
-use importadora;
+CREATE DATABASE IF NOT EXISTS `baccoimp_importadora` CHARACTER SET 'utf8';
+use baccoimp_importadora;
 
 DROP TABLE IF EXISTS `user_account`;
 CREATE TABLE IF NOT EXISTS `user_account` (
