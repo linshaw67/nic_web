@@ -250,7 +250,7 @@ $(document).ready(function(){
                                 method: "post",
                                 url: "./cart/commit",
                                 contentType: "application/json",
-                                data:{
+                                data:JSON.stringify({
                                     userId: userid,
                                     name: $("#ship-name").val(),
                                     mobile: $("#ship-phone").val(),
@@ -258,7 +258,7 @@ $(document).ready(function(){
                                     city: $("#ship-city").val(),
                                     email: "bywind67@gmail.com",
                                     zipCode: $("#ship-zcode").val()
-                                },
+                                }),
                                 success: function(response){
                                     if (response["status"] == 0){
                                         $("#order-response").show().text("Submission Succeed!")
