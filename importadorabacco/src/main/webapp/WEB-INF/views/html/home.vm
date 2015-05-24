@@ -32,8 +32,18 @@
         <div id="s4"></div>
     </div>
     <div id="home1" style="height: 975px; background-position: 50% -121.9px;">
-        <div id="username"></div>
-        <div id="toppanel"><span id="sign">log in</span> <span id="logout">log out</span></span> <span id="cart">cart</span></div>
+        <div id="toppanel">
+            <div id="sign">log in</div>
+            <div id="userinfo">
+                <div id="username"></div>
+                <img src="./image/deduct-qty.png">
+                <!--<span id="logout">log out</span>-->
+                <div class="clear"></div>
+                <div id="logout">logout</div>
+            </div>
+            <div id="cart">CART</div>
+            <div class="clear"></div>
+        </div>
         <script>
             cookieCheck();
         </script>

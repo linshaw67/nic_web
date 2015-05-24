@@ -37,7 +37,7 @@ function productClick(){
                     $("#popup-detail").data("productId",tmpId);
                     $("#product-big-image").attr("src", cat["products"][j]["imageUrl"]);
                     $("#product-name").text(cat["products"][j]["productName"]);
-                    $("#product-price span").text("$"+cat["products"][j]["price"]);
+                    //$("#product-price span").text("$"+cat["products"][j]["price"]);
                     $("#qty-number").text("1");
                     $("#popup-detail")
                         .fadeIn()
