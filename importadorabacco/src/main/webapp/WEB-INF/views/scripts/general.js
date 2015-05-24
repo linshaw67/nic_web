@@ -1,13 +1,12 @@
 function logoutState(){
     $("#sign").show();
-    $("#username").hide();
-    $("#logout").hide();
+    $("#userinfo").hide();
     userid = -1;
 }
 
 function loginState(username){
-    $("#username").show().text("Hi, " + username);
-    $("#logout").show();
+    $("#username").show().text(username);
+    $("#userinfo").show();
     $("#sign").hide();
     var cookie = document.cookie.split("; ");
     for (i=0;i<cookie.length;i++){
@@ -88,6 +87,8 @@ function toSignUp(){
     $("#sign-submit").text("SIGN UP");
 };
 $(document).ready(function(){
+    $("#userinfo img").on("mouseenter", function(){$("#logout").show();});
+    $("#userinfo").on("mouseleave", function(){$("#logout").hide();});
     $("#logout").click(logout);
     $("#sign-up").on("click",toSignUp);
     $("#sign-passwd-confirm, #sign-in-inputs input[type=password]").keypress(function(e){
@@ -237,7 +238,7 @@ $(document).ready(function(){
                         for (i=0; i<response["data"].length;i++){
                             p = response["data"][i];
                             $("<li><span class='cartPName'>"+ p["productName"] +
-                                "</span>" + "<span class='cartPrice'>Price:</span><span class='cartPPrice'>"+ p["price"] + "</span>" +
+                                "</span>" +
                                 "<span class='cartQty'>Qty:</span><span class='cartPqty'>" +
                                 p["quantity"] + "</span></li>").appendTo("#order-list");
                         }
