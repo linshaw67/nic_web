@@ -35,18 +35,8 @@
 }
 ```
 
-<<<<<<< Updated upstream
 ## register
 * url: `/user/register`
-=======
-<<<<<<< HEAD
-## product.vmster
-* url: `/register`
-=======
-## register
-* url: `/user/register`
->>>>>>> origin/1.0.0
->>>>>>> Stashed changes
 * method: post
 * param
 
@@ -191,6 +181,24 @@
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
     "data" : null
+}
+```
+
+## query user last address
+* url: `/cart/lastAddr`
+* method: get
+* param
+
+| name      | type   | example  |
+| --------- |:------:| --------:|
+| userId    | long   | 123      |
+
+* response:
+```javascript
+{
+    "status" : 0,  // 0 success, -1 failed
+    "msg" : "ok",
+    "data" : "MARS"
 }
 ```
 
