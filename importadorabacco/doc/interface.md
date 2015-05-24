@@ -184,8 +184,8 @@
 }
 ```
 
-## query user last address
-* url: `/cart/lastAddr`
+## query user last order
+* url: `/cart/lastOrder`
 * method: get
 * param
 
@@ -198,7 +198,18 @@
 {
     "status" : 0,  // 0 success, -1 failed
     "msg" : "ok",
-    "data" : "MARS"
+    "data" : {
+        "id" : 123,
+        "userId" : 123,
+        "name" : "name",
+        "mobile" : "mobile",
+        "email" : "email",,
+        "address1" : "address1",
+        "address2" : "address2",
+        "city" : "city",
+        "zip_code" : "zip_code",
+        "create_time" : "create_time"
+    }
 }
 ```
 
@@ -213,7 +224,8 @@
 | name      | string | true   | yukri    |
 | mobile    | string | true   | 123456   |
 | email     | string | true   | a@a.com  |
-| address   | string | true   | mars     |
+| address1  | string | true   | mars     |
+| address2  | string | true   | mars     |
 | city      | string | true   | town     |
 | zipCode   | string | true   | 123      |
 
@@ -224,7 +236,8 @@ request example
     "name" : "yukari",
     "mobile" : "12345678",
     "email" : "foo@email.com",
-    "address" : "mars",
+    "address1" : "mars",
+    "address2" : "mars",
     "city" : "san francisco",
     "zipCode" : "94101"
 }
@@ -242,7 +255,8 @@ request example
             "name" : "user",
             "mobile" : "123456",
             "email" : "user@email.com",
-            "address" : "mars",
+            "address1" : "mars",
+            "address2" : "mars",
             "city" : "san francisco",
             "zipCode" : "94101"
         },

@@ -9,7 +9,7 @@ Order Info:
     Name: ${order.order.name}
     Mobile: ${order.order.mobile}
     Email: ${order.order.email}
-    Address: ${order.order.address}
+    Address: ${order.order.address1}
     City: ${order.order.city}
     Zip Code: ${order.order.zipCode}
     Commit Time: ${order.order.createTime}

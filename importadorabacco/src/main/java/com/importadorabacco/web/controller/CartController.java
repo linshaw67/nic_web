@@ -1,6 +1,7 @@
 package com.importadorabacco.web.controller;
 
 import com.importadorabacco.web.exception.BusinessException;
+import com.importadorabacco.web.model.Order;
 import com.importadorabacco.web.model.User;
 import com.importadorabacco.web.model.UserCart;
 import com.importadorabacco.web.model.domain.ApiResp;
@@ -126,9 +127,9 @@ public class CartController {
      * @return address
      */
     @Security
-    @RequestMapping(value = "/lastAddr", method = RequestMethod.GET)
+    @RequestMapping(value = "/lastOrder", method = RequestMethod.GET)
     @ResponseBody
-    public ApiResp getLastAddress(@RequestParam("userId") Long userId,
+    public ApiResp getLastOrder(@RequestParam("userId") Long userId,
             @CookieValue(Cookies.UID) String cookieUid,
             HttpServletResponse response) {
         if (userId == null) {
@@ -139,8 +140,8 @@ public class CartController {
             return ApiResp.failed("user changed, please login again");
         }
 
-        String lastAddr = orderService.getLastAddress(userId);
-        return new ApiResp<>(lastAddr);
+        Order order = orderService.getLastOrder(userId);
+        return new ApiResp<>(order);
     }
 
     /**
@@ -199,13 +200,13 @@ public class CartController {
         //        if (StringUtils.isBlank(commitOrderReq.getEmail())) {
         //            throw new BusinessException(-1, "email can not be empty");
         //        }
-        if (StringUtils.isBlank(commitOrderReq.getAddress())) {
+        if (StringUtils.isBlank(commitOrderReq.getAddress1()) && StringUtils.isBlank(commitOrderReq.getAddress2())) {
             throw new BusinessException(-1, "address can not be empty");
         }
         if (StringUtils.isBlank(commitOrderReq.getCity())) {
             throw new BusinessException(-1, "city can not be empty");
         }
-        if (StringUtils.isBlank(commitOrderReq.getAddress())) {
+        if (StringUtils.isBlank(commitOrderReq.getAddress1())) {
             throw new BusinessException(-1, "email can not be empty");
         }
     }

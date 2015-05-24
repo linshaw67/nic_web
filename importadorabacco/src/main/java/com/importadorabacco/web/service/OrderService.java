@@ -1,6 +1,7 @@
 package com.importadorabacco.web.service;
 
 import com.importadorabacco.web.exception.BusinessException;
+import com.importadorabacco.web.model.Order;
 import com.importadorabacco.web.model.domain.CommitOrderReq;
 import com.importadorabacco.web.model.domain.OrderInfo;
 
@@ -22,5 +23,5 @@ public interface OrderService {
      * @param userId userId
      * @return address
      */
-    String getLastAddress(Long userId);
+    Order getLastOrder(Long userId);
 }

@@ -13,7 +13,8 @@ public class Order extends BaseData {
     private String name;
     private String mobile;
     private String email;
-    private String address;
+    private String address1;
+    private String address2;
     private String city;
     private String zipCode;
     private Timestamp createTime;
@@ -31,7 +32,8 @@ public class Order extends BaseData {
         order.setName(commitOrderReq.getName());
         order.setMobile(commitOrderReq.getMobile());
         order.setEmail(commitOrderReq.getEmail());
-        order.setAddress(commitOrderReq.getAddress());
+        order.setAddress1(commitOrderReq.getAddress1());
+        order.setAddress2(commitOrderReq.getAddress2());
         order.setCity(commitOrderReq.getCity());
         order.setZipCode(commitOrderReq.getZipCode());
         order.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -79,12 +81,20 @@ public class Order extends BaseData {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
     public String getCity() {

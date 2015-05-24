@@ -8,7 +8,8 @@
         <result property="name" column="name" />
         <result property="mobile" column="mobile" />
         <result property="email" column="email" />
-        <result property="address" column="address" />
+        <result property="address1" column="address1" />
+        <result property="address2" column="address2" />
         <result property="city" column="city" />
         <result property="zipCode" column="zip_code" />
         <result property="createTime" column="create_time" />
@@ -20,7 +21,8 @@
         name,
         mobile,
         email,
-        address,
+        address1,
+        address2,
         city,
         zip_code,
         create_time
@@ -29,7 +31,8 @@
         #{name},
         #{mobile},
         #{email},
-        #{address},
+        #{address1},
+        #{address2},
         #{city},
         #{zipCode},
         #{createTime}

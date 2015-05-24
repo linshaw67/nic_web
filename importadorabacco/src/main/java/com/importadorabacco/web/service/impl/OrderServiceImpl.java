@@ -52,13 +52,13 @@ public class OrderServiceImpl extends BaseService implements OrderService {
     }
 
     @Override
-    public String getLastAddress(Long userId) {
-        logger.info("op=getLastAddress, userId={}", userId);
+    public Order getLastOrder(Long userId) {
+        logger.info("op=getLastOrder, userId={}", userId);
         if (userId == null) {
-            return "";
+            return null;
         }
         Order lastOrder = orderDao.queryUserLastOrder(userId);
-        logger.info("op=getLastAddress, userId={}, lastOrder={}", userId, lastOrder);
-        return lastOrder != null ? lastOrder.getAddress() : "";
+        logger.info("op=getLastOrder, userId={}, lastOrder={}", userId, lastOrder);
+        return lastOrder;
     }
 }
