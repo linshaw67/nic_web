@@ -134,19 +134,23 @@ $(document).ready(function(){
                             $("#user-exists").text(response["msg"]).show();
                         }
                         else if (response["status"] == 0){
-                            $("<div id='sign-up-success'></div>")
-                                .text("Congratulations!  Sign up succeeded, please go to confirm your e-mail address")
+                            $("<div id='sign-up-success'> \
+                                    <div id='sign-up-success-header'>\
+                                    ONLY ONE STEP TO GO\
+                                    </div>\
+                                    <div id='sign-up-success-asterisk'>*</div>\
+                                    <div id='sign-up-success-body'>\
+                                    Congratulations! Sign up succeeded! Please go to your mailbox and activate your account.\
+                                    </div>\
+                               </div>")
                                 .appendTo("#sign-form")
                                 .css({
                                     "position": "absolute",
                                     "height": $("#sign-form").height()+"px",
-                                    "line-height": $("#sign-form").height()+"px",
                                     "width": $("#sign-form").width()+"px",
                                     "background-color": "#f5f5f5",
                                     "top": "0px",
                                     "left": "0px",
-                                    "text-align": "center",
-                                    // #### to improve
                                 });
                         }
                     }
