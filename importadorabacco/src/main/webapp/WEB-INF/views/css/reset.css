@@ -320,9 +320,32 @@ table {
     right: 71px;/*#### what if float not exceed*/
     display: none;
 }
-.cartQty, .cartPrice{
+#order-list li{
+    margin-bottom: 20px;
+}
+.cart-product-img{
+    width: 100px;
+    height: 150px;
+    float: left;
+}
+.cart-product-detail{
+    float: left;
     margin-left: 20px;
 }
-#order-list li{
-    margin-bottom: 10px;
+.cart-product-name{
+    font-family: "Garamond";
+    color: #d5c595;
+    font-size: 20px;
+}
+.cart-product-qty{
+    margin-top: 40px;
+}
+.cart-product-delete{
+    border: 2px solid #444;
+    text-align: center;
+    line-height: 30px;
+    width: 120px;
+    font-size: 18px;
+    margin-top: 40px;
+    cursor: pointer;
 }

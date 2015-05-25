@@ -233,16 +233,48 @@ $(document).ready(function(){
                             .appendTo("body")
                             .css({
                                 "position": "absolute",
-                                "top": $(window).scrollTop() + Math.max(($(window).height() - $("#cart-popup").height())/2,40) + "px",
+                                "top": $(window).scrollTop() + 40 + "px",
                                 "left": ($("body").width() - $("#cart-popup").width())/2 + "px",
                                 "z-index": "11"
                             });
                         for (i=0; i<response["data"].length;i++){
                             p = response["data"][i];
-                            $("<li><span class='cartPName'>"+ p["productName"] +
+                            /*$("<li><span class='cartPName'>"+ p["productName"] +
                                 "</span>" +
                                 "<span class='cartQty'>Qty:</span><span class='cartPqty'>" +
-                                p["quantity"] + "</span></li>").appendTo("#order-list");
+                                p["quantity"] + "</span></li>").appendTo("#order-list");*/
+                            $cart_product = $("<li></li>");
+                            $("<img class='cart-product-img'>").attr("src",p["imageUrl"]).appendTo($cart_product);
+                            $cart_product_detail = $("<div class='cart-product-detail'></div>");
+                            $("<div class='cart-product-name'></div>").text(p["productName"]).appendTo($cart_product_detail);
+                            $("<div class='cart-product-qty'></div>").text('Qty : '+ p["quantity"]).appendTo($cart_product_detail);
+                            $("<div class='cart-product-delete'>delete</div>")
+                                .data("productId",p["productId"])
+                                .data("qty",p["quantity"])
+                                .appendTo($cart_product_detail)
+                                .click(function(){
+                                    $rd = $(this);
+                                    $.ajax({
+                                        method: "post",
+                                        url: "/cart/remove",
+                                        data:{
+                                            userId: userid,
+                                            productId: $(this).data("productId"),
+                                            quantity: $(this).data("qty")
+                                        },
+                                        success: function(removeresponse){
+                                            if (removeresponse["status"] == 0){
+                                                $rd.closest("li").remove();
+                                            }
+                                            else {
+                                                //####
+                                            }
+                                        }
+                                    })
+                                });
+                            $cart_product_detail.appendTo($cart_product);
+                            $cart_product.append("<div class='clear'></div>")
+                            $cart_product.appendTo("#order-list");
                         }
                         $("#cart-popup .closepic").click(function(){
                             $(".screen-cover").remove();
