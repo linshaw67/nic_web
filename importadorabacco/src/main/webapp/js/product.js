@@ -14,7 +14,7 @@ function createCat(cat){
             $line = $("<ul></ul>");
             line_count = 0;
         }
-        $newProduct = $("<li class='product'><img" + " src=" + cat['products'][i]['imageUrl'] + "/><div>" + cat['products'][i]['productName'] + "</div></li>");
+        $newProduct = $("<li class='product'><img" + " src='" + cat['products'][i]['imageUrl'] + "' /><div>" + cat['products'][i]['productName'] + "</div></li>");
         $newProduct.data("productId",cat["products"][i]["productId"]);
         $newProduct.data("catId",cat["products"][i]['catId']);
         $newProduct.bind("click", productClick);
