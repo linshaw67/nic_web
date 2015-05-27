@@ -4,6 +4,6 @@
     <title></title>
 </head>
 <body>
-hello world
+<jsp:forward page="/home.html" />
 </body>
 </html>

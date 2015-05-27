@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS `user_account` (
   `pwd` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'password',
   `status` TINYINT NOT NULL DEFAULT 0 COMMENT '0 is frozen, 1 is activity',
   `token` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'token to confirm register',
-  `token_expire_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'token expire time',
+  `token_expire_time` TIMESTAMP NOT NULL DEFAULT 0 COMMENT 'token expire time',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_login_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'last login time',
+  `last_login_time` TIMESTAMP NOT NULL DEFAULT 0 COMMENT 'last login time',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_email` (`email`),
   KEY idx_status (`status`),
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `image_url` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'product image url',
   `desc` TEXT NOT NULL COMMENT 'product desc',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` TIMESTAMP NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY idx_cat_id (`cat_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT 'product info';

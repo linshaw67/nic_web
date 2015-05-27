@@ -18,7 +18,7 @@
     </context-param>
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>home.html</welcome-file>
     </welcome-file-list>
 
     <!--<servlet-mapping>-->
@@ -37,11 +37,11 @@
     <!--异常,404-->
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/views/html/404.vm</location>
+        <location>/404.html</location>
     </error-page>
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
-        <location>/WEB-INF/views/html/exception.vm</location>
+        <location>/exception.html</location>
     </error-page>
 
     <servlet>

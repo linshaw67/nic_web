@@ -36,8 +36,8 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <mvc:resources mapping="/image/**" location="/WEB-INF/views/image/"/>
-    <mvc:resources mapping="/css/**" location="/WEB-INF/views/css/"/>
-    <mvc:resources mapping="/js/**" location="/WEB-INF/views/scripts/"/>
-    <mvc:resources mapping="/font/**" location="/WEB-INF/views/font/"/>
+    <!--<mvc:resources mapping="/image/**" location="/WEB-INF/views/image/"/>-->
+    <!--<mvc:resources mapping="/css/**" location="/WEB-INF/views/css/"/>-->
+    <!--<mvc:resources mapping="/js/**" location="/WEB-INF/views/scripts/"/>-->
+    <!--<mvc:resources mapping="/font/**" location="/WEB-INF/views/font/"/>-->
 </beans>
