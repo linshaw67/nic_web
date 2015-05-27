@@ -97,7 +97,7 @@ INSERT INTO product (name, cat_id, cat_name, price, image_url, `desc`) VALUES
   ("Dolcetto d'Alba D.O.C", 1, "Vino Rosso", 0, "/image/products/Vino_Rosso/Dolcetto_d_Alba_D.O.C/mid.jpg", "demowine 1"),
   ("Etna Rosso D.O.C", 1, "Vino Rosso", 0, "/image/products/Vino_Rosso/Etna_Rosso_D.O.C/mid.jpg", "demowine 1"),
   ("Harmonium IGT", 1, "Vino Rosso", 0, "/image/products/Vino_Rosso/Harmonium_IGT/mid.jpg", "demowine 1"),
-  ("Morellino di Scansano D.O.C.G", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Morellino_di_Scansano_D.O.C.G/mid.jpg", "demowine 1"),
+  ("Morellino di Scansano D.O.C.G", 1, "Vino Rosso", 0, "/image/products/Vino_Rosso/Morellino_di_Scansano_D.O.C.G/mid.jpg", "demowine 1"),
   ("Refosco dal Penducolo Rosso D.O.C", 1, "Vino Rosso", 0, "/image/products/Vino_Rosso/Refosco_dal_Penducolo_Rosso_D.O.C/mid.jpg", "demowine 1"),
   ("Sódole", 1, "Vino Rosso", 0, "/image/products/Vino_Rosso/Sodole/mid.jpg", "demowine 1");
 
