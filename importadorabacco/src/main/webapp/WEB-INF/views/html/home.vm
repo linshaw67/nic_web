@@ -91,21 +91,21 @@
             <div class="subtitle">WINE &amp; FOOD</div>
             <div class="asterisk">*</div>
             <ul class="categories">
-                <li data-catId="1"><a>Olio di Semi</a></li>
+                <li data-catId="1"><a>Vino Rosso</a></li>
                 <li>*</li>
-                <li data-catId="2"><a>Formaggi</a></li>
+                <li data-catId="2"><a>Vino Bianco</a></li>
                 <li>*</li>
-                <li data-catId="3"><a>Specialita</a></li>
+                <li data-catId="3"><a>Pasta</a></li>
                 <li>*</li>
-                <li data-catId="4"><a>Aceti</a></li>
+                <li data-catId="4"><a>Olio di Oliva</a></li>
                 <li>*</li>
-                <li data-catId="5"><a>Olio di Oliva</a></li>
+                <li data-catId="5"><a>Aceti</a></li>
                 <li>*</li>
-                <li data-catId="6"><a>Pasta</a></li>
+                <li data-catId="6"><a>Specialita</a></li>
                 <li>*</li>
-                <li data-catId="7"><a>Vino Bianco</a></li>
+                <li data-catId="7"><a>Formaggi</a></li>
                 <li>*</li>
-                <li data-catId="8"><a>Vino Rosso</a></li>
+                <li data-catId="8"><a>Olio di Semi</a></li>
                 <div class="clear"></div>
             </ul>
             <div class="products"><a href="/product?catId=0">Products</a></div>
