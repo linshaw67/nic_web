@@ -85,8 +85,6 @@ body{
     line-height: 84px;
     font-family: "SourceCodeProRegular";
     font-size: 16px;
-}
-#pcontent .panel .categories{
     display: none;
 }
 #pcontent .panel .categories a{
@@ -98,11 +96,12 @@ body{
     position: relative;
     top: 33px;
     left: 5px;
+    display: none;
 }
 
 #pcontent .categories li{
     float: left;
-    margin-right: 12px;
+    margin-right: 10px;
     line-height: 84px;
     font-family: "SourceCodeProRegular";
     font-size: 16px;
@@ -112,24 +111,30 @@ body{
     background-color: #eae2d3;
 }
 #pcontent .category .category-name div{
-    margin: 45px auto 0 auto;
+    margin: 0 auto;
     width: 1080px;
     line-height: 64px;
     font-family: "SourceCodeProRegular";
     font-size: 16px;
     font-color: #000;
 }
+#pcontent .category:nth-child(2) .category-name div{
+    margin-top: 45px;
+}
 #pcontent .category .products{
     width: 1080px;
-    margin: 45px auto 0 auto;
+    margin: 25px auto 0 auto;
 }
 #pcontent .category .products ul{
-    padding-bottom: 30px;
+    padding-bottom: 25px;
 }
 #pcontent .category .products ul li{
     float: left;
     margin-right: 24px;
     cursor: pointer;
+}
+#pcontent .category .products ul li:nth-child(6){
+    margin-right: 0px;
 }
 #pcontent .category .products ul .lastli{
     margin-right: 0px;
@@ -140,10 +145,11 @@ body{
     height: 241px;
 }
 #pcontent .category .products ul li div{
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     font-family: "SourceCodeProRegular";
     font-size: 16px;
+    width: 160px;
 }
 
 #pcontact{
@@ -286,7 +292,7 @@ body{
 }
 #product-name{
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     font-family: "Garamond";
     color: #d5c595;
 }

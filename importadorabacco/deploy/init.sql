@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `order_cart` (
 
 
 INSERT INTO product (name, cat_id, cat_name, price, image_url, `desc`) VALUES
-  ("Olio di Arachide", 1, "Olio di Semi", 0, "/image/products/olio_di_semi/olio_di_arachide/mid.jpg", "demowine 1"),
+  ("Olio di Arachide", 1, "Olio di Semi", 0, "/image/products/Olio_di_Semi/Olio_di_Arachide/mid.jpg", "demowine 1"),
   ("Grana padano", 2, "Formaggi", 0, "/image/products/Formaggi/Grana_padano/mid.jpg", "demowine 2"),
   ("Parmigiano Reggiano", 2, "Formaggi", 0, "/image/products/Formaggi/Parmigiano_Reggiano/mid.jpg", "demowine 2"),
   ("Filetti di Acciughe sott’olio", 3, "Specialita", 0, "/image/products/Specialita/Filetti_di_Acciughe_sott_olio/mid.jpg", "demowine 2"),
@@ -86,5 +86,19 @@ INSERT INTO product (name, cat_id, cat_name, price, image_url, `desc`) VALUES
   ("Lasgna liscia Napoletana", 6, "Pasta", 0, "/image/products/Pasta/Lasgna_liscia_Napoletana/mid.jpg", "demowine 1"),
   ("Paccheri Lisci", 6, "Pasta", 0, "/image/products/Pasta/Paccheri_Lisci/mid.jpg", "demowine 1"),
   ("Penne a Zita Rigate", 6, "Pasta", 0, "/image/products/Pasta/Penne_a_Zita_Rigate/mid.jpg", "demowine 1"),
-  ("Rigatoni", 6, "Pasta", 0, "/image/products/Pasta/Rigatoni/mid.jpg", "demowine 1");
+  ("Rigatoni", 6, "Pasta", 0, "/image/products/Pasta/Rigatoni/mid.jpg", "demowine 1"),
+  ("Altavilla Della Corte IGT", 7, "Vino Bianco", 0, "/image/products/Vino_Bianco/Altavilla_Della_Corte_IGT/mid.jpg", "demowine 1"),
+  ("Traminer Aromatico D.O.C", 7, "Vino Bianco", 0, "/image/products/Vino_Bianco/Traminer_Aromatico_D.O.C/mid.jpg", "demowine 1"),
+  ("Vernaccia di San Gimignano D.O.C.G", 7, "Vino Bianco", 0, "/image/products/Vino_Bianco/Vernaccia_di_San_Gimignano_D.O.C.G/mid.jpg", "demowine 1"),
+  ("Barbaresco D.O.C.G", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Barbaresco_D.O.C.G/mid.jpg", "demowine 1"),
+  ("Barbera d'Alba Messoirano D.O.C", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Barbera_d_Alba_Messoirano_D.O.C/mid.jpg", "demowine 1"),
+  ("Branciforti Rosato", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Branciforti_Rosato/mid.jpg", "demowine 1"),
+  ("Chianti Colli Senesi D.O.C.G", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Chianti_Colli_Senesi_D.O.C.G/mid.jpg", "demowine 1"),
+  ("Dolcetto d'Alba D.O.C", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Dolcetto_d_Alba_D.O.C/mid.jpg", "demowine 1"),
+  ("Etna Rosso D.O.C", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Etna_Rosso_D.O.C/mid.jpg", "demowine 1"),
+  ("Harmonium IGT", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Harmonium_IGT/mid.jpg", "demowine 1"),
+  ("Morellino di Scansano D.O.C.G", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Morellino_di_Scansano_D.O.C.G/mid.jpg", "demowine 1"),
+  ("Refosco dal Penducolo Rosso D.O.C", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Refosco_dal_Penducolo_Rosso_D.O.C/mid.jpg", "demowine 1"),
+  ("Sódole", 8, "Vino Rosso", 0, "/image/products/Vino_Rosso/Sodole/mid.jpg", "demowine 1");
+
 

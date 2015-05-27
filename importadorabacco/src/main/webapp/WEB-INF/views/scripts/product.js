@@ -22,7 +22,7 @@ function createCat(cat){
         line_count++;
     };
     $line.append("<div class='clear'></div>");
-    $newCat.find(".products").append($line);
+    $line.appendTo($newCat.find(".products")).hide().fadeIn();
     $("#pcontent").append($newCat);
 };
 
@@ -35,7 +35,7 @@ function productClick(){
                 if (cat["products"][j]["productId"] == $(this).data("productId")){
                     var tmpId = $(this).data("productId");
                     $("#popup-detail").data("productId",tmpId);
-                    $("#product-big-image").attr("src", cat["products"][j]["imageUrl"]);
+                    $("#product-big-image").attr("src", cat["products"][j]["imageUrl"].replace('mid.jpg','big.jpg'));
                     $("#product-name").text(cat["products"][j]["productName"]);
                     //$("#product-price span").text("$"+cat["products"][j]["price"]);
                     $("#qty-number").text("1");
@@ -83,7 +83,7 @@ $(document).ready(function(){
         success:function(data){
                     gdata = data;
                     if (defaultCatId == 0){
-                        pselectionText = "ALL PRODUCTS";
+                        pselectionText = "All Products";
                     }
                     else{
                         pselectionText = data["data"][0]['catName'];
@@ -113,9 +113,9 @@ $(document).ready(function(){
             dataType: "json",
             success: function(data){
                         gdata = data;
-                        $("#pcontent .panel .pselection").fadeIn().text($r.text());
-                        $(".arrow").fadeIn();
-                        $("#pcontent .panel .categories").hide();
+                        //$("#pcontent .panel .pselection").fadeIn().text($r.text());
+                        //$(".arrow").fadeIn();
+                        //$("#pcontent .panel .categories").hide();
                         $("#pcontent .category").remove();
                         for (i = 0; i < data["data"].length; i++) {
                             createCat(data["data"][i]);

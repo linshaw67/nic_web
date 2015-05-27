@@ -182,8 +182,31 @@ table {
 .sign-alert{
     text-align:center;
     position:relative;
-    bottom: 88px;
+    bottom: 82px;
     display: none;
+    font-size:18px;
+    font-family: "Garamond";
+}
+#sign-up-success-header{
+    color: #800000;
+    text-align: center;
+    margin-top: 120px;
+    font-size:24px;
+}
+#sign-up-success-asterisk{
+    font-family: "Baskerville";
+    text-align: center;
+    margin-top: 30px;
+    color: #800b09;
+    font-size: 30px;
+}
+#sign-up-success-body{
+    font-family: "Garamond";
+    text-align: center;
+    width: 480px;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 20px;
 }
 #toppanel{
     position: absolute;
@@ -227,7 +250,7 @@ table {
     right: 1px;
     padding-left: 2px;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.9;
     cursor: pointer;
     letter-spacing: 2px;
     line-height: 20px;
@@ -318,9 +341,32 @@ table {
     right: 71px;/*#### what if float not exceed*/
     display: none;
 }
-.cartQty, .cartPrice{
+#order-list li{
+    margin-bottom: 20px;
+}
+.cart-product-img{
+    width: 100px;
+    height: 150px;
+    float: left;
+}
+.cart-product-detail{
+    float: left;
     margin-left: 20px;
 }
-#order-list li{
-    margin-bottom: 10px;
+.cart-product-name{
+    font-family: "Garamond";
+    color: #d5c595;
+    font-size: 20px;
+}
+.cart-product-qty{
+    margin-top: 40px;
+}
+.cart-product-delete{
+    border: 2px solid #444;
+    text-align: center;
+    line-height: 30px;
+    width: 120px;
+    font-size: 18px;
+    margin-top: 40px;
+    cursor: pointer;
 }

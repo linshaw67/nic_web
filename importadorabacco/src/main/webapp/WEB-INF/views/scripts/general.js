@@ -45,6 +45,7 @@ function toSignIn(){
     $("#sign-up-entries").hide();
     $("#sign-up-inputs").hide();
     $("#sign-up-success").remove();
+    $(".sign-alert").fadeOut();
     $("#sign-in")
         .css({
             "color": "#000",
@@ -68,6 +69,7 @@ function toSignUp(){
     $("#sign-in-inputs").hide();
     $("#sign-up-entries").fadeIn();
     $("#sign-up-inputs").fadeIn();
+    $(".sign-alert").fadeOut();
     $("#sign-up")
         .css({
             "color": "#000",
@@ -129,22 +131,26 @@ $(document).ready(function(){
                     },
                     success: function(response){
                         if (response["status"] == -1){
-                            // ####
+                            $("#user-exists").text(response["msg"]).show();
                         }
                         else if (response["status"] == 0){
-                            $("<div id='sign-up-success'></div>")
-                                .text("Congratulations!  Sign up succeeded, please go to confirm your e-mail address")
+                            $("<div id='sign-up-success'> \
+                                    <div id='sign-up-success-header'>\
+                                    ONLY ONE STEP TO GO\
+                                    </div>\
+                                    <div id='sign-up-success-asterisk'>*</div>\
+                                    <div id='sign-up-success-body'>\
+                                    Congratulations! Sign up succeeded! Please go to your mailbox and activate your account.\
+                                    </div>\
+                               </div>")
                                 .appendTo("#sign-form")
                                 .css({
                                     "position": "absolute",
                                     "height": $("#sign-form").height()+"px",
-                                    "line-height": $("#sign-form").height()+"px",
                                     "width": $("#sign-form").width()+"px",
                                     "background-color": "#f5f5f5",
                                     "top": "0px",
                                     "left": "0px",
-                                    "text-align": "center",
-                                    // #### to improve
                                 });
                         }
                     }
@@ -231,16 +237,48 @@ $(document).ready(function(){
                             .appendTo("body")
                             .css({
                                 "position": "absolute",
-                                "top": $(window).scrollTop() + Math.max(($(window).height() - $("#cart-popup").height())/2,40) + "px",
+                                "top": $(window).scrollTop() + 40 + "px",
                                 "left": ($("body").width() - $("#cart-popup").width())/2 + "px",
                                 "z-index": "11"
                             });
                         for (i=0; i<response["data"].length;i++){
                             p = response["data"][i];
-                            $("<li><span class='cartPName'>"+ p["productName"] +
+                            /*$("<li><span class='cartPName'>"+ p["productName"] +
                                 "</span>" +
                                 "<span class='cartQty'>Qty:</span><span class='cartPqty'>" +
-                                p["quantity"] + "</span></li>").appendTo("#order-list");
+                                p["quantity"] + "</span></li>").appendTo("#order-list");*/
+                            $cart_product = $("<li></li>");
+                            $("<img class='cart-product-img'>").attr("src",p["imageUrl"]).appendTo($cart_product);
+                            $cart_product_detail = $("<div class='cart-product-detail'></div>");
+                            $("<div class='cart-product-name'></div>").text(p["productName"]).appendTo($cart_product_detail);
+                            $("<div class='cart-product-qty'></div>").text('Qty : '+ p["quantity"]).appendTo($cart_product_detail);
+                            $("<div class='cart-product-delete'>delete</div>")
+                                .data("productId",p["productId"])
+                                .data("qty",p["quantity"])
+                                .appendTo($cart_product_detail)
+                                .click(function(){
+                                    $rd = $(this);
+                                    $.ajax({
+                                        method: "post",
+                                        url: "/cart/remove",
+                                        data:{
+                                            userId: userid,
+                                            productId: $(this).data("productId"),
+                                            quantity: $(this).data("qty")
+                                        },
+                                        success: function(removeresponse){
+                                            if (removeresponse["status"] == 0){
+                                                $rd.closest("li").remove();
+                                            }
+                                            else {
+                                                //####
+                                            }
+                                        }
+                                    })
+                                });
+                            $cart_product_detail.appendTo($cart_product);
+                            $cart_product.append("<div class='clear'></div>")
+                            $cart_product.appendTo("#order-list");
                         }
                         $("#cart-popup .closepic").click(function(){
                             $(".screen-cover").remove();
@@ -255,9 +293,10 @@ $(document).ready(function(){
                                     userId: userid,
                                     name: $("#ship-name").val(),
                                     mobile: $("#ship-phone").val(),
-                                    address: $("#ship-addr1").val() + '\n' + $("#ship-addr2").val(),
+                                    address1: $("#ship-addr1").val(),
+                                    address2: $("#ship-addr2").val(),
                                     city: $("#ship-city").val(),
-                                    email: "bywind67@gmail.com",
+                                    email: "1@test.com",
                                     zipCode: $("#ship-zcode").val()
                                 }),
                                 success: function(response){
@@ -283,6 +322,21 @@ $(document).ready(function(){
                                 $(this).remove();
                                 $("#cart-popup").remove();
                             });
+                        $.ajax({
+                            method: "get",
+                            url: "/cart/lastOrder",
+                            data: {
+                                userId: userid
+                            },
+                            success: function(shipresponse){
+                                $("#ship-name").val(shipresponse["data"]["name"]);
+                                $("#ship-phone").val(shipresponse["data"]["mobile"]);
+                                $("#ship-addr1").val(shipresponse["data"]["address1"]);
+                                $("#ship-addr2").val(shipresponse["data"]["address2"]);
+                                $("#ship-city").val(shipresponse["data"]["city"]);
+                                $("#ship-zcode").val(shipresponse["data"]["zipCode"]);
+                            }
+                        });
 
                     }
                     else if (response["status"] == -2){
