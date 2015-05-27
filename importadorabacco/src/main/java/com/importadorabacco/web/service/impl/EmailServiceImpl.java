@@ -55,7 +55,7 @@ public class EmailServiceImpl extends BaseService implements EmailService {
     private String HOST;
 
     @Override
-    public void sendHtmlEmail(String subject, String content, String toAddresses) {
+    public void sendHtmlEmail(final String subject, final String content, final String toAddresses) {
         taskExecutor.execute(new Runnable() {
             @Override
             public void run() {
