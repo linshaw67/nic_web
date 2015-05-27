@@ -1,0 +1,299 @@
+body{
+    width: auto;
+    min-width: 1100px;
+    position: relative;
+}
+#pbanner{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    background: url("/image/home3.png") top center no-repeat;
+}
+#pbanner .nav{
+    position: relative;
+    top: 55px;
+    width: 73.5%;
+    margin: auto;
+}
+#pbanner .nav li a{
+    font-family: "Trajan Pro Bold";
+    font-size: 14px;
+    color: #d5c595;
+    cursor: pointer;
+    text-decoration: none;
+}
+#pbanner .nav li a:hover{
+    color: #fff;
+}
+#pbanner .nav2{
+    position: relative;
+    right: 2%;
+    width: 38%;
+    margin: auto;
+}
+#pbanner .nav .leftli{
+    float: left;
+}
+#pbanner .nav .rightli{
+    float: right;
+}
+#pbanner .ptitle{
+    position: relative;
+    text-align: center;
+    top: 56%;
+    color: #dccc9c;
+    font-family: "Trajan Pro Bold";
+    font-size: 48px;
+}
+#pbanner .wrapc{
+    width: 100%;
+    position: relative;
+    top: 65%;
+}
+/*
+#pbanner .categories{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+#pbanner .categories li{
+    display: inline;
+    margin-left: 12px;
+    color: #fff;
+}
+#pbanner .categories li a{
+    font-family: "Garamond";
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+*/
+#pcontent{
+    background-color: #EEE;
+}
+#pcontent .panel{
+    width: 1080px;
+    height: 84px;
+    margin: auto;
+    position: relative;
+    border-bottom: 2px solid #CCC;
+    display: none;
+}
+#pcontent .panel .pselection{
+    float: left;
+    line-height: 84px;
+    font-family: "SourceCodeProRegular";
+    font-size: 16px;
+    display: none;
+}
+#pcontent .panel .categories a{
+    cursor: pointer;
+}
+#pcontent .panel .arrow{
+    cursor: pointer;
+    float: left;
+    position: relative;
+    top: 33px;
+    left: 5px;
+    display: none;
+}
+
+#pcontent .categories li{
+    float: left;
+    margin-right: 10px;
+    line-height: 84px;
+    font-family: "SourceCodeProRegular";
+    font-size: 16px;
+}
+#pcontent .category .category-name
+{
+    background-color: #eae2d3;
+}
+#pcontent .category .category-name div{
+    margin: 0 auto;
+    width: 1080px;
+    line-height: 64px;
+    font-family: "SourceCodeProRegular";
+    font-size: 16px;
+    font-color: #000;
+}
+#pcontent .category:nth-child(2) .category-name div{
+    margin-top: 45px;
+}
+#pcontent .category .products{
+    width: 1080px;
+    margin: 25px auto 0 auto;
+}
+#pcontent .category .products ul{
+    padding-bottom: 25px;
+}
+#pcontent .category .products ul li{
+    float: left;
+    margin-right: 24px;
+    cursor: pointer;
+}
+#pcontent .category .products ul li:nth-child(6){
+    margin-right: 0px;
+}
+#pcontent .category .products ul .lastli{
+    margin-right: 0px;
+}
+#pcontent .category .products ul li img{
+    display: block;
+    width: 160px;
+    height: 241px;
+}
+#pcontent .category .products ul li div{
+    margin-top: 10px;
+    text-align: center;
+    font-family: "SourceCodeProRegular";
+    font-size: 16px;
+    width: 160px;
+}
+
+#pcontact{
+    width: 100%;
+    height: 420px;
+    display: table;
+}
+#pcontact .wrap{
+    display: table-cell;
+    vertical-align: middle;
+}
+#pcontact .contact{
+    text-align: center;
+    color: #000;
+    font-family: "Trajan Pro Bold";
+    font-size: 28px;
+}
+#pcontact .asterisk{
+    margin-top: 24px;
+    text-align: center;
+    font-family: "Baskerville";
+    font-weight: Bold;
+    font-size: 28px;
+    color: #d1a867;
+}
+#pcontact .contactinfo1{
+    width: 600px;
+    margin: auto;
+}
+#pcontact .contactinfo1 li{
+    text-align: center;
+    font-family: "Garamond";
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 120%;
+}
+#pcontact .email{
+    margin-top: 50px;
+    color: #d1a867;
+    font-size: 16px;
+    text-align: center;
+}
+#pcontact .email input{
+    margin-left: 5px;
+    margin-right: 24px;
+    width: 192px;
+}
+#pcontact .contactinfo2 {
+    margin-top: 50px;
+}
+#pcontact .contactinfo2 pre{
+    text-align: center;
+    color: #000;
+    font-family: "Garamond";
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+#popup-detail{
+    width: 800px;
+    height: 660px;
+    background-color: #f5f5f5;
+    display: none;
+    box-shadow: 0px 0px 20px #222;
+}
+#product-left{
+    margin-top: 15px;
+    margin-left:15px;
+}
+#product-left, #product-detail{
+    float: left;
+    font-family: "Garamond";
+}
+#product-big-image{
+    width: 360px;
+    height: 550px;
+    display: block;
+}
+#product-cart-panel{
+    margin-top: 20px;
+}
+#product-price{
+    float: left;
+    color: #d5c595;
+    line-height: 36px;
+    font-family: "Trajan Pro Regular";
+    position: relative;
+    left: 2px;
+    font-size: 16px;
+}
+#product-price span{
+    color: black;
+}
+#qty{
+    float: right;
+    line-height: 30px;
+    margin-right: 10px;
+}
+#qty-control{
+    float: right;
+    margin-right: 20px;
+    height: 34px;
+    position: relative;
+    bottom: 1px;
+}
+#qty-control img{
+    display: block;
+    height: 10px;
+    width: 12px;
+    cursor: pointer;
+}
+#qty-control img:first-child{
+     position: relative;
+     bottom: 2px;
+}
+#qty-control img:last-child{
+    position: relative;
+    top: 2px;
+}
+#qty-number{
+    text-align: center;
+}
+#add-to-cart{
+    width: 100px;
+    float: right;
+    line-height: 30px;
+    text-align: center;
+    border: 2px solid #444;
+    cursor: pointer;
+}
+#add-response{
+    float: right;
+    margin-top:10px;
+}
+#product-detail{
+    margin-top: 15px;
+    width: 420px;
+}
+#product-name{
+    text-align: center;
+    font-size: 20px;
+    font-family: "Garamond";
+    color: #d5c595;
+}
+
