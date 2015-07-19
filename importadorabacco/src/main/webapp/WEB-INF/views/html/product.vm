@@ -32,7 +32,7 @@
             <li class="rightli"><a>CONTACT US</a></li>
             <ul class="nav2">
                 <li class="leftli"><a href="/product?catId=0">PRODUCTS</a></li>
-                <li class="rightli"><a>ABOUT</a></li>
+                <li class="rightli"><a href="/about">ABOUT</a></li>
             </ul>
             <li class="clear"></li>
         </ul>
