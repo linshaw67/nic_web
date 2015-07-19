@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importadora Bacco</title>
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
+    <link rel="stylesheet" href="./css/about.css" type="text/css">
+    <script src="./js/jquery-1.11.2.min.js"></script><style type="text/css"></style>
+    <script src="./js/general.js"></script>
+</head>
+<body>
+<div id="abanner">
+    <div id="toppanel">
+        <div id="sign">log in</div>
+        <div id="userinfo">
+            <div id="username"></div>
+            <img src="./image/deduct-qty.png">
+            <!--<span id="logout">log out</span>-->
+            <div class="clear"></div>
+            <div id="logout">logout</div>
+        </div>
+        <div id="cart">CART</div>
+        <div class="clear"></div>
+    </div>
+    <script>
+        cookieCheck();
+    </script>
+    <ul class="nav">
+        <li class="leftli"><a>HOME</a></li>
+        <li class="rightli"><a>CONTACT US</a></li>
+        <ul class="nav2">
+            <li class="leftli"><a href="/product?catId=0">PRODUCTS</a></li>
+            <li class="rightli"><a href="/about">ABOUT</a></li>
+        </ul>
+        <li class="clear"></li>
+    </ul>
+</div>
+<div id="about_content">
+    <div id="our_story">OUR STORY</div>
+    <div>Importadora Bacco is founded and run by a tenacious group of like minded people. Although all origninating from different aspects of the business world, we all share a common charateristic: a passion for fine Italian cuisine and products.</div>
+    <div>We aim to inspire our clientele about Italian produces and culture through our carefully selected range of locally produced gastronomical products. We are devoted to what we do and so uphold the rigorous Italian practice of providing high quality products without compromising on cost.</div>
+</div>
+</body>
+</html>

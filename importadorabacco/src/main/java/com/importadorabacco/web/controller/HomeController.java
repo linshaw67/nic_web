@@ -23,6 +23,10 @@ public class HomeController {
     public ModelAndView home() {
         return new ModelAndView("/html/home");
     }
+    @RequestMapping("/about")
+    public ModelAndView about() {
+        return new ModelAndView("/html/about");
+    }
 
     @RequestMapping("/product")
     public ModelAndView product(@RequestParam(value = "catId", required = false) Integer catId) {
