@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
  * Created by tanhengyi on 15-5-13.
  */
 @Repository
-public interface UserDao {
+public interface UserAccountDao {
     int insert(User user);
 
     int update(User user);

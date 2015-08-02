@@ -54,6 +54,55 @@
 }
 ```
 
+## send reset password email
+* url: `/user/resetAccount/sendEmail`
+* method: post
+* param
+
+| name      | type   | example     |
+| --------- |:------:| -----------:|
+| email     | string | abc@abc.com |
+
+* response:
+```javascript
+{
+    "status" : 0,  // 0 success, -1 failed
+    "msg" : "ok",
+    "data" : null
+}
+```
+
+## reset password page
+* url: `/user/resetAccount`
+* method: get
+* param
+
+| name      | type   | example     |
+| --------- |:------:| -----------:|
+| t         | string | a90d2334aef |
+
+* response:
+reset password page
+
+## reset password
+* url: `/user/resetAccount`
+* method: post
+* param
+
+| name      | type   | example     |
+| --------- |:------:| -----------:|
+| t         | string | a90d2334aef |
+| pwd       | string |   123       |
+
+* response:
+```javascript
+{
+    "status" : 0,  // 0 success, -1 failed
+    "msg" : "ok",
+    "data" : null
+}
+```
+
 ## query products
 * url: `/product/get`
 * method: get

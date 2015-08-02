@@ -14,19 +14,27 @@ public interface EmailService {
      * @param content content
      * @param addresses address to send to
      */
-    public void sendHtmlEmail(String subject, String content, String addresses);
+    void sendHtmlEmail(String subject, String content, String addresses);
 
     /**
      * send order email
      *
      * @param orderInfo orderInfo
      */
-    public void sendOrderEmail(OrderInfo orderInfo);
+    void sendOrderEmail(OrderInfo orderInfo);
 
     /**
      * send register email
      *
      * @param user user register info
      */
-    public void sendRegisterEmail(User user);
+    void sendRegisterEmail(User user);
+
+    /**
+     * send reset email
+     *
+     * @param email email address
+     * @param token reset token
+     */
+    void sendResetEmail(String email, String token);
 }

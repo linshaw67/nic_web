@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.importadorabacco.web.dao.UserDao">
+<mapper namespace="com.importadorabacco.web.dao.UserAccountDao">
 
     <resultMap type="com.importadorabacco.web.model.User" id="userResultMap">
         <id property="id" column="id" />
@@ -38,7 +38,7 @@
             <if test="status != null">
                 status = #{status},
             </if>
-            <if test="pwd != null">
+            <if test="token != null">
                 token = #{token},
             </if>
             <if test="lastLoginTime != null">

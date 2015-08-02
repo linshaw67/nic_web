@@ -58,4 +58,29 @@ public interface UserService {
      * @return user info
      */
     User queryUserById(Long uid);
+
+    /**
+     * Send reset password link to email
+     *
+     * @param email email
+     * @return success or not
+     */
+    boolean sendResetEmail(String email);
+
+    /**
+     * Reset user password
+     *
+     * @param token reset token
+     * @param pwd password
+     * @return success or not
+     */
+    boolean resetAccount(String token, String pwd);
+
+    /**
+     * Verify if reset token is valid
+     *
+     * @param token token
+     * @return is valid or not
+     */
+    boolean verifyResetToken(String token);
 }

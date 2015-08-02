@@ -1,0 +1,28 @@
+#if(${success})
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Account Reset</title>
+</head>
+<body>
+
+</body>
+</html>
+
+#else
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Account Reset</title>
+</head>
+<body>
+<script language="JavaScript">
+    var msg = '${msg}';
+    window.alert(msg);
+    window.location.href="/home";
+</script>
+</body>
+</html>
+#end

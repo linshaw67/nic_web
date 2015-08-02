@@ -7,6 +7,7 @@ import com.importadorabacco.web.model.domain.OrderInfo;
 import com.importadorabacco.web.service.BaseService;
 import com.importadorabacco.web.service.EmailService;
 import com.importadorabacco.web.util.MailUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
@@ -35,6 +36,9 @@ public class EmailServiceImpl extends BaseService implements EmailService {
 
     @Value("${email.register.subject}")
     private String EMAIL_REGISTER_SUBJECT;
+
+    @Value("${email.reset.subject}")
+    private String EMAIL_RESET_SUBJECT;
 
     @Value("${email.source}")
     private String EMAIL_SOURCE;
@@ -98,10 +102,10 @@ public class EmailServiceImpl extends BaseService implements EmailService {
 
     @Override
     public void sendRegisterEmail(User user) {
+        logger.info("op=sendRegisterEmail start, user={}", user);
         if (user == null) {
             return;
         }
-        logger.info("op=sendRegisterEmail start, user={}", user);
 
         Map<String, Object> data = Maps.newHashMap();
         data.put("user", user);
@@ -110,5 +114,23 @@ public class EmailServiceImpl extends BaseService implements EmailService {
         sendHtmlEmail(EMAIL_REGISTER_SUBJECT, content, user.getEmail());
 
         logger.info("op=sendRegisterEmail success, user={}", user);
+    }
+
+    @Override
+    public void sendResetEmail(String email, String token) {
+        logger.info("op=sendResetEmail start, email={}, token={}", email, token);
+        if (StringUtils.isBlank(email) || StringUtils.isBlank(token)) {
+            return;
+        }
+
+        Map<String, Object> data = Maps.newHashMap();
+        data.put("email", email);
+        data.put("token", token);
+        data.put("host", HOST);
+
+        String content = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "reset_email.vm", "UTF-8", data);
+        sendHtmlEmail(EMAIL_RESET_SUBJECT, content, email.trim());
+
+        logger.info("op=sendResetEmail success, email={}, token", email, token);
     }
 }

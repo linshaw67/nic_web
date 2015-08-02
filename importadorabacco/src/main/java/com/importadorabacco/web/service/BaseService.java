@@ -22,8 +22,11 @@ public abstract class BaseService {
     protected OrderCartDao orderCartDao;
 
     @Resource
-    protected UserDao userDao;
+    protected UserAccountDao userAccountDao;
 
     @Resource
     protected ProductDao productDao;
+
+    @Resource
+    protected UserAccountResetDao userAccountResetDao;
 }

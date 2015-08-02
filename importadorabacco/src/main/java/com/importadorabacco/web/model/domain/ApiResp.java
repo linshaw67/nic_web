@@ -34,6 +34,10 @@ public class ApiResp<T> extends BaseData {
         return new ApiResp<>(-1, msg, null);
     }
 
+    public static ApiResp defaultFailed() {
+        return new ApiResp<>(-1, "some error occurs, please try again", null);
+    }
+
     public Integer getStatus() {
         return status;
     }

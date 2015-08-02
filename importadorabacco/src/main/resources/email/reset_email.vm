@@ -1,0 +1,16 @@
+Hello, ${email}
+<pre>
+We would like to thank you for using Importadora Bacco.
+To reset your password settings, please click on the URL below.
+Please keep your new password safe once you have done setting up.
+</pre>
+
+<a href="http://${host}/user/resetAccount?t=${token}">http://${host}/user/resetAccount?t=${token}<a/>
+
+<pre>
+※ the link will be expired in 48 hours
+
+※ Please do not reply to this email address. For support related services, please refer to the
+help page at <a href="http://www.importadorabacco.com">www.importadorabacco.com</a>
+for details. Thank you.
+</pre>
